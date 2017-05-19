@@ -1,0 +1,1030 @@
+
+<!-- saved from url=(0209)https://webcache.googleusercontent.com/search?q=cache:PRlQSEPfv7AJ:https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How%2Bto%2Badd%2Ba%2BREST%2BAPI%2Bto%2Ba%2BModule+&cd=4&hl=en&ct=clnk&gl=ir -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<base href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module">--><base href="."><style type="text/css">body { margin-left:0;margin-right:0;margin-top:0; }#google-cache-hdr {background:#f5f5f5 !important;font:13px arial,sans-serif !important;text-align:left !important;color:#202020 !important;border:0 !important;margin:0 !important;border-bottom:1px solid #cecece !important;line-height:16px !important ;padding:16px 28px 24px 28px !important;}#google-cache-hdr * {display:inline !important;font:inherit !important;text-align:inherit !important;color:inherit !important;line-height:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;letter-spacing:0 !important;}#google-cache-hdr a {text-decoration:none !important;color:#1a0dab !important;}#google-cache-hdr a:hover { text-decoration:underline !important; }#google-cache-hdr a:visited { color:#609 !important; }#google-cache-hdr div { display:block !important;margin-top:4px !important; }#google-cache-hdr b {font-weight:bold !important;display:inline-block !important;direction:ltr !important;}</style><style type="text/css"></style><style type="text/css"></style></head><body id="com-atlassian-confluence" class="theme-default  content-type-page aui-layout aui-theme-default" data-aui-version="6.0.0"><div id="google-cache-hdr" dir="ltr"><div>This is Google's cache of <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module" dir="ltr">https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module</a>. It is a snapshot of the page as it appeared on 27 Nov 2016 21:53:37 GMT. </div><div>The <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module" dir="ltr">current page</a> could have changed in the meantime. <a href="http://support.google.com/websearch/bin/answer.py?hl=en&amp;p=cached&amp;answer=1687222">Learn more</a></div><div></div><div><span style="display:inline-block !important;margin-top:8px !important;margin-right:104px !important;white-space:nowrap !important;"><span style="margin-right:28px !important;"><span style="font-weight:bold !important;">Full version</span></span><span style="margin-right:28px !important;"><a href="http://webcache.googleusercontent.com/search?q=cache:PRlQSEPfv7AJ:https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How%2Bto%2Badd%2Ba%2BREST%2BAPI%2Bto%2Ba%2BModule&amp;num=1&amp;hl=en&amp;gl=ir&amp;strip=1&amp;vwsrc=0">Text-only version</a></span><span style="margin-right:28px !important;"><a href="http://webcache.googleusercontent.com/search?q=cache:PRlQSEPfv7AJ:https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How%2Bto%2Badd%2Ba%2BREST%2BAPI%2Bto%2Ba%2BModule&amp;num=1&amp;hl=en&amp;gl=ir&amp;strip=0&amp;vwsrc=1">View source</a></span></span><span style="display:inline-block !important;margin-top:8px !important;color:#717171 !important;">Tip: To quickly find your search term on this page, press <b>Ctrl+F</b> or <b>⌘-F</b> (Mac) and use the find bar.</span></div></div><div style="position:relative;">
+    
+
+
+
+
+                            <title>How to add a REST API to a Module - Floodlight Controller - Project Floodlight</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    
+    
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+
+<meta id="confluence-context-path" name="confluence-context-path" content="/wiki">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://floodlight.atlassian.net/wiki">
+
+<meta id="atlassian-token" name="atlassian-token" content="ed301233c743878f9a56dd4debaea27179425d84">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="floodlightcontroller">
+<script type="text/javascript">
+        var contextPath = '/wiki';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1480283617335">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="93b8c2a2accc18d2afcdb6d882a642c6">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="America/New_York">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+<meta name="ajs-grow1936-GROW-DISABLE" content="{&quot;value&quot;:true}">
+
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMERCIAL&gt;">
+<meta name="gliffy-license-quantity" content="198">
+
+            
+    
+    
+            <meta name="ajs-page-id" content="15040589">
+            <meta name="ajs-latest-page-id" content="15040589">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="How to add a REST API to a Module">
+            <meta name="ajs-latest-published-page-title" content="How to add a REST API to a Module">
+            <meta name="ajs-parent-page-title" content="Tutorials">
+            <meta name="ajs-parent-page-id" content="1343514">
+            <meta name="ajs-space-key" content="floodlightcontroller">
+            <meta name="ajs-space-name" content="Floodlight Controller">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/wiki">
+            <meta name="ajs-base-url" content="https://floodlight.atlassian.net/wiki">
+            <meta name="ajs-version-number" content="1000.536.1">
+            <meta name="ajs-build-number" content="6451">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/wiki/images/icons/profilepics/anonymous.png">
+            <meta name="ajs-static-resource-url-prefix" content="/wiki/s/836723415/6451/ff643a3edd67cd06cf9429fe8aff81d1c07bc876/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="10485760000000">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="connect.authentication.oauth2.impersonation,synchrony.coming-soon.banner.disable,confluence.view.edit.transition,confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,rotp.admin.shortcuts,filestore.thumbnail,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,vertigo.space.finder,onboarding.demospaces.creation,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,jquery.external,unified.usermanagement,sidebar.deferred,file-annotations,confluence.efi.onboarding.rich.space.content,frontend.editor.plugins,unified.usermanagement.licensing.users.disable,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,com.atlassian.growth.experiments.aesJavaClient,confluence.vertigo.space.finder,confluence.sidebar.deferred,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentReplyEvent,confluence.baseurl.cdn.enabled,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,confluence.attachment.index.media,connect.no-applinks,confluence.table.resizable,notification.batch,react.ui.dashboard,mention.service.userbase.sync.enabled,confluence-inline-comments-rich-editor,synchrony.coming-soon.banner,unified.permissions,confluence.non.polling.index.flush,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,site-wide.synchrony.opt-in,rotp.project.shortcuts,com.atlassian.growth.shakuni.disabled,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,baseurl.cdn.enabled,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingWelcomeEmailEvent,filestore.direct.upload,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,quick-reload-inline-comments-flags,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent,jquery.feature.detection.cache,clc.quick.create,cql.search.screen,filestore.direct.download.debug.caching,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,fabric.mentions,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,collaborative-audit-log,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,confluence.wrap.macro,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,editor.ajax.save,app-switcher.new,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,attachment.index.media,fusion.bitbucket.rebrand,file-annotations.likes,confluence.pagenav.deferred,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,early.header.flush">
+            <meta name="ajs-atl-token" content="ed301233c743878f9a56dd4debaea27179425d84">
+            <meta name="ajs-confluence-flavour" content="ALACARTE">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-iframe-allowed-for-spa" content="false">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://floodlight.atlassian.net/wiki/s/836723415/6451/ff643a3edd67cd06cf9429fe8aff81d1c07bc876/16/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://floodlight.atlassian.net/wiki/s/836723415/6451/ff643a3edd67cd06cf9429fe8aff81d1c07bc876/16/_/favicon.ico">
+
+    <!-- 0.0.15-574 --><!-- Fallback mode enabled --><script src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/fallback-mode.51bac2a55b946c8d3adb.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://floodlight.atlassian.net/wiki/opensearch/osd.action" title="Project Floodlight">
+    
+                        
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+                
+
+    <!-- Styles -->
+            <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/wiki\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":false,\"conditionsMet\":false,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:confluence-atlassian-connect-autoconvert-resources.connect-autoconvert-data"]="null";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:confluence-atlassian-connect-content-byline-resources.connect-content-byline-data"]="{}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\"entries\":{\"applinks.docs.root\":\"https://confluence.atlassian.com/display/APPLINKS-060/\",\"applinks.docs.diagnostics.troubleshoot.sslunmatched\":\"SSL+and+application+link+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\":\"OAuth+troubleshooting+guide\",\"applinks.docs.delete.entity.link\":\"Create+links+between+projects\",\"applinks.docs.adding.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.administration.guide\":\"Application+Links+Documentation\",\"applinks.docs.oauth.security\":\"OAuth+security+for+application+links\",\"applinks.docs.troubleshoot.application.links\":\"Troubleshoot+application+links\",\"applinks.docs.diagnostics.troubleshoot.unknownerror\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.trusted.apps\":\"Configuring+Trusted+Applications+authentication+for+an+application+link\",\"applinks.docs.diagnostics.troubleshoot.authlevelunsupported\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.ssluntrusted\":\"SSL+and+application+link+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.unknownhost\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.delete.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.link.applications\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.diagnostics.troubleshoot.oauthproblem\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.migration\":\"Update+application+links+to+use+OAuth\",\"applinks.docs.relocate.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.administering.entity.links\":\"Create+links+between+projects\",\"applinks.docs.upgrade.application.link\":\"OAuth+security+for+application+links\",\"applinks.docs.diagnostics.troubleshoot.connectionrefused\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.oauth\":\"OAuth+security+for+application+links\",\"applinks.docs.insufficient.remote.permission\":\"OAuth+security+for+application+links\",\"applinks.docs.configuring.application.link.auth\":\"OAuth+security+for+application+links\",\"applinks.docs.diagnostics\":\"Application+links+diagnostics\",\"applinks.docs.configured.authentication.types\":\"OAuth+security+for+application+links\",\"applinks.docs.adding.entity.link\":\"Create+links+between+projects\",\"applinks.docs.diagnostics.troubleshoot.unexpectedresponse\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.basic\":\"Configuring+Basic+HTTP+Authentication+for+an+Application+Link\",\"applinks.docs.diagnostics.troubleshoot.authlevelmismatch\":\"OAuth+troubleshooting+guide\"}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\"crowd\":\"Crowd\",\"confluence\":\"Confluence\",\"remote.plugin.container\":\"Atlassian Connect\",\"fecru\":\"FishEye / Crucible\",\"stash\":\"Stash\",\"jira\":\"JIRA\",\"refapp\":\"Reference Application\",\"bamboo\":\"Bamboo\",\"generic\":\"Generic Application\"}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\"singular\":{\"refapp.charlie\":\"Charlie\",\"fecru.project\":\"Crucible Project\",\"fecru.repository\":\"FishEye Repository\",\"stash.project\":\"Stash Project\",\"generic.entity\":\"Generic Project\",\"confluence.space\":\"Confluence Space\",\"bamboo.project\":\"Bamboo Project\",\"jira.project\":\"JIRA Project\"},\"plural\":{\"refapp.charlie\":\"Charlies\",\"fecru.project\":\"Crucible Projects\",\"fecru.repository\":\"FishEye Repositories\",\"stash.project\":\"Stash Projects\",\"generic.entity\":\"Generic Projects\",\"confluence.space\":\"Confluence Spaces\",\"bamboo.project\":\"Bamboo Projects\",\"jira.project\":\"JIRA Projects\"}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\"com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\":\"Basic Access\",\"com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\":\"Trusted Applications\",\"com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\":\"CORS\",\"com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\":\"OAuth\",\"com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\":\"OAuth\",\"com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\":\"OAuth\"}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:dialog-options.data"]="{\"dialogOptions\":{},\"inlineDialogOptions\":{},\"dialogModules\":{}}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.crowd.user-provisioning-plugin:create-users-resources.isSiteAdmin"]="false";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/batch(1).css" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/batch(2).css" media="print" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context">
+<link type="text/css" rel="stylesheet" href="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-like-content-like-resources.css" data-wrm-key="com.atlassian.confluence.plugins.confluence-like:content-like-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-spacesidebar.css" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/836723415/6451/ff643a3edd67cd06cf9429fe8aff81d1c07bc876/1000.0.8/_/download/batch/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar.css?conditionalComment=lt+IE+9&amp;relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" media="all">
+<![endif]-->
+
+    
+    
+    <!-- Dynamically generated colors styles -->
+    <link type="text/css" rel="stylesheet" href="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/colors.css" media="all">
+
+    <!-- Scripts -->
+            <script type="text/javascript" src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/jquery-1.7.2-confluence-v5.js"></script>
+<script type="text/javascript" src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/batch.js" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/batch(3).js" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-like-content-like-resources.js" data-wrm-key="com.atlassian.confluence.plugins.confluence-like:content-like-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-soy-resources.js" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:soy-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-spacesidebar.js" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+
+                
+    
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Project Floodlight">
+            
+
+    
+
+    
+                <link rel="canonical" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module">
+        <link rel="shortlink" href="https://floodlight.atlassian.net/wiki/x/TYDl">
+    <meta name="wikilink" content="[floodlightcontroller:How to add a REST API to a Module]">
+    <meta name="page-version" content="24">
+    <meta name="ajs-page-version" content="24">
+
+    
+
+
+    
+
+
+        
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#title-heading">Skip to content</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#navigation">Skip to action menu</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+
+                            
+
+
+
+
+
+<header id="header" role="banner" class="fixed-header">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation" data-aui-responsive="true"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-controls="app-switcher" aria-haspopup="true" role="button" tabindex="0" data-aui-trigger="" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#app-switcher" resolved="" aria-expanded="false"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default aui-layer" role="menu" aria-hidden="true" data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}" resolved=""><div role="application"><div class="app-switcher-loading">Loading…</div></div></div></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://floodlight.atlassian.net/wiki/"><img src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/atl.site.logo" alt="Project Floodlight" data-aui-responsive-header-index="0"><span class="aui-header-logo-text">Project Floodlight</span></a></h1><ul class="aui-nav" resolved="" style="width: auto;">
+                            <li>
+            
+        
+        
+<a id="space-menu-link" class=" aui-dropdown2-trigger aui-nav-link" aria-controls="space-menu-link-content" aria-haspopup="true" role="button" title="Spaces" tabindex="0" data-aui-trigger="" resolved="" aria-expanded="false" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#space-menu-link-content">Spaces<span class="icon aui-icon-dropdown"></span></a><div id="space-menu-link-content" class="aui-dropdown2 aui-style-default aui-dropdown2-in-header aui-layer" role="menu" aria-hidden="true" resolved=""><div role="application"></div></div>
+        </li>
+                    <li>
+            
+    
+        
+<a id="people-directory-link" href="https://floodlight.atlassian.net/wiki/browsepeople.action" class=" aui-nav-imagelink" title="People">
+            <span>People</span>
+    </a>
+        </li>
+                                        <li class="aui-buttons">
+            </li>
+    </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav" resolved="">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://floodlight.atlassian.net/wiki/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accesskey="q" autocomplete="off" name="queryString" title="Quick Search"><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#" aria-haspopup="true" title="Help" resolved="" aria-controls="help-menu-link-content" aria-expanded="false">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default aui-layer" aria-hidden="true" resolved="">
+                    <div class="aui-dropdown2-section">
+                                <ul id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a id="confluence-help-link" href="https://confluence.atlassian.com/display/ConfCloud/" class="    " title="Visit the Confluence documentation home" target="_blank">
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="keyboard-shortcuts-link" href="https://floodlight.atlassian.net/wiki" class="    " title="View available keyboard shortcuts">
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="feed-builder-link" href="https://floodlight.atlassian.net/wiki/dashboard/configurerssfeed.action" class="    " title="Create your custom RSS feed.">
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="whats-new-menu-link" href="https://confluence.atlassian.com/x/cLPwK" class="    " title="See what’s new in Confluence">
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="gadget-directory-link" href="https://floodlight.atlassian.net/wiki" class="   user-item administration-link " title="Browse gadgets provided by Confluence">
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="confluence-about-link" href="https://floodlight.atlassian.net/wiki/aboutconfluencepage.action" class="    " title="Get more information about Confluence">
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            </li><li>
+        
+            
+<a id="login-link" href="https://floodlight.atlassian.net/wiki/login.action?os_destination=%2Fdisplay%2Ffloodlightcontroller%2FHow%2Bto%2Badd%2Ba%2BREST%2BAPI%2Bto%2Ba%2BModule" class="   user-item login-link " title="">
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a id="signup-link" href="https://floodlight.atlassian.net/admin/users/sign-up" class="   user-item signup-link " title="">
+        Sign up
+</a>
+</li>
+                        
+    
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+        
+        
+            <div class="ia-splitter">
+                <div class="ia-splitter-left">
+                                                                
+    
+                        <div class="ia-fixed-sidebar" style="width: 285px; visibility: visible; top: 41px; left: 0px;">
+                                                                                                <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="floodlightcontroller" data-name="Floodlight Controller" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation?src=sidebar" title="Floodlight Controller"><img class="avatar-img" src="./How to add a REST API to a Module - Floodlight Controller - Project Floodlight_files/floodlightcontroller" alt="Floodlight Controller"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation?src=sidebar" title="Floodlight Controller">Floodlight Controller</a></div><div class="flyout-handle icon"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="page-tree"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller&amp;src=sidebar-pages" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://floodlight.atlassian.net/wiki/pages/viewrecentblogposts.action?key=floodlightcontroller&amp;src=sidebar-blogs" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="page-tree"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title page-tree"><span class="icon"></span><span class="label">Page tree</span></h5></div><div class="ia-secondary-content">
+
+
+<div class="plugin_pagetree conf-macro output-inline" data-hasbody="false" data-macro-name="pagetree">
+
+        
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children" id="children1343545-0">
+        <div class="plugin_pagetree_children_loading_wrapper"><div class="spinner"><div class="spinner" role="progressbar" style="position: relative; width: 0px; z-index: 2000000000; left: 10px; top: 10px;"><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-0-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(0deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-1-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(30deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-2-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(60deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-3-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(90deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-4-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(120deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-5-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(150deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-6-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(180deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-7-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(210deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-8-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(240deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-9-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(270deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-10-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(300deg) translate(3px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-60-25-11-12 0.666667s linear infinite;"><div style="position: absolute; width: 5px; height: 2px; background: rgb(51, 51, 51); box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(330deg) translate(3px, 0px); border-radius: 1px;"></div></div></div></div><span class="plugin_pagetree_children_loading">Loading...</span></div></div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/wiki/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=true">
+        <input type="hidden" name="treePageId" value="15040589">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="1343545">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="floodlightcontroller">
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/wiki/login.action?os_destination=%2Fpages%2Fviewpage.action%3FspaceKey%3Dfloodlightcontroller%26title%3DHow%2Bto%2Badd%2Ba%2BREST%2BAPI%2Bto%2Ba%2BModule&amp;permissionViolation=true">
+        <input type="hidden" name="mobile" value="false">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="1343514">
+                                    <input type="hidden" name="ancestorId" value="1343556">
+                                    <input type="hidden" name="ancestorId" value="1343545">
+                                    </fieldset>
+    </fieldset>
+</div>
+</div></div></div><div class="hidden"><a href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller&amp;src=sidebar" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/wiki/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/wiki/pages/reorderpages.action?key=floodlightcontroller">Browse pages</div></div><button id="space-tools-menu-trigger" class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled" aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger="" resolved="" aria-expanded="false" data-collapsed-tooltip="Space tools"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="icon aui-icon-dropdown"></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown aui-layer" role="menu" aria-hidden="true" data-aui-alignment="top left" resolved=""><div role="presentation" class="aui-dropdown2-section space-tools-navigation"><div role="group"><ul class="aui-list-truncate" role="presentation"><li role="presentation"><a role="menuitem" tabindex="-1" class="" href="https://floodlight.atlassian.net/wiki/spaces/viewspacesummary.action?key=floodlightcontroller&amp;src=spacetools">Overview</a></li><li role="presentation"><a role="menuitem" tabindex="-1" class="" href="https://floodlight.atlassian.net/wiki/pages/reorderpages.action?key=floodlightcontroller&amp;src=spacetools">Content Tools</a></li></ul></div></div><div role="presentation" class="aui-dropdown2-section space-operations"><div role="group"><ul class="aui-list-truncate" role="presentation"><li role="presentation"><a role="menuitem" tabindex="-1" class="" href="https://floodlight.atlassian.net/wiki/pages/reorderpages.action?key=floodlightcontroller&amp;src=spacetools">Browse pages</a></li></ul></div></div></div><a class="expand-collapse-trigger" data-tooltip="Collapse sidebar ( [ )"></a></div>
+                                                                                    <div class="ia-splitter-handle tipsy-enabled" data-tooltip="Collapse sidebar ( [ )" original-title=""><div class="ia-splitter-handle-highlight"></div></div></div>
+                                    </div>
+                <!-- \#header -->
+
+            
+                
+                <div id="main" class=" aui-page-panel " style="margin-left: 285px; margin-top: 41px;">
+                <div class="connect-theme-background-cover"></div>
+                                                <div id="main-header-placeholder" style="margin: -10px 0px 0px; padding: 0px 0px 5px; height: 75px;"><h1 class="with-breadcrumbs" style="font-family: Arial, sans-serif; font-size: 28px; font-style: normal; font-weight: normal; text-decoration: none; letter-spacing: normal; text-align: start; padding: 35px 0px 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;">
+                                                                <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module" style="font-family: Arial, sans-serif; font-size: 28px; font-style: normal; font-weight: normal; margin: 0px; padding: 0px; color: rgb(51, 51, 51); text-decoration: none; letter-spacing: normal; text-align: start;">How to add a REST API to a Module</a>
+                                                    </h1></div><div id="main-header" class="overlay-header" style="position: fixed; width: 921px; right: 0px; top: -10px; margin-top: 0px; padding: 10px 40px; z-index: 0;">
+                                                                                            <content tag="content-navigation">
+    <div id="navigation" class="content-navigation view">
+                    <!-- putMetadata failed to add value for key "page-id" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-page-id" content="15040589">
+            <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#" aria-haspopup="true" data-container="#navigation" resolved="" aria-controls="action-menu" aria-expanded="false">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default aui-layer most-right-menu-item" aria-hidden="true" resolved="">
+                            <div class="aui-dropdown2-section">
+                    <ul id="action-menu-primary" class="section-primary first">
+                                                    <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-attachments-link" href="https://floodlight.atlassian.net/wiki/pages/viewpageattachments.action?pageId=15040589" rel="nofollow" class="action-view-attachments" accesskey="t" title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-history-link" href="https://floodlight.atlassian.net/wiki/pages/viewpreviousversions.action?pageId=15040589" rel="nofollow" class="action-view-history" title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul id="action-menu-secondary" class="section-secondary">
+                                                    <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-page-info-link" href="https://floodlight.atlassian.net/wiki/pages/viewinfo.action?pageId=15040589" rel="nofollow" class="action-view-info" title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-resolved-comments" href="https://floodlight.atlassian.net/wiki" rel="nofollow" class="" title="">
+                <span>Resolved comments (0)</span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="link-to-page-link" href="https://floodlight.atlassian.net/wiki/pages/viewinfo.action?pageId=15040589" rel="nofollow" class="action-link-page" title="Link to this Page" resolved="">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-in-hierarchy-link" href="https://floodlight.atlassian.net/wiki/pages/reorderpages.action?key=floodlightcontroller&amp;openId=15040589#selectedPageInHierarchy" rel="nofollow" class="" title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-source-link" href="https://floodlight.atlassian.net/wiki/plugins/viewsource/viewpagesrc.action?pageId=15040589" rel="nofollow" class="action-view-source popup-link" title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-pdf-link" href="https://floodlight.atlassian.net/wiki/spaces/flyingpdf/pdfpageexport.action?pageId=15040589" rel="nofollow" class="" title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-word-link" href="https://floodlight.atlassian.net/wiki/exportword?pageId=15040589" rel="nofollow" class="action-export-word" title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+</content>
+                                        
+                    
+                    <div id="title-heading" class="pagetitle with-breadcrumbs">
+                        
+                                                    <div id="breadcrumb-section">
+                                
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller&amp;src=breadcrumbs-collector">Pages</a></span>
+                                                                                                            </li><li id="ellipsis" title="Show all breadcrumbs"><span><strong>…</strong></span></li>
+                                                
+                        
+        <li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation?src=breadcrumbs-expanded">Floodlight Documentation</a></span>
+                                                                                                    
+                        
+        </li><li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/For+Developers?src=breadcrumbs-expanded">For Developers</a></span>
+                                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Tutorials?src=breadcrumbs-parent">Tutorials</a></span>
+                                                                    </li></ol>
+
+
+                            </div>
+                        
+                        
+        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a></li><li class="page-metadata-item noprint has-button" id="content-metadata-jira-wrapper"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden" resolved=""><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                        <h1 id="title-text" class="with-breadcrumbs" style="display: none;">
+                                                                <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module">How to add a REST API to a Module</a>
+                                                    </h1>
+                    </div>
+                </div><!-- \#main-header -->
+            
+                            
+                        
+    
+
+        
+
+
+
+
+            
+    
+
+    
+
+    
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+                        
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        
+        
+    
+                                
+    
+
+                    
+
+            
+                            
+
+            
+            <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class="author">     <a href="https://floodlight.atlassian.net/wiki/display/~ryan.izard@bigswitch.com" class="url fn confluence-userlink userlink-0" data-username="ryan.izard@bigswitch.com" title="" data-user-hover-bound="true">Ryan Izard [Administrator]</a></span>, last modified on <a class="last-modified" title="Show changes" href="https://floodlight.atlassian.net/wiki/pages/diffpagesbyversion.action?pageId=15040589&amp;selectedPageVersions=23&amp;selectedPageVersions=24">Apr 26, 2016</a>
+                </li>
+                    </ul>
+    </div>
+
+
+<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+            
+                                                            
+            <div id="main-content" class="wiki-content">
+                                
+        <div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p><span>This tutorial assumes a good understanding of </span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+Write+a+Module">how to write Floodlight modules</a><span>.</span></p></div></div><h1 id="HowtoaddaRESTAPItoaModule-TableofContents">Table of Contents</h1><p></p><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-numberedoutline="true" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-excludeheaderregex="Table of Contents" data-hasbody="false" data-macro-name="toc"> </div><p></p><h1 id="HowtoaddaRESTAPItoaModule-WhatisaRESTAPI?">What is a REST API?</h1><p>A REST API (or <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer <strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface) is a mechanism by which a program can exchange data with an external entity over HTTP at runtime. The basic premise is that an application opens a network server socket and listens for HTTP requests. External users or even other programs can access this API and send and receive messages to and from it. Depending on the HTTP request received, or more specifically the URI and the HTTP command, the application can perform some prescribed task.</p><p>Floodlight implements a REST API in the controller core, but there are also many implemented within application modules. For example, the Static Flow Pusher module allows a user to send flows to Floodlight, as well as delete and query for flows using a HTTP request to published URIs. (More information on the Static Flow Pusher REST API is available <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Static+Entry+Pusher+API">here</a>.) Other Floodlight modules that implement REST APIs include, <em>but are not limited to</em>, the Device Manager, the Firewall, and the Topology Manager. Using these REST APIs, one can ask Floodlight for the devices learned on the network, to install a firewall rule blocking a device, or to compute a route to one device from another, respectively.</p><h1 id="HowtoaddaRESTAPItoaModule-CreatingaRESTAPI">Creating a REST API</h1><p>You too can implement a REST API for your own module. This will give you the ability to interact with your module while it's running <em>using the APIs you define</em>. It might seem like a daunting task to create such a web-accessible interface, but the process is made quite easy through the IRestApiService Floodlight service. This service is backed by Restlet, which provides the underlying HTTP server and the processing and routing of HTTP requests to handlers within Floodlight.</p><p><span style="line-height: 1.4285715;">What does this mean to us as Floodlight module writers? We can leverage the IRestApiService to register our module's REST API defined with the URIs we create. The IRestApiService will in turn handle the mid-level details of configuring the API with Restlet, while Restlet itself abstracts away all the messy low-level details of the web server itself.</span></p><p><span style="line-height: 1.4285715;">To help demonstrate the process of creating a REST API in Floodlight, we will examine the Static Flow Pusher in close detail. We will conduct a stepwise discussion of how the Static Flow Pusher implements its REST APIs for adding, removing, and querying for flows. Note that although we are going to use the Static Flow Pusher as a vehicle for this discussion, the same applies to all Floodlight modules that implement a REST API, and this guide can be used to assist in the creation of our very own REST API in a custom module.</span></p><div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p>Links to Static Flow Pusher code are provided throughout this tutorial to the master branch implementation.&nbsp;<em>Excerpts</em>&nbsp;from these links are provided to facilitate talking points.</p></div></div><p>&nbsp;</p><p><strong><span style="line-height: 1.4285715;">&nbsp;</span></strong><span style="line-height: 1.4285715;">On a high-level, there are four steps to implementing a REST API in Floodlight:&nbsp;</span></p><ol><li>Get the IRestApiService</li><li>Define the URIs we want for our module</li><li>Implement the URIs defined in our module</li><li>Tell Floodlight our new REST API exists</li></ol><p>Let's walk through each of these steps one at a time.</p><h2 id="HowtoaddaRESTAPItoaModule-GettheIRestApiService"><span style="line-height: 1.4285715;">Get the IRestApiService</span></h2><p><span style="line-height: 1.4285715;">The first step in creating a REST API for a module involves the IRestApiService. The IRestApiService Floodlight service provides a REST API registration mechanism for all modules. Each module that implements a REST API simply registers the API with the IRestApiService, and the IRestApiService takes it from there handling the low-level details for us.</span></p><p><span style="line-height: 1.4285715;">To do this, we&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/StaticFlowEntryPusher.java#L832" rel="nofollow" class="external-link">need to depend on</a><span style="line-height: 1.4285715;">&nbsp;the IRestApiService in our module to guarantee the service is loaded prior to the time our module's init() function is invoked. This can be done using IFloodlightModule's getModuleDependencies() function.</span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">@Override
+public Collection&lt;Class&lt;? extends IFloodlightService&gt;&gt; getModuleDependencies() {
+	Collection&lt;Class&lt;? extends IFloodlightService&gt;&gt; l =
+			new ArrayList&lt;Class&lt;? extends IFloodlightService&gt;&gt;();
+	...
+	...
+	l.add(IRestApiService.class);
+	return l;
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">The next thing to do is&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/StaticFlowEntryPusher.java#L841" rel="nofollow" class="external-link">obtain a reference to the IRestApiService</a><span style="line-height: 1.4285715;">. This can be done in the same manner as for IFloodlightProviderService and IOFSwitchService as shown below in IFloodlightModule's init().</span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">@Override
+public void init(FloodlightModuleContext context) throws FloodlightModuleException {
+	...
+	...
+	restApiService = context.getServiceImpl(IRestApiService.class);
+	...
+	...
+} </pre>
+</div></div><h2 id="HowtoaddaRESTAPItoaModule-DefinetheURIsWeWantforOurModule"><span style="line-height: 1.4285715;">Define the URIs We Want for Our Module</span></h2><p><span style="line-height: 1.4285715;">A very important part in implementing a REST API is defining the actual REST interfaces we want to expose. Only these URIs will be available for use. If we don't define the URI here, then it will not be possible for Restlet to route the request to us.</span></p><p><span style="line-height: 1.4285715;">The first step is to create a class to implement Restlet's RestletRoutable interface, overriding basePath() and getRestlet()&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/StaticFlowEntryWebRoutable.java" rel="nofollow" class="external-link">as shown here</a>&nbsp;and below<span style="line-height: 1.4285715;">. </span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public class StaticFlowEntryWebRoutable implements RestletRoutable {
+    /**
+     * Create the Restlet router and bind to the proper resources.
+     */
+    @Override
+    public Restlet getRestlet(Context context) {
+        Router router = new Router(context);
+        router.attach("/json", StaticFlowEntryPusherResource.class);
+        router.attach("/json/store", StaticFlowEntryPusherResource.class);
+        router.attach("/json/delete", StaticFlowEntryDeleteResource.class);
+        router.attach("/clear/{switch}/json", ClearStaticFlowEntriesResource.class);
+        router.attach("/list/{switch}/json", ListStaticFlowEntriesResource.class);
+        return router;
+    }
+
+    /**
+     * Set the base path for the Topology
+     */
+    @Override
+    public String basePath() {
+        return "/wm/staticflowpusher";
+    }
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">We will provide the IRestApiService with this class when we register later on. All we have to do is define our base path and the specific URIs we want to expose in the basePath() and getRestlet() functions, respectively.</span></p><p><span style="line-height: 1.4285715;">Note the use of {switch} in the Static Flow Pusher's clear and list APIs. This is how we can wildcard part of our URI. {switch} is a variable that can be accessed when the API is called. It'll be set to whatever the person/program calling the API uses in place of the variable in the URI. In the case of the Static Flow Pusher, it's used to specify a switch DPID or the "all" keyword for all DPIDs.</span></p><h2 id="HowtoaddaRESTAPItoaModule-ImplementtheURIsDefinedinOurModule"><span style="line-height: 1.4285715;">Implement the URIs Defined in Our Module</span></h2><p><span style="line-height: 1.4285715;">Next, we need to define the classes that will implement each URI defined in our&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/StaticFlowEntryWebRoutable.java#L30" rel="nofollow" class="external-link">getRestlet() function</a>&nbsp;shown above<span style="line-height: 1.4285715;">. In the case of the Static Flow Pusher, this is StaticFlowEntryPusherResource, StaticFlowEntryDeleteResource, ClearStaticFlowEntriesResource, and ListStaticFlowEntriesResource. These are what will handle a request to each of the URIs defined.</span></p><p><span style="line-height: 1.4285715;">So, let's take a look at one as an example --&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/ListStaticFlowEntriesResource.java" rel="nofollow" class="external-link">ListStaticFlowEntriesResource</a><span style="line-height: 1.4285715;">. This and all of these URI-handler classes must extend ServerResource and have whatever functions we define in them. We do <strong>not</strong> need to override any functions or name any functions in a special way. However, we&nbsp;<strong>must</strong> annotate functions with the HTTP command they are to process. We can annotate with @Get, @Post, @Put, @Delete for the common HTTP commands (there are others though). @Get is demonstrated in our ListStaticFlowEntriesResource example&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/ListStaticFlowEntriesResource.java#L36" rel="nofollow" class="external-link">here</a>&nbsp;and below<span style="line-height: 1.4285715;">. </span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public class ListStaticFlowEntriesResource extends ServerResource {
+    protected static Logger log = LoggerFactory.getLogger(ListStaticFlowEntriesResource.class);
+    
+    @Get("json")
+    public OFFlowModMap ListStaticFlowEntries() {
+        IStaticFlowEntryPusherService sfpService =
+                (IStaticFlowEntryPusherService)getContext().getAttributes().
+                    get(IStaticFlowEntryPusherService.class.getCanonicalName());
+
+        String param = (String) getRequestAttributes().get("switch");
+        if (log.isDebugEnabled())
+            log.debug("Listing all static flow entires for switch: " + param);
+        if (param.toLowerCase().equals("all")) {
+            return new OFFlowModMap(sfpService.getFlows());
+        } else {
+            try {
+                Map&lt;String, Map&lt;String, OFFlowMod&gt;&gt; retMap = new HashMap&lt;String, Map&lt;String, OFFlowMod&gt;&gt;();
+                retMap.put(param, sfpService.getFlows(DatapathId.of(param)));
+                return new OFFlowModMap(retMap);
+            } catch (NumberFormatException e){
+                setStatus(Status.CLIENT_ERROR_BAD_REQUEST, ControllerSwitchesResource.DPID_ERROR);
+            }
+        }
+        return null;
+    }
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">The @Get annotation&nbsp;will tell the compiler to link this function, ListStaticFlowEntries(), with any HTTP GET messages sent to the URI /wm/staticflowpusher/list/{switch}/json. In general, any HTTP command XXX that does not have a corresponding @XXX annotation will not be handled. We can have more than one annotation per function to allow it to handle multiple HTTP commands.</span></p><p><span style="line-height: 1.4285715;">Furthermore, as shown above, we can also, optionally, specify the type of data in any annotation. The @Get example above is actually @Get("json"), which tells Restlet to expect JSON data as output when the function returns.&nbsp;We can use other data formats, XML for example via @Get("xml"). Floodlight, however, uses JSON throughout.</span></p><p><span style="line-height: 1.4285715;">Taking a closer look here, we can see within ListStaticFlowEntries above where&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/ListStaticFlowEntriesResource.java#L42" rel="nofollow" class="external-link">the {switch} variable comes into play</a><span style="line-height: 1.4285715;">. Using getRequestAttributes(), we can retrieve the "switch" attribute from the request. It'll be a string, which we can then examine and act upon. We can use any attribute string name we want; "switch" is used in the Static Flow Pusher, since we're using it to determine what switch DPID to examine in the request. We can also have more than one attribute per URI by including multiple curly-bracket-enclosed variables in our URI. This will wildcard those parts of the request when Restlet tries to match the request URI against those registered.</span></p><h3 id="HowtoaddaRESTAPItoaModule-ParsingJSONInput"><span style="line-height: 1.4285715;">Parsing JSON Input</span></h3><p><span style="line-height: 1.4285715;">We can also take advantage of Jackson to help parse any JSON you might provide as input via an HTTP PUT or POST. In the Static Flow Pusher, we take a&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/StaticFlowEntryPusherResource.java#L296" rel="nofollow" class="external-link">flow defined in JSON as input here</a>&nbsp;in StaticFlowEntryPusherResource<span style="line-height: 1.4285715;">. </span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">@Post
+public String store(String fmJson) {
+	IStorageSourceService storageSource =
+		(IStorageSourceService)getContext().getAttributes().
+			get(IStorageSourceService.class.getCanonicalName());
+	Map&lt;String, Object&gt; rowValues;
+	try {
+		rowValues = StaticFlowEntries.jsonToStorageEntry(fmJson);
+		...
+	}
+	...
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">Note also the&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/StaticFlowEntryPusherResource.java#L284" rel="nofollow" class="external-link">@Post annotation above</a><span style="line-height: 1.4285715;">&nbsp;to tell the function to be invoked on a post in the first place. It, combined with a String argument to our function is how we can receive the data "post"ed. Now, the most important and tedious part is actually parsing out the JSON and making sense of it in our code. The Static Flow Pusher&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/StaticFlowEntries.java#L607" rel="nofollow" class="external-link">parses the JSON-defined flow here</a>&nbsp;and in short below&nbsp;in jsonToStorageEntry()<span style="line-height: 1.4285715;">, which, again, we can see is called from the function&nbsp;</span>above<span style="line-height: 1.4285715;">.</span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public static Map&lt;String, Object&gt; jsonToStorageEntry(String fmJson) throws IOException {
+	Map&lt;String, Object&gt; entry = new HashMap&lt;String, Object&gt;();
+	MappingJsonFactory f = new MappingJsonFactory();
+	JsonParser jp;
+	...
+	...
+	try {
+		jp = f.createJsonParser(fmJson); /* deprecated, replace with f.createParser(fmJson); */
+	} catch (JsonParseException e) {
+		throw new IOException(e);
+	}
+
+	jp.nextToken();
+	if (jp.getCurrentToken() != JsonToken.START_OBJECT) {
+		throw new IOException("Expected START_OBJECT");
+	}
+
+	while (jp.nextToken() != JsonToken.END_OBJECT) {
+		if (jp.getCurrentToken() != JsonToken.FIELD_NAME) {
+			throw new IOException("Expected FIELD_NAME");
+		}
+		String n = jp.getCurrentName();
+
+		jp.nextToken();
+
+		switch (n) {
+		case StaticFlowEntryPusher.COLUMN_NAME:
+			entry.put(StaticFlowEntryPusher.COLUMN_NAME, jp.getText());
+			break;
+		case StaticFlowEntryPusher.COLUMN_SWITCH:
+			entry.put(StaticFlowEntryPusher.COLUMN_SWITCH, jp.getText());
+			break;
+		case StaticFlowEntryPusher.COLUMN_TABLE_ID:
+			entry.put(StaticFlowEntryPusher.COLUMN_TABLE_ID, jp.getText());
+			break;
+		case StaticFlowEntryPusher.COLUMN_ACTIVE:
+			entry.put(StaticFlowEntryPusher.COLUMN_ACTIVE, jp.getText());
+			break;
+		case StaticFlowEntryPusher.COLUMN_IDLE_TIMEOUT:
+			entry.put(StaticFlowEntryPusher.COLUMN_IDLE_TIMEOUT, jp.getText());
+			break;
+		case StaticFlowEntryPusher.COLUMN_HARD_TIMEOUT:
+			entry.put(StaticFlowEntryPusher.COLUMN_HARD_TIMEOUT, jp.getText());
+			break;
+		...
+		...
+		}
+	...
+	...
+	return entry;
+}</pre>
+</div></div><h3 id="HowtoaddaRESTAPItoaModule-ComposingJSONOutput"><span style="line-height: 22.0px;">Composing JSON Output</span></h3><p><span style="line-height: 1.4285715;">Likewise, we can use Jackson to compose a JSON message to return from our HTTP command handler function. As an output example,&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/ListStaticFlowEntriesResource.java#L47" rel="nofollow" class="external-link">here's how the list of flows are converted</a><span style="line-height: 1.4285715;">&nbsp;from Java object form to JSON when the /wm/staticflowpusher/list/{switch}/json API is invoked. A snippit of the code is provided below.</span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public class ListStaticFlowEntriesResource extends ServerResource {
+	...
+    
+    @Get("json")
+    public OFFlowModMap ListStaticFlowEntries() {
+        ...
+        return new OFFlowModMap(sfpService.getFlows());
+        ...
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">As we can see, a new object of OFFlowModMap is returned, which naturally leads us to the class&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/OFFlowModMap.java" rel="nofollow" class="external-link">OFFlowModMap</a><span style="line-height: 1.4285715;">. Let's take a close look at the&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/OFFlowModMap.java#L9" rel="nofollow" class="external-link">@JsonSerialize annotation used at the top&nbsp;</a>of OFFlowModMap, reproduced below.<span style="line-height: 1.4285715;">&nbsp;</span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">@JsonSerialize(using=OFFlowModMapSerializer.class) 
+public class OFFlowModMap {
+	/*
+	 * Contains the following double-mapping:
+	 * Map&lt;Switch-DPID-Str, Map&lt;Flow-Name-Str, OFFlowMod&gt;&gt;
+	 */
+	private Map&lt;String, Map&lt;String, OFFlowMod&gt;&gt; theMap;
+	
+	public OFFlowModMap (Map&lt;String, Map&lt;String, OFFlowMod&gt;&gt; theMap) {
+		this.theMap = theMap;
+	}
+
+	public Map&lt;String, Map&lt;String, OFFlowMod&gt;&gt; getMap() {
+		return theMap;
+	}
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">It specifies the class that converts any object of OFFlowModMap type to JSON. This class is OFFlowModMapSerializer, which&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/OFFlowModMapSerializer.java" rel="nofollow" class="external-link">is located here</a>&nbsp;and also reproduced below<span style="line-height: 1.4285715;">. </span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public class OFFlowModMapSerializer extends JsonSerializer&lt;OFFlowModMap&gt; {
+	@Override
+	public void serialize(OFFlowModMap fmm, JsonGenerator jGen, SerializerProvider serializer)
+			throws IOException, JsonProcessingException {
+
+        jGen.configure(Feature.WRITE_NUMBERS_AS_STRINGS, true); // IMHO this just looks nicer and is easier to read if everything is quoted
+
+		if (fmm == null) {
+			jGen.writeStartObject();
+			jGen.writeString("No flows have been added to the Static Flow Pusher.");
+			jGen.writeEndObject();
+			return;
+		}
+&nbsp;
+		Map&lt;String, Map&lt;String, OFFlowMod&gt;&gt; theMap = fmm.getMap();
+		jGen.writeStartObject();
+		if (theMap.keySet() != null) {
+			for (String dpid : theMap.keySet()) {
+				if (theMap.get(dpid) != null) {
+					jGen.writeArrayFieldStart(dpid);
+					for (String name : theMap.get(dpid).keySet()) {
+						jGen.writeStartObject();
+						jGen.writeFieldName(name);
+						OFFlowModSerializer.serializeFlowMod(jGen, theMap.get(dpid).get(name));
+						jGen.writeEndObject();
+					}    
+					jGen.writeEndArray();
+				}
+			}
+		}
+		jGen.writeEndObject();
+	}
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">As shown above, we&nbsp;<strong>must</strong> extend JsonSerializer in our class, or JsonSerializer&lt;OFFlowModMap&gt; in the case of our Static Flow Pusher example. We also <strong>must</strong>&nbsp;override the&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/OFFlowModMapSerializer.java#L31" rel="nofollow" class="external-link">serialize() function</a><span style="line-height: 1.4285715;">, which allows our custom JSON serializer to be invoked. Ending this example of how to produce JSON output, we can follow OFFlowModSerializer.serializeFlowMod() to the <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/core/web/serializers/OFFlowModSerializer.java#L54" class="external-link" rel="nofollow">implementation here</a> and below.</span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public static void serializeFlowMod(JsonGenerator jGen, OFFlowMod flowMod) throws IOException, JsonProcessingException {
+    jGen.configure(Feature.WRITE_NUMBERS_AS_STRINGS, true); // IMHO this just looks nicer and is easier to read if everything is quoted
+&nbsp;
+	jGen.writeStartObject();
+	jGen.writeStringField("version", flowMod.getVersion().toString()); // return the enum names
+	jGen.writeStringField("command", flowMod.getCommand().toString());
+	jGen.writeNumberField("cookie", flowMod.getCookie().getValue());
+	jGen.writeNumberField("priority", flowMod.getPriority());
+	jGen.writeNumberField("idleTimeoutSec", flowMod.getIdleTimeout());
+	jGen.writeNumberField("hardTimeoutSec", flowMod.getHardTimeout());
+	jGen.writeStringField("outPort", flowMod.getOutPort().toString());
+	switch (flowMod.getVersion()) {
+	case OF_10:
+		break;
+	case OF_11:
+		jGen.writeNumberField("flags", OFFlowModFlagsSerializerVer11.toWireValue(flowMod.getFlags()));
+		jGen.writeNumberField("cookieMask", flowMod.getCookieMask().getValue());
+		jGen.writeStringField("outGroup", flowMod.getOutGroup().toString());
+		jGen.writeStringField("tableId", flowMod.getTableId().toString());
+		break;
+	case OF_12:
+		jGen.writeNumberField("flags", OFFlowModFlagsSerializerVer12.toWireValue(flowMod.getFlags()));
+		jGen.writeNumberField("cookieMask", flowMod.getCookieMask().getValue());
+		jGen.writeStringField("outGroup", flowMod.getOutGroup().toString());
+		jGen.writeStringField("tableId", flowMod.getTableId().toString());
+		break;
+	case OF_13:
+		jGen.writeNumberField("flags", OFFlowModFlagsSerializerVer13.toWireValue(flowMod.getFlags()));
+		jGen.writeNumberField("cookieMask", flowMod.getCookieMask().getValue());
+		jGen.writeStringField("outGroup", flowMod.getOutGroup().toString());
+		break;
+	case OF_14:
+		jGen.writeNumberField("flags", OFFlowModFlagsSerializerVer14.toWireValue(flowMod.getFlags()));
+		jGen.writeNumberField("cookieMask", flowMod.getCookieMask().getValue());
+		jGen.writeStringField("outGroup", flowMod.getOutGroup().toString());
+		jGen.writeStringField("tableId", flowMod.getTableId().toString());
+		break;
+	default:
+		logger.error("Could not decode OFVersion {}", flowMod.getVersion());
+		break;
+	}
+
+	MatchSerializer.serializeMatch(jGen, flowMod.getMatch());
+	// handle OF1.1+ instructions with actions within
+	if (flowMod.getVersion() == OFVersion.OF_10) {
+		jGen.writeObjectFieldStart("actions");
+		OFActionListSerializer.serializeActions(jGen, flowMod.getActions());
+		jGen.writeEndObject();
+	} else {
+		OFInstructionListSerializer.serializeInstructionList(jGen, flowMod.getInstructions());
+	} // end not-empty instructions (else)
+	jGen.writeEndObject();
+} // end method</pre>
+</div></div><h2 id="HowtoaddaRESTAPItoaModule-TellFloodlightOurNewRESTAPIExists"><span style="line-height: 1.4285715;">Tell Floodlight Our New REST API Exists</span></h2><p><span style="line-height: 1.4285715;">Now, let's come full circle and go back to our module where we obtained our reference to the IRestApiService. In our module, we can register our new REST API with the IRestApiService. This is typically done in our module's startup function&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/StaticFlowEntryPusher.java#L856" rel="nofollow" class="external-link">as shown here</a>&nbsp;and below<span style="line-height: 1.4285715;">. </span></p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">@Override
+public void startUp(FloodlightModuleContext context) {
+	...
+	...
+	restApiService.addRestletRoutable(new StaticFlowEntryWebRoutable());
+}</pre>
+</div></div><p><span style="line-height: 1.4285715;">Note that this should <strong>not</strong> go in init(), since we need IRestApi's startup() function to be called (fully setting up the service). As we can see, an instance of your&nbsp;</span><a style="line-height: 1.4285715;" href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/staticflowentry/web/StaticFlowEntryWebRoutable.java" rel="nofollow" class="external-link">RestletRoutable implementation</a><span style="line-height: 1.4285715;">&nbsp;is created. The great news is that the IRestApiService and Restlet take it from here. Nothing more to do other than issue commands to our new REST API and enjoy :-)</span></p><p><strong>Questions, comments? Shoot us an email at floodlight-dev@openflowhub.org.</strong></p>
+
+                
+        
+    
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module"
+    dc:identifier="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module"
+    dc:title="How to add a REST API to a Module"
+    trackback:ping="https://floodlight.atlassian.net/wiki/rpc/trackback/15040589"/>
+</rdf:RDF>
+-->
+
+                                        <div id="likes-and-labels-container" class="no-print">
+                                            <div id="likes-section">
+                        </div>
+                            
+                                                                <div id="labels-section" class="pageSection group">
+                                                            
+    
+
+
+
+<div class="labels-section-content content-column" entityid="15040589" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+                        </div>
+                                    </div>
+            
+            
+                
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                                
+    
+        <div id="comments-section" class="pageSection group">
+                        
+                    
+        
+        
+                
+                </div>
+            
+
+
+            
+                    
+            
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+            
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/wiki/spaces/viewspacesummary.action?key=floodlightcontroller">Overview</div>
+            <div data-label="Content Tools" data-href="/wiki/pages/reorderpages.action?key=floodlightcontroller">Content Tools</div>
+    </div>        
+        
+
+
+
+                        </div>
+    <!-- \#main -->
+            
+    
+    
+                    
+            
+            <div id="footer" role="contentinfo" style="margin-left: 285px;">
+    <section class="footer-body">
+        
+
+        <ul id="poweredby">
+            <li class="noprint"><a href="http://www.atlassian.com/" rel="nofollow">Powered by Atlassian</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 1000.536.1</li>
+            <li class="noprint"><a href="http://www.atlassian.com/hosted/terms.jsp" rel="nofollow">Terms of Use</a></li>
+            <li class="noprint"><a href="https://answers.atlassian.com/questions/ask/?tags=on-demand" rel="nofollow">Answers</a></li>
+            <li class="noprint"><a href="https://confluence.atlassian.com/x/-IxjL" rel="nofollow">Maintenance Schedule</a></li>
+        </ul>
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+            </section>
+</div>
+        
+        </div>
+    
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 146, "requestCorrelationId": "a54d712b34df41c0"}</span>
+
+
+<script type="text/javascript">
+    AJS.BigPipe = AJS.BigPipe || {};
+    AJS.BigPipe.metrics = AJS.BigPipe.metrics || {};
+    AJS.BigPipe.metrics.pageEnd = typeof window.performance !== "undefined" && typeof window.performance.now === "function"
+                                    ? Math.ceil(window.performance.now()) : 0;
+    AJS.BigPipe.metrics.isBigPipeEnabled = 'false' === 'true';
+</script>
+
+
+
+    
+</div><div id="editor-preload-container" style="display: none;"></div><div id="content-hover-0" class="ajs-content-hover aui-box-shadow" style="display: none;"><div class="contents" style="width: 300px;"></div></div></body></html>

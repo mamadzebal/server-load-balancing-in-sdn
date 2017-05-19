@@ -1,0 +1,62 @@
+WRMCB=function(e){var c=console;if(c&&c.log&&c.error){c.log('Error running batched script.');c.error(e);}}
+;
+try {
+/* module-key = 'org.randombits.confluence.toc:client-side-toc-resources', location = 'net/customware/confluence/plugin/toc/js/client-side-toc.js' */
+define("confluence-toc/js/client-side-toc",["ajs","jquery","skate","confluence/legacy"],function(k,e,f,m){function a(p){var o=e({});o.data("precedenceLevel",p);return o}function g(o){return e(o).data("precedenceLevel")}function i(p,o){e(p).data("precedenceLevel",o);return p}function h(p,o){return o===g(p)}function c(u,o,q){if(u.length===0){return e()}var p=u.map(g).reduce(function(w,v){return Math.min(w,v)});if(!h(u[0],p)){u.unshift(a(p))}var s=o.createTocLevelContainer();var t={subElements:[],currentItem:undefined,outline:undefined,flush:function(){if(this.subElements.length>0&&this.currentItem){c(this.subElements,o,this.outline).appendTo(this.currentItem);this.subElements=[]}},add:function(v){this.subElements.push(v)},resetItem:function(v){this.outline=(q||[]).slice(0);this.outline.push(v);this.currentItem=o.createTocItemContainer();this.currentItem.appendTo(s);return this.currentItem}};var r=0;u.forEach(function(v){if(h(v,p)){r++;t.flush();t.resetItem(r);if(v.textContent){b(v,t.outline.join(".")).appendTo(t.currentItem)}else{t.currentItem.addClass("toc-empty-item")}}else{t.add(v)}});t.flush();if(q.length===0&&o.decorateToc){o.decorateToc(s)}return s}function b(o,p){return e(m.Plugins.TableOfContents.Client.tocItemBody({outline:p,linkHref:"#"+o.id,linkText:o.textContent}))}function n(o){return{createTocLevelContainer:function(){return this.createTocItemContainer()},createTocItemContainer:function(){return e(m.Plugins.TableOfContents.Client.flatStyleTocItemContainer({cssClass:"toc-item-container"}))},decorateToc:function(q){function p(t,r){var u=t in o?o[t]:r;if(u){var s=e(m.Plugins.TableOfContents.Client.flatStyleTocSeparator({separator:u}));s.appendTo(q)}}p("preseparator","[ ");e(q).find("span.toc-item-body").each(function(r,s){if(r>0){p("midseparator"," ] [ ")}e(s).appendTo(q)});p("postseparator"," ]");e(q).find(".toc-item-container").remove()}}}function d(o){return{createTocLevelContainer:function(){return e(m.Plugins.TableOfContents.Client.listStyleTocLevelContainer({cssliststyle:o.cssliststyle,csslistindent:o.csslistindent}))},createTocItemContainer:function(){return e(m.Plugins.TableOfContents.Client.listStyleTocItemContainer())}}}function j(o){var q;if(o.includeheaderregex){q=new RegExp(o.includeheaderregex)}var p;if(o.excludeheaderregex){p=new RegExp(o.excludeheaderregex)}return function(){var r=e(this).text();if(q&&!q.test(r)){return false}if(p&&p.test(r)){return false}return true}}function l(q,s){var o=s.headerelements;var t=o.split(",");var r=j(s);var p=e("#main-content").find(o).filter(r).each(function(){i(this,t.indexOf(this.nodeName))}).toArray();return c(p,q,[])}f("client-side-toc-macro",{type:f.types.CLASS,created:function(q){var r=e(q);var p=r.data()||{};var o;if(p.structure==="flat"){o=n(p)}else{o=d(p)}if(p.numberedoutline!==true){r.addClass("hidden-outline")}r.html(l(o,p))},events:{"click a":function(){k.trigger("analyticsEvent",{name:"confluence.toc-macro.heading-click"})}}})});require("confluence/module-exporter").safeRequire("confluence-toc/js/client-side-toc");
+}catch(e){WRMCB(e)};
+;
+try {
+/* module-key = 'org.randombits.confluence.toc:client-side-toc-resources', location = 'net/customware/confluence/plugin/toc/templates/client.soy' */
+// This file was automatically generated from client.soy.
+// Please don't edit this file by hand.
+
+/**
+ * @fileoverview Templates in namespace Confluence.Plugins.TableOfContents.Client.
+ */
+
+if (typeof Confluence == 'undefined') { var Confluence = {}; }
+if (typeof Confluence.Plugins == 'undefined') { Confluence.Plugins = {}; }
+if (typeof Confluence.Plugins.TableOfContents == 'undefined') { Confluence.Plugins.TableOfContents = {}; }
+if (typeof Confluence.Plugins.TableOfContents.Client == 'undefined') { Confluence.Plugins.TableOfContents.Client = {}; }
+
+
+Confluence.Plugins.TableOfContents.Client.tocItemBody = function(opt_data, opt_ignored) {
+  return '<span class="toc-item-body" data-outline="' + soy.$$escapeHtml(opt_data.outline) + '"><span class="toc-outline">' + soy.$$escapeHtml(opt_data.outline) + '</span><a href="' + soy.$$escapeHtml(opt_data.linkHref) + '" class="toc-link">' + soy.$$escapeHtml(opt_data.linkText) + '</a></span>';
+};
+if (goog.DEBUG) {
+  Confluence.Plugins.TableOfContents.Client.tocItemBody.soyTemplateName = 'Confluence.Plugins.TableOfContents.Client.tocItemBody';
+}
+
+
+Confluence.Plugins.TableOfContents.Client.listStyleTocLevelContainer = function(opt_data, opt_ignored) {
+  return '<ul style="' + ((opt_data.cssliststyle) ? ' list-style: ' + soy.$$escapeHtml(opt_data.cssliststyle) + ';' : '') + ((opt_data.csslistindent) ? ' padding-left: ' + soy.$$escapeHtml(opt_data.csslistindent) + ';' : '') + '"></ul>';
+};
+if (goog.DEBUG) {
+  Confluence.Plugins.TableOfContents.Client.listStyleTocLevelContainer.soyTemplateName = 'Confluence.Plugins.TableOfContents.Client.listStyleTocLevelContainer';
+}
+
+
+Confluence.Plugins.TableOfContents.Client.listStyleTocItemContainer = function(opt_data, opt_ignored) {
+  return '<li></li>';
+};
+if (goog.DEBUG) {
+  Confluence.Plugins.TableOfContents.Client.listStyleTocItemContainer.soyTemplateName = 'Confluence.Plugins.TableOfContents.Client.listStyleTocItemContainer';
+}
+
+
+Confluence.Plugins.TableOfContents.Client.flatStyleTocItemContainer = function(opt_data, opt_ignored) {
+  return '<span class="' + soy.$$escapeHtml(opt_data.cssClass) + '"></span>';
+};
+if (goog.DEBUG) {
+  Confluence.Plugins.TableOfContents.Client.flatStyleTocItemContainer.soyTemplateName = 'Confluence.Plugins.TableOfContents.Client.flatStyleTocItemContainer';
+}
+
+
+Confluence.Plugins.TableOfContents.Client.flatStyleTocSeparator = function(opt_data, opt_ignored) {
+  return '<span class="toc-separator">' + soy.$$escapeHtml(opt_data.separator) + '</span>';
+};
+if (goog.DEBUG) {
+  Confluence.Plugins.TableOfContents.Client.flatStyleTocSeparator.soyTemplateName = 'Confluence.Plugins.TableOfContents.Client.flatStyleTocSeparator';
+}
+
+}catch(e){WRMCB(e)};

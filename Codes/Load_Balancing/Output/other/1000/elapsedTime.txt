@@ -1,0 +1,2 @@
+12520 milisecond
+avergae is: 12 milisecond with 1000 run

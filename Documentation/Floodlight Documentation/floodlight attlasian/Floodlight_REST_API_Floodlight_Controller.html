@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                                <title>Floodlight REST API - Floodlight Controller - Project Floodlight</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    
+    
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+
+<meta id="confluence-context-path" name="confluence-context-path" content="/wiki">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://floodlight.atlassian.net/wiki">
+
+<meta id="atlassian-token" name="atlassian-token" content="edf0c22c16b70b11eb81be06bf9f9c7f8d206667">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="floodlightcontroller">
+<script type="text/javascript">
+        var contextPath = '/wiki';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1480877932477">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="f56824d32fbcefe023605805699b5cfd">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="America/New_York">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+<meta name="ajs-grow1936-GROW-DISABLE" content="{&quot;value&quot;:true}">
+
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMERCIAL&gt;">
+<meta name="gliffy-license-quantity" content="200">
+
+            
+    
+    
+            <meta name="ajs-page-id" content="1343539">
+            <meta name="ajs-latest-page-id" content="1343539">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Floodlight REST API">
+            <meta name="ajs-latest-published-page-title" content="Floodlight REST API">
+            <meta name="ajs-parent-page-title" content="The Controller">
+            <meta name="ajs-parent-page-id" content="1343548">
+            <meta name="ajs-space-key" content="floodlightcontroller">
+            <meta name="ajs-space-name" content="Floodlight Controller">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/wiki">
+            <meta name="ajs-base-url" content="https://floodlight.atlassian.net/wiki">
+            <meta name="ajs-version-number" content="1000.607.0">
+            <meta name="ajs-build-number" content="6452">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/wiki/images/icons/profilepics/anonymous.png">
+            <meta name="ajs-static-resource-url-prefix" content="/wiki/s/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="10485760000000">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="connect.authentication.oauth2.impersonation,synchrony.coming-soon.banner.disable,confluence.view.edit.transition,confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,rotp.admin.shortcuts,filestore.thumbnail,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,vertigo.space.finder,onboarding.demospaces.creation,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,filestore.direct.download,jquery.external,unified.usermanagement,sidebar.deferred,file-annotations,confluence.efi.onboarding.rich.space.content,frontend.editor.plugins,unified.usermanagement.licensing.users.disable,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,com.atlassian.growth.experiments.aesJavaClient,confluence.vertigo.space.finder,confluence.sidebar.deferred,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentReplyEvent,confluence.baseurl.cdn.enabled,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,confluence.attachment.index.media,connect.no-applinks,confluence.table.resizable,notification.batch,react.ui.dashboard,mention.service.userbase.sync.enabled,confluence-inline-comments-rich-editor,unified.permissions,confluence.non.polling.index.flush,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,site-wide.synchrony.opt-in,rotp.project.shortcuts,com.atlassian.growth.shakuni.disabled,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,baseurl.cdn.enabled,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingWelcomeEmailEvent,filestore.direct.upload,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,quick-reload-inline-comments-flags,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent,jquery.feature.detection.cache,clc.quick.create,cql.search.screen,filestore.direct.download.debug.caching,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,fabric.mentions,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,collaborative-audit-log,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,confluence.wrap.macro,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,editor.ajax.save,app-switcher.new,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,attachment.index.media,fusion.bitbucket.rebrand,file-annotations.likes,confluence.pagenav.deferred,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,early.header.flush">
+            <meta name="ajs-atl-token" content="edf0c22c16b70b11eb81be06bf9f9c7f8d206667">
+            <meta name="ajs-confluence-flavour" content="ALACARTE">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-iframe-allowed-for-spa" content="false">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://floodlight.atlassian.net/wiki/s/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/16/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://floodlight.atlassian.net/wiki/s/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/16/_/favicon.ico">
+
+    <!-- 0.0.15-597 --><!-- Fallback mode enabled --><script src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/fallback-mode.bffb0ec0bd2d2dbca8d3.js.download"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://floodlight.atlassian.net/wiki/opensearch/osd.action" title="Project Floodlight">
+    
+                        
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+                
+
+    <!-- Styles -->
+            <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/wiki\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":false,\"conditionsMet\":false,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:confluence-atlassian-connect-autoconvert-resources.connect-autoconvert-data"]="null";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:confluence-atlassian-connect-content-byline-resources.connect-content-byline-data"]="{}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\"entries\":{\"applinks.docs.root\":\"https://confluence.atlassian.com/display/APPLINKS-061/\",\"applinks.docs.diagnostics.troubleshoot.sslunmatched\":\"SSL+and+application+link+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\":\"OAuth+troubleshooting+guide\",\"applinks.docs.delete.entity.link\":\"Create+links+between+projects\",\"applinks.docs.adding.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.administration.guide\":\"Application+Links+Documentation\",\"applinks.docs.oauth.security\":\"OAuth+security+for+application+links\",\"applinks.docs.troubleshoot.application.links\":\"Troubleshoot+application+links\",\"applinks.docs.diagnostics.troubleshoot.unknownerror\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.trusted.apps\":\"Configuring+Trusted+Applications+authentication+for+an+application+link\",\"applinks.docs.diagnostics.troubleshoot.authlevelunsupported\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.ssluntrusted\":\"SSL+and+application+link+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.unknownhost\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.delete.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.link.applications\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.diagnostics.troubleshoot.oauthproblem\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.migration\":\"Update+application+links+to+use+OAuth\",\"applinks.docs.relocate.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.administering.entity.links\":\"Create+links+between+projects\",\"applinks.docs.upgrade.application.link\":\"OAuth+security+for+application+links\",\"applinks.docs.diagnostics.troubleshoot.connectionrefused\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.oauth\":\"OAuth+security+for+application+links\",\"applinks.docs.insufficient.remote.permission\":\"OAuth+security+for+application+links\",\"applinks.docs.configuring.application.link.auth\":\"OAuth+security+for+application+links\",\"applinks.docs.diagnostics\":\"Application+links+diagnostics\",\"applinks.docs.configured.authentication.types\":\"OAuth+security+for+application+links\",\"applinks.docs.adding.entity.link\":\"Create+links+between+projects\",\"applinks.docs.diagnostics.troubleshoot.unexpectedresponse\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.basic\":\"Configuring+Basic+HTTP+Authentication+for+an+Application+Link\",\"applinks.docs.diagnostics.troubleshoot.authlevelmismatch\":\"OAuth+troubleshooting+guide\"}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\"crowd\":\"Crowd\",\"confluence\":\"Confluence\",\"remote.plugin.container\":\"Atlassian Connect\",\"fecru\":\"FishEye / Crucible\",\"stash\":\"Stash\",\"jira\":\"JIRA\",\"refapp\":\"Reference Application\",\"bamboo\":\"Bamboo\",\"generic\":\"Generic Application\"}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\"singular\":{\"refapp.charlie\":\"Charlie\",\"fecru.project\":\"Crucible Project\",\"fecru.repository\":\"FishEye Repository\",\"stash.project\":\"Stash Project\",\"generic.entity\":\"Generic Project\",\"confluence.space\":\"Confluence Space\",\"bamboo.project\":\"Bamboo Project\",\"jira.project\":\"JIRA Project\"},\"plural\":{\"refapp.charlie\":\"Charlies\",\"fecru.project\":\"Crucible Projects\",\"fecru.repository\":\"FishEye Repositories\",\"stash.project\":\"Stash Projects\",\"generic.entity\":\"Generic Projects\",\"confluence.space\":\"Confluence Spaces\",\"bamboo.project\":\"Bamboo Projects\",\"jira.project\":\"JIRA Projects\"}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\"com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\":\"Basic Access\",\"com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\":\"Trusted Applications\",\"com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\":\"CORS\",\"com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\":\"OAuth\",\"com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\":\"OAuth\",\"com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\":\"OAuth\"}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:icons-css-resources.iconsCssData"]="{}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:dialog-options.data"]="{\"dialogOptions\":{},\"inlineDialogOptions\":{},\"dialogModules\":{}}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.crowd.user-provisioning-plugin:create-users-resources.isSiteAdmin"]="false";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch(1).css" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch(2).css" media="print" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context">
+<link type="text/css" rel="stylesheet" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/org.randombits.confluence.toc-client-side-toc-resources.css" data-wrm-key="org.randombits.confluence.toc:client-side-toc-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-like-content-like-resources.css" data-wrm-key="com.atlassian.confluence.plugins.confluence-like:content-like-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-spacesidebar.css" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.11/_/download/batch/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar.css?conditionalComment=lt+IE+9&amp;relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" media="all">
+<![endif]-->
+
+    
+    
+    <!-- Dynamically generated colors styles -->
+    <link type="text/css" rel="stylesheet" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/colors.css" media="all">
+
+    <!-- Scripts -->
+            <script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/jquery-1.7.2-confluence-v5.js.download"></script>
+<script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch.js.download" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script><style type="text/css"></style><style type="text/css"></style>
+<script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch.js(1).download" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+<script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/org.randombits.confluence.toc-client-side-toc-resources.js.download" data-wrm-key="org.randombits.confluence.toc:client-side-toc-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-like-content-like-resources.js.download" data-wrm-key="com.atlassian.confluence.plugins.confluence-like:content-like-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-soy-resources.js.download" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:soy-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-spacesidebar.js.download" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/main.js.download" defer=""></script>
+                
+    
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Project Floodlight">
+            
+
+    
+
+    
+                <link rel="canonical" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+        <link rel="shortlink" href="https://floodlight.atlassian.net/wiki/x/M4AU">
+    <meta name="wikilink" content="[floodlightcontroller:Floodlight REST API]">
+    <meta name="page-version" content="44">
+    <meta name="ajs-page-version" content="44">
+
+    <script type="text/javascript" charset="utf-8" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch.js(2).download"></script><style>/* Inline Dialog */
+
+.hermes-inline-dialog .aui-inline-dialog-contents {
+    padding: 20px;
+}
+
+.hermes-inline-dialog .aui-inline-dialog-contents p {
+    padding-bottom: 20px;
+}
+
+/* Banner */
+.engage-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 18px;
+    min-height: 31px;
+}
+
+.engage-banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.engage-banner-img {
+    margin-right: 5px;
+}
+
+.engage-banner .ee-action-continue {
+    margin-left: 5px;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.engage-banner .close-btn {
+    cursor: pointer;
+}
+
+.engage-banner.info {
+    background-color: #3572b0;
+    color: #FFFFFF;
+}
+
+.engage-banner.info a {
+    color: #FFFFFF;
+}
+
+.engage-banner.warning {
+    background-color: #f6c342;
+}
+
+.engage-banner.error {
+    background-color: #d04437;
+}
+
+.engage-banner.success {
+    background-color: #8eb021;
+}
+
+/* Dialog */
+
+.hermes-dialog header {
+    background-size: 100%;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hermes-dialog .aui-dialog2-header-close {
+    padding-top: 18px;
+}
+
+.hermes-dialog .aui-dialog2-content {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.hermes-dialog .ee-content-copy {
+    padding-top: 10px;
+}
+
+.hermes-dialog .ee-content-actions {
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hermes-dialog .ee-content-footer {
+    padding-top: 10px;
+}
+
+.hermes-dialog .ee-content-footer .aui-expander-content {
+    min-height: 1.5em;
+}
+
+.hermes-dialog footer {
+    background: white;
+    border-top: 0;
+    height: 0;
+    padding: 0;
+}
+</style><link rel="stylesheet" type="text/css" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.ext.newcode-macro-plugin-sh-theme-confluence.css"><script type="text/javascript" charset="utf-8" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch.js(3).download"></script>
+            <meta name="ajs-use-watch" content="false">
+            <meta name="ajs-attachment-source-content-id" content="1343539">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-action-locale" content="en_GB">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/wiki/s/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_">
+            <meta name="ajs-edit-mode" content="legacy">
+            <meta name="ajs-user-watching-own-content" content="false">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-conf-revision" content="confluence$content$1343539.42">
+            <meta name="ajs-sync-revision-source" content="">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-draft-share-id" content="">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-editor-frontend-enabled" content="true">
+            <meta name="ajs-collaborative-editor-status" content="">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-content-id" content="1343539">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-can-attach-files" content="false">
+            <meta name="ajs-show-draft-message" content="false">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-version-comment" content="">
+            <meta name="ajs-draft-type" content="page">
+                
+                <meta name="ajs-synchrony-token" content="">
+    <meta name="ajs-synchrony-service-uri" content="">
+    <meta name="ajs-synchrony-resources-uri" content="">
+    <meta name="ajs-synchrony-app-id" content="">
+    <meta name="ajs-synchrony-dark-enabled" content="false">
+    <meta name="ajs-synchrony-expiry" content="">
+    <meta name="ajs-use-xhr-fallback" content="">
+
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-max-thumb-height" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    <style type="text/css">pf-mention-item,pf-mention-list,pf-mention-picker,pf-resourced-mention-list,pf-scrollable{display:block}pf-mention-item:not([defined]),pf-mention-list:not([defined]),pf-mention-picker:not([defined]),pf-resourced-mention-list:not([defined]),pf-scrollable:not([defined]){display:none}pf-scrollable{overflow-x:hidden;overflow-y:auto;padding:0;margin:0;display:block}pf-scrollable:not([defined]){display:none}</style><link rel="stylesheet" type="text/css" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch(3).css"><script type="text/javascript" charset="utf-8" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch.js(4).download"></script><link rel="stylesheet" type="text/css" href="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch(4).css"><script type="text/javascript" charset="utf-8" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/batch.js(5).download"></script><style type="text/css"></style></head>
+
+
+    
+<body id="com-atlassian-confluence" class="theme-default  content-type-page aui-layout aui-theme-default" data-aui-version="6.0.0">
+
+        
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#title-heading">Skip to content</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#navigation">Skip to action menu</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+
+                            
+
+
+
+
+
+<header id="header" role="banner" class="fixed-header">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation" data-aui-responsive="true"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-controls="app-switcher" aria-haspopup="true" role="button" tabindex="0" data-aui-trigger="" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#app-switcher" resolved="" aria-expanded="false"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default aui-layer" role="menu" aria-hidden="true" data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}" resolved=""><div role="application"><div class="app-switcher-loading">Loading…</div></div></div></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://floodlight.atlassian.net/wiki/"><img src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/atl.site.logo" alt="Project Floodlight" data-aui-responsive-header-index="0"><span class="aui-header-logo-text">Project Floodlight</span></a></h1><ul class="aui-nav" resolved="" style="width: auto;">
+                            <li>
+            
+        
+        
+<a id="space-menu-link" class=" aui-dropdown2-trigger aui-nav-link" aria-controls="space-menu-link-content" aria-haspopup="true" role="button" title="Spaces" tabindex="0" data-aui-trigger="" resolved="" aria-expanded="false" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#space-menu-link-content">Spaces<span class="icon aui-icon-dropdown"></span></a><div id="space-menu-link-content" class="aui-dropdown2 aui-style-default aui-dropdown2-in-header aui-layer" role="menu" aria-hidden="true" resolved=""><div role="application"></div></div>
+        </li>
+                    <li>
+            
+    
+        
+<a id="people-directory-link" href="https://floodlight.atlassian.net/wiki/browsepeople.action" class=" aui-nav-imagelink" title="People">
+            <span>People</span>
+    </a>
+        </li>
+                                        <li class="aui-buttons">
+            </li>
+    </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav" resolved="">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://floodlight.atlassian.net/wiki/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accesskey="q" autocomplete="off" name="queryString" title="Quick Search (/or g , g)"><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" aria-haspopup="true" title="Help" resolved="" aria-controls="help-menu-link-content" aria-expanded="false">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default aui-layer" aria-hidden="true" resolved="">
+                    <div class="aui-dropdown2-section">
+                                <ul id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a id="confluence-help-link" href="https://confluence.atlassian.com/display/ConfCloud/" class="    " title="Visit the Confluence documentation home" target="_blank">
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="keyboard-shortcuts-link" href="https://floodlight.atlassian.net/wiki" class="    " title="View available keyboard shortcuts (?)">
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="feed-builder-link" href="https://floodlight.atlassian.net/wiki/dashboard/configurerssfeed.action" class="    " title="Create your custom RSS feed.">
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="whats-new-menu-link" href="https://confluence.atlassian.com/x/cLPwK" class="    " title="See what’s new in Confluence">
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="site-status-menu-link" href="http://status.atlassian.com/" class="    " title="Check the health of Confluence" target="_blank">
+        Site Status
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="gadget-directory-link" href="https://floodlight.atlassian.net/wiki" class="   user-item administration-link " title="Browse gadgets provided by Confluence">
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="confluence-about-link" href="https://floodlight.atlassian.net/wiki/aboutconfluencepage.action" class="    " title="Get more information about Confluence">
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            </li><li>
+        
+            
+<a id="login-link" href="https://floodlight.atlassian.net/wiki/login.action?os_destination=%2Fdisplay%2Ffloodlightcontroller%2FFloodlight%2BREST%2BAPI" class="   user-item login-link " title="">
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a id="signup-link" href="https://floodlight.atlassian.net/admin/users/sign-up" class="   user-item signup-link " title="">
+        Sign up
+</a>
+</li>
+                        
+    
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+        
+        
+            <div class="ia-splitter">
+                <div class="ia-splitter-left">
+                                                                
+    
+                        <div class="ia-fixed-sidebar" style="width: 285px; visibility: visible; top: 41px; left: 0px;">
+                                                                                                <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="floodlightcontroller" data-name="Floodlight Controller" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation?src=sidebar" title="Floodlight Controller"><img class="avatar-img" src="./Floodlight REST API - Floodlight Controller - Project Floodlight_files/floodlightcontroller" alt="Floodlight Controller"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation?src=sidebar" title="Floodlight Controller">Floodlight Controller</a></div><div class="flyout-handle icon"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="page-tree"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller&amp;src=sidebar-pages" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://floodlight.atlassian.net/wiki/pages/viewrecentblogposts.action?key=floodlightcontroller&amp;src=sidebar-blogs" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="page-tree"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title page-tree"><span class="icon"></span><span class="label">Page tree</span></h5></div><div class="ia-secondary-content">
+
+
+<div class="plugin_pagetree conf-macro output-inline" data-hasbody="false" data-macro-name="pagetree">
+
+        
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children" id="children1343545-0">
+<ul class="plugin_pagetree_children_list" id="child_ul1343545-0">
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343542-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343542-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Getting+Started?src=contextnavpagetreemode">Getting Started</a>
+        </span>
+            </div>
+
+        <div id="children1343542-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343541-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343541-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Releases+and+Roadmap?src=contextnavpagetreemode">Releases and Roadmap</a>
+        </span>
+            </div>
+
+        <div id="children1343541-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343557-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343557-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/User+Documentation?src=contextnavpagetreemode">User Documentation</a>
+        </span>
+            </div>
+
+        <div id="children1343557-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul1343557-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343548-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343548-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/The+Controller?src=contextnavpagetreemode">The Controller</a>
+        </span>
+            </div>
+
+        <div id="children1343548-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul1343548-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343505-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343505-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Configuration?src=contextnavpagetreemode">Configuration</a>
+        </span>
+            </div>
+
+        <div id="children1343505-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343539-0" class="plugin_pagetree_childtoggle icon icon-section-opened" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span plugin_pagetree_current" id="childrenspan1343539-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API?src=contextnavpagetreemode">Floodlight REST API</a>
+        </span>
+            </div>
+
+        <div id="children1343539-0" class="plugin_pagetree_children_container">
+                                                        <ul class="plugin_pagetree_children_list" id="child_ul1343539-0">
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan4882438-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/ACL+%28Access+Control+List%29+REST+API?src=contextnavpagetreemode">ACL (Access Control List) REST API</a>
+        </span>
+            </div>
+
+        <div id="children4882438-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343614-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Firewall+REST+API?src=contextnavpagetreemode">Firewall REST API</a>
+        </span>
+            </div>
+
+        <div id="children1343614-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343518-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Static+Entry+Pusher+API?src=contextnavpagetreemode">Static Entry Pusher API</a>
+        </span>
+            </div>
+
+        <div id="children1343518-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343615-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Virtual+Network+Filter+REST+API?src=contextnavpagetreemode">Virtual Network Filter REST API</a>
+        </span>
+            </div>
+
+        <div id="children1343615-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan40403023-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Web+GUI?src=contextnavpagetreemode">Web GUI</a>
+        </span>
+            </div>
+
+        <div id="children40403023-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343528-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343528-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Applications?src=contextnavpagetreemode">Applications</a>
+        </span>
+            </div>
+
+        <div id="children1343528-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343507-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343507-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Real+World+Use+Cases?src=contextnavpagetreemode">Real World Use Cases</a>
+        </span>
+            </div>
+
+        <div id="children1343507-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+                                        </ul>
+                                        </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                                            <a id="plusminus1343556-0" class="plugin_pagetree_childtoggle icon icon-section-closed" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">
+            </a>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343556-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/For+Developers?src=contextnavpagetreemode">For Developers</a>
+        </span>
+            </div>
+
+        <div id="children1343556-0" class="plugin_pagetree_children_container">
+                                                            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343535-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Authors+and+Contributors?src=contextnavpagetreemode">Authors and Contributors</a>
+        </span>
+            </div>
+
+        <div id="children1343535-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+            <li>
+    <div class="plugin_pagetree_childtoggle_container">
+                    <span class="no-children icon"></span>
+            </div>
+    <div class="plugin_pagetree_children_content">
+          
+        
+                    <span class="plugin_pagetree_children_span" id="childrenspan1343647-0">                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Projects?src=contextnavpagetreemode">Floodlight Projects</a>
+        </span>
+            </div>
+
+        <div id="children1343647-0" class="plugin_pagetree_children_container">
+            </div>
+    </li>
+    </ul>
+</div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/wiki/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=true">
+        <input type="hidden" name="treePageId" value="1343539">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="1343545">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="floodlightcontroller">
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/wiki/login.action?os_destination=%2Fpages%2Fviewpage.action%3FspaceKey%3Dfloodlightcontroller%26title%3DFloodlight%2BREST%2BAPI&amp;permissionViolation=true">
+        <input type="hidden" name="mobile" value="false">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="1343548">
+                                    <input type="hidden" name="ancestorId" value="1343557">
+                                    <input type="hidden" name="ancestorId" value="1343545">
+                                    </fieldset>
+    </fieldset>
+</div>
+</div></div></div><div class="hidden"><a href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller&amp;src=sidebar" id="space-pages-link" title=" (g , s)"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/wiki/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/wiki/pages/reorderpages.action?key=floodlightcontroller">Browse pages</div></div><button id="space-tools-menu-trigger" class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled" aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger="" resolved="" aria-expanded="false" data-collapsed-tooltip="Space tools"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="icon aui-icon-dropdown"></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown aui-layer" role="menu" aria-hidden="true" data-aui-alignment="top left" resolved=""><div role="presentation" class="aui-dropdown2-section space-tools-navigation"><div role="group"><ul class="aui-list-truncate" role="presentation"><li role="presentation"><a role="menuitem" tabindex="-1" class="" href="https://floodlight.atlassian.net/wiki/spaces/viewspacesummary.action?key=floodlightcontroller&amp;src=spacetools">Overview</a></li><li role="presentation"><a role="menuitem" tabindex="-1" class="" href="https://floodlight.atlassian.net/wiki/pages/reorderpages.action?key=floodlightcontroller&amp;src=spacetools">Content Tools</a></li></ul></div></div><div role="presentation" class="aui-dropdown2-section space-operations"><div role="group"><ul class="aui-list-truncate" role="presentation"><li role="presentation"><a role="menuitem" tabindex="-1" class="" href="https://floodlight.atlassian.net/wiki/pages/reorderpages.action?key=floodlightcontroller&amp;src=spacetools">Browse pages</a></li></ul></div></div></div><a class="expand-collapse-trigger" data-tooltip="Collapse sidebar ( [ )"></a></div>
+                                                                                    <div class="ia-splitter-handle tipsy-enabled" data-tooltip="Collapse sidebar ( [ )" original-title=" ([)"><div class="ia-splitter-handle-highlight"></div></div></div>
+                                    </div>
+                <!-- \#header -->
+
+            
+                
+        <div id="main" class=" aui-page-panel " style="margin-left: 285px; margin-top: 41px;">
+                <div class="connect-theme-background-cover"></div>
+                                                <div id="main-header-placeholder" style="margin: -10px 0px 0px; padding: 0px 0px 5px; height: 75px;"><h1 class="with-breadcrumbs" style="font-family: Arial, sans-serif; font-size: 28px; font-style: normal; font-weight: normal; text-decoration: none; letter-spacing: normal; text-align: start; padding: 35px 0px 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;">
+                                                                <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API" style="font-family: Arial, sans-serif; font-size: 28px; font-style: normal; font-weight: normal; margin: 0px; padding: 0px; color: rgb(51, 51, 51); text-decoration: none; letter-spacing: normal; text-align: start;">Floodlight REST API</a>
+                                                    </h1></div><div id="main-header" class="" style="top: -8.5px; width: 2490px; position: fixed; right: 0px; margin-top: 0px; padding: 10px 40px; z-index: 100;">
+                                                                                            <content tag="content-navigation">
+    <div id="navigation" class="content-navigation view">
+                    <!-- putMetadata failed to add value for key "page-id" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-page-id" content="1343539">
+            <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" aria-haspopup="true" data-container="#navigation" resolved="" aria-controls="action-menu" aria-expanded="false">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default aui-layer most-right-menu-item" aria-hidden="true" resolved="">
+                            <div class="aui-dropdown2-section">
+                    <ul id="action-menu-primary" class="section-primary first">
+                                                    <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-attachments-link" href="https://floodlight.atlassian.net/wiki/pages/viewpageattachments.action?pageId=1343539" rel="nofollow" class="action-view-attachments" accesskey="t" title="View Attachments (t)">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-history-link" href="https://floodlight.atlassian.net/wiki/pages/viewpreviousversions.action?pageId=1343539" rel="nofollow" class="action-view-history" title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul id="action-menu-secondary" class="section-secondary">
+                                                    <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-page-info-link" href="https://floodlight.atlassian.net/wiki/pages/viewinfo.action?pageId=1343539" rel="nofollow" class="action-view-info" title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-resolved-comments" href="https://floodlight.atlassian.net/wiki" rel="nofollow" class="" title="">
+                <span>Resolved comments (0)</span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="link-to-page-link" href="https://floodlight.atlassian.net/wiki/pages/viewinfo.action?pageId=1343539" rel="nofollow" class="action-link-page" title="Link to this Page (k)" resolved="">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-in-hierarchy-link" href="https://floodlight.atlassian.net/wiki/pages/reorderpages.action?key=floodlightcontroller&amp;openId=1343539#selectedPageInHierarchy" rel="nofollow" class="" title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-source-link" href="https://floodlight.atlassian.net/wiki/plugins/viewsource/viewpagesrc.action?pageId=1343539" rel="nofollow" class="action-view-source popup-link" title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-pdf-link" href="https://floodlight.atlassian.net/wiki/spaces/flyingpdf/pdfpageexport.action?pageId=1343539" rel="nofollow" class="" title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-word-link" href="https://floodlight.atlassian.net/wiki/exportword?pageId=1343539" rel="nofollow" class="action-export-word" title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+</content>
+                                        
+                    
+                    <div id="title-heading" class="pagetitle with-breadcrumbs">
+                        
+                                                    <div id="breadcrumb-section">
+                                
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller&amp;src=breadcrumbs-collector">Pages</a></span>
+                                                                                                            </li><li id="ellipsis" title="Show all breadcrumbs"><span><strong>…</strong></span></li>
+                                                
+                        
+        <li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation?src=breadcrumbs-expanded">Floodlight Documentation</a></span>
+                                                                                                    
+                        
+        </li><li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/User+Documentation?src=breadcrumbs-expanded">User Documentation</a></span>
+                                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/The+Controller?src=breadcrumbs-parent">The Controller</a></span>
+                                                                    </li></ol>
+
+
+                            </div>
+                        
+                        
+        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a></li><li class="page-metadata-item noprint has-button" id="content-metadata-jira-wrapper"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden" resolved=""><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                        <h1 id="title-text" class="with-breadcrumbs" style="display: none;">
+                                                                <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">Floodlight REST API</a>
+                                                    </h1>
+                    </div>
+                </div><!-- \#main-header -->
+            
+                            
+                        
+    
+
+        
+
+
+
+
+            
+    
+
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+                        
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        
+        
+    
+                                
+    
+
+                    
+
+            
+                            
+
+            
+            <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class="author">     <a href="https://floodlight.atlassian.net/wiki/display/~rizard@g.clemson.edu" class="url fn confluence-userlink userlink-0" data-username="rizard@g.clemson.edu" title="" data-user-hover-bound="true">Ryan Izard</a></span>, last modified by <span class="editor">     <a href="https://floodlight.atlassian.net/wiki/display/~ryan.izard@bigswitch.com" class="url fn confluence-userlink userlink-1" data-username="ryan.izard@bigswitch.com" title="" data-user-hover-bound="true">Ryan Izard [Administrator]</a></span> on <a class="last-modified" title="Show changes" href="https://floodlight.atlassian.net/wiki/pages/diffpagesbyversion.action?pageId=1343539&amp;selectedPageVersions=43&amp;selectedPageVersions=44">Aug 09, 2016</a>
+                </li>
+                    </ul>
+    </div>
+
+
+<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+            
+                                                            
+            <div id="main-content" class="wiki-content">
+                                
+        <div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p><span>This page is for Floodlight v1.0 and up. If you are using Floodlight v0.9 or earlier or are using a copy of the master branch prior to December 30, 2014, please consider upgrading to Floodlight v1.1. If now isn't the time to upgrade, no worries, </span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API+pre-v1.0">the pre-1.0 documentation can be found here</a><span>.</span></p></div></div><h1 id="FloodlightRESTAPI-TableofContents">Table of Contents</h1><p></p><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-numberedoutline="true" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-excludeheaderregex="Table of Contents" data-hasbody="false" data-macro-name="toc" resolved=""><ul style=""><li><span class="toc-item-body" data-outline="1"><span class="toc-outline">1</span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#FloodlightRESTAPI-GettingStarted" class="toc-link">Getting Started</a></span></li><li><span class="toc-item-body" data-outline="2"><span class="toc-outline">2</span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#FloodlightRESTAPI-FloodlightGUI" class="toc-link">Floodlight GUI</a></span></li><li><span class="toc-item-body" data-outline="3"><span class="toc-outline">3</span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#FloodlightRESTAPI-UsingCurltoAccesstheRESTAPI" class="toc-link">Using Curl to Access the REST API</a></span></li><li><span class="toc-item-body" data-outline="4"><span class="toc-outline">4</span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#FloodlightRESTAPI-UsingPythontoAccesstheRESTAPI" class="toc-link">Using Python to Access the REST API</a></span></li><li><span class="toc-item-body" data-outline="5"><span class="toc-outline">5</span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#FloodlightRESTAPI-FloodlightRESTAPI" class="toc-link">Floodlight REST API</a></span></li><li><span class="toc-item-body" data-outline="6"><span class="toc-outline">6</span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#FloodlightRESTAPI-ModuleRESTAPIDocumentation" class="toc-link">Module REST API Documentation</a></span></li></ul></div><p></p><h1 id="FloodlightRESTAPI-GettingStarted">Getting Started</h1><p>The REST API is the recommended way to develop separate, northbound applications that will utilize features exposed by Floodlight. If a feature does not exist that you would like to make accessible from a northbound application, you can <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module">create a REST API of your own</a>.</p><p>While the functions available in this API are continuously evolving, several key functions are supported today and are documented in the table below. By default, the API is available at port 8080 of the controller. However, if you wish, you may tell Floodlight to <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Tuning+Server+Sockets">use a different port</a> or even <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/OpenFlow+and+REST+API+Security+Configuration">use HTTPS</a> if security is of concern.</p><h1 id="FloodlightRESTAPI-FloodlightGUI">Floodlight GUI</h1><p>The Floodlight GUI is implemented using the REST API. Although the implementation details are beyond the scope of this documentation, <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Web+GUI">information on how to access the GUI can be found here</a>.</p><h1 id="FloodlightRESTAPI-UsingCurltoAccesstheRESTAPI">Using Curl to Access the REST API</h1><p>An example REST call that retrieves data from Floodlight at IP address &lt;controller-ip&gt; is:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_457417" class="syntaxhighlighter sh-confluence nogutter  xml"><div class="toolbar"><span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0" resolved=""><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="xml plain">curl <a href="http:">http://</a>&lt;</code><code class="xml keyword">controller-ip</code><code class="xml plain">&gt;:8080/wm/core/controller/switches/json</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>An example REST call that provides data to Floodlight at IP address &lt;controller-ip&gt; is:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_147396" class="syntaxhighlighter sh-confluence nogutter  bash"><div class="toolbar"><span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0" resolved=""><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="bash plain">curl http:</code><code class="bash plain">//</code><code class="bash plain">&lt;controller-ip&gt;:8080</code><code class="bash plain">/wm/core/switch/all/role/json</code> <code class="bash plain">-X POST -d </code><code class="bash string">'{"role":"MASTER"}'</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>The output from Floodlight's REST API is in JSON. Python can be used to parse the JSON string returned:</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_86903" class="syntaxhighlighter sh-confluence nogutter  bash"><div class="toolbar"><span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0" resolved=""><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="bash plain">curl http:</code><code class="bash plain">//</code><code class="bash plain">&lt;controller-ip&gt;:8080</code><code class="bash plain">/wm/core/controller/switches/json</code> <code class="bash plain">| python -m json.tool</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>For each of the above examples, &lt;controller-ip&gt; should be replaced with the IP address or hostname of your controller.</p><h1 id="FloodlightRESTAPI-UsingPythontoAccesstheRESTAPI">Using Python to Access the REST API</h1><p>Python can also be used to create a simple REST client for accessing the controller's REST API. An example Python script that leverages the Static Flow Pusher's REST API is shown below. Make sure to replace &lt;insert_controller_ip&gt; with your controller's IP address.</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_87733" class="syntaxhighlighter sh-confluence nogutter  py"><div class="toolbar"><span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0" resolved=""><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="py keyword">import</code> <code class="py plain">httplib</code></div><div class="line number2 index1 alt1"><code class="py keyword">import</code> <code class="py plain">json</code></div><div class="line number3 index2 alt2"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number4 index3 alt1"><code class="py keyword">class</code> <code class="py plain">StaticFlowPusher(</code><code class="py functions">object</code><code class="py plain">):</code></div><div class="line number5 index4 alt2"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number6 index5 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">def</code> <code class="py plain">__init__(</code><code class="py color1">self</code><code class="py plain">, server):</code></div><div class="line number7 index6 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py color1">self</code><code class="py plain">.server </code><code class="py keyword">=</code> <code class="py plain">server</code></div><div class="line number8 index7 alt1"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number9 index8 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">def</code> <code class="py plain">get(</code><code class="py color1">self</code><code class="py plain">, data):</code></div><div class="line number10 index9 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">ret </code><code class="py keyword">=</code> <code class="py color1">self</code><code class="py plain">.rest_call({}, </code><code class="py string">'GET'</code><code class="py plain">)</code></div><div class="line number11 index10 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">return</code> <code class="py plain">json.loads(ret[</code><code class="py value">2</code><code class="py plain">])</code></div><div class="line number12 index11 alt1"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number13 index12 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">def</code> <code class="py functions">set</code><code class="py plain">(</code><code class="py color1">self</code><code class="py plain">, data):</code></div><div class="line number14 index13 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">ret </code><code class="py keyword">=</code> <code class="py color1">self</code><code class="py plain">.rest_call(data, </code><code class="py string">'POST'</code><code class="py plain">)</code></div><div class="line number15 index14 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">return</code> <code class="py plain">ret[</code><code class="py value">0</code><code class="py plain">] </code><code class="py keyword">=</code><code class="py keyword">=</code> <code class="py value">200</code></div><div class="line number16 index15 alt1"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number17 index16 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">def</code> <code class="py plain">remove(</code><code class="py color1">self</code><code class="py plain">, objtype, data):</code></div><div class="line number18 index17 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">ret </code><code class="py keyword">=</code> <code class="py color1">self</code><code class="py plain">.rest_call(data, </code><code class="py string">'DELETE'</code><code class="py plain">)</code></div><div class="line number19 index18 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">return</code> <code class="py plain">ret[</code><code class="py value">0</code><code class="py plain">] </code><code class="py keyword">=</code><code class="py keyword">=</code> <code class="py value">200</code></div><div class="line number20 index19 alt1"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number21 index20 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">def</code> <code class="py plain">rest_call(</code><code class="py color1">self</code><code class="py plain">, data, action):</code></div><div class="line number22 index21 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">path </code><code class="py keyword">=</code> <code class="py string">'/wm/staticflowpusher/json'</code></div><div class="line number23 index22 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">headers </code><code class="py keyword">=</code> <code class="py plain">{</code></div><div class="line number24 index23 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">'Content-type'</code><code class="py plain">: </code><code class="py string">'application/json'</code><code class="py plain">,</code></div><div class="line number25 index24 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">'Accept'</code><code class="py plain">: </code><code class="py string">'application/json'</code><code class="py plain">,</code></div><div class="line number26 index25 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">}</code></div><div class="line number27 index26 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">body </code><code class="py keyword">=</code> <code class="py plain">json.dumps(data)</code></div><div class="line number28 index27 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">conn </code><code class="py keyword">=</code> <code class="py plain">httplib.HTTPConnection(</code><code class="py color1">self</code><code class="py plain">.server, </code><code class="py value">8080</code><code class="py plain">)</code></div><div class="line number29 index28 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">conn.request(action, path, body, headers)</code></div><div class="line number30 index29 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">response </code><code class="py keyword">=</code> <code class="py plain">conn.getresponse()</code></div><div class="line number31 index30 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">ret </code><code class="py keyword">=</code> <code class="py plain">(response.status, response.reason, response.read())</code></div><div class="line number32 index31 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py functions">print</code> <code class="py plain">ret</code></div><div class="line number33 index32 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">conn.close()</code></div><div class="line number34 index33 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py keyword">return</code> <code class="py plain">ret</code></div><div class="line number35 index34 alt2"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number36 index35 alt1"><code class="py plain">pusher </code><code class="py keyword">=</code> <code class="py plain">StaticFlowPusher(</code><code class="py string">'&lt;insert_controller_ip'</code><code class="py plain">)</code></div><div class="line number37 index36 alt2"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number38 index37 alt1"><code class="py plain">flow1 </code><code class="py keyword">=</code> <code class="py plain">{</code></div><div class="line number39 index38 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">'switch'</code><code class="py plain">:</code><code class="py string">"00:00:00:00:00:00:00:01"</code><code class="py plain">,</code></div><div class="line number40 index39 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"name"</code><code class="py plain">:</code><code class="py string">"flow_mod_1"</code><code class="py plain">,</code></div><div class="line number41 index40 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"cookie"</code><code class="py plain">:</code><code class="py string">"0"</code><code class="py plain">,</code></div><div class="line number42 index41 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"priority"</code><code class="py plain">:</code><code class="py string">"32768"</code><code class="py plain">,</code></div><div class="line number43 index42 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"in_port"</code><code class="py plain">:</code><code class="py string">"1"</code><code class="py plain">,</code></div><div class="line number44 index43 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"active"</code><code class="py plain">:</code><code class="py string">"true"</code><code class="py plain">,</code></div><div class="line number45 index44 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"actions"</code><code class="py plain">:</code><code class="py string">"output=flood"</code></div><div class="line number46 index45 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">}</code></div><div class="line number47 index46 alt2"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number48 index47 alt1"><code class="py plain">flow2 </code><code class="py keyword">=</code> <code class="py plain">{</code></div><div class="line number49 index48 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">'switch'</code><code class="py plain">:</code><code class="py string">"00:00:00:00:00:00:00:01"</code><code class="py plain">,</code></div><div class="line number50 index49 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"name"</code><code class="py plain">:</code><code class="py string">"flow_mod_2"</code><code class="py plain">,</code></div><div class="line number51 index50 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"cookie"</code><code class="py plain">:</code><code class="py string">"0"</code><code class="py plain">,</code></div><div class="line number52 index51 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"priority"</code><code class="py plain">:</code><code class="py string">"32768"</code><code class="py plain">,</code></div><div class="line number53 index52 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"in_port"</code><code class="py plain">:</code><code class="py string">"2"</code><code class="py plain">,</code></div><div class="line number54 index53 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"active"</code><code class="py plain">:</code><code class="py string">"true"</code><code class="py plain">,</code></div><div class="line number55 index54 alt2"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py string">"actions"</code><code class="py plain">:</code><code class="py string">"output=flood"</code></div><div class="line number56 index55 alt1"><code class="py spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="py plain">}</code></div><div class="line number57 index56 alt2"><code class="py spaces">&nbsp;</code>&nbsp;</div><div class="line number58 index57 alt1"><code class="py plain">pusher.</code><code class="py functions">set</code><code class="py plain">(flow1)</code></div><div class="line number59 index58 alt2"><code class="py plain">pusher.</code><code class="py functions">set</code><code class="py plain">(flow2)</code></div></div></td></tr></tbody></table></div></div>
+</div></div><h1 id="FloodlightRESTAPI-FloodlightRESTAPI">Floodlight REST API</h1><div class="table-wrap"><table class="wrapped confluenceTable" resolved=""><colgroup><col style="width: 89.0px;"><col style="width: 542.0px;"><col style="width: 151.0px;"><col style="width: 165.0px;"><col style="width: 324.0px;"><col style="width: 88.0px;"></colgroup><tbody><tr><th colspan="1" class="confluenceTh">&nbsp;</th><th class="confluenceTh"><p>URI</p></th><th class="confluenceTh"><p>Method</p></th><th class="confluenceTh"><p>Description</p></th><th class="confluenceTh"><p>Arguments</p></th><th colspan="1" class="confluenceTh">Controller Version</th></tr><tr><th rowspan="10" class="confluenceTh"><p style="text-align: center;">Controller</p><p style="text-align: center;">APIs</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></th><td class="confluenceTd"><p>/wm/core/controller/switches/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>List of all switch DPIDs connected to the controller</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/controller/summary/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Controller summary (# of Switches, # of Links, etc.)</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/module/all/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Retrieve all registered (but not loaded) modules.</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/module/loaded/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Retrieve all modules actively loaded by the module loader.</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/counter/&lt;moduleName&gt;/&lt;counterTitle&gt;/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>List of counters per module, including switch counters.</p></td><td class="confluenceTd"><p><strong>moduleName</strong>: The name of the specific module for which to fetch counters. "OFSwitchManager" should be used for switch counters. <br class="atl-forced-newline"> <strong>counterTitle</strong>: "all" or the name of the counter as defined in the module. Counters are defined in a hierarchical fashion and can be queried in groups by their common parent path in the counter hierarchy.&nbsp; <br class="atl-forced-newline"> For example, switch counters are defined at the root as "&lt;dpid&gt;:0x&lt;aux-id&gt;" or "00:00:00:00:00:00:00:01:0x01" where &lt;dpid&gt; is the switch DPID in hex-string form and &lt;aux-id&gt; is the OpenFlow connection ID in hexadecimal. <br class="atl-forced-newline"> Among many counters in the hierarchy, all switches have specific "read" and "write" counters, which can be added to the counterTitle e.g.&nbsp;"00:00:00:00:00:00:00:01:0x01/read".</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/memory/json&nbsp;&nbsp;</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Current controller memory usage</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/health/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Status/Health of REST API</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td colspan="1" class="confluenceTd">/wm/core/version/json</td><td colspan="1" class="confluenceTd">GET</td><td colspan="1" class="confluenceTd">Controller version and name</td><td colspan="1" class="confluenceTd">none</td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/system/uptime/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Controller uptime</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><td class="confluenceTd"><p>/wm/core/storage/tables/json</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Tables present in Storage.</p></td><td class="confluenceTd"><p>none</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><th rowspan="2" class="confluenceTh"><p style="text-align: center;">Role</p><p style="text-align: center;">(HA)</p><p style="text-align: center;">APIs</p></th><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">/wm/core/role/json</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Retrieve the current high availability role of the controller.</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">None</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">v1.0 and up</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">&nbsp;</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">POST</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Set the high availability role of the controller.</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><p>{"role":"&lt;new-role&gt;"}</p><p><strong>new-role</strong>: "ACTIVE" or "STANDBY"</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">v1.0 and up</td></tr><tr><td class="highlight-grey confluenceTd" rowspan="4" data-highlight-colour="grey"><p style="text-align: center;"><strong>Role</strong></p><p style="text-align: center;"><strong>(Switch)</strong></p><p style="text-align: center;"><strong>APIs</strong></p></td><td colspan="1" class="confluenceTd">/wm/core/switch/all/role/json</td><td colspan="1" class="confluenceTd">GET</td><td colspan="1" class="confluenceTd">Retrieve the roles of all the presently connected switches.</td><td colspan="1" class="confluenceTd">&nbsp;</td><td colspan="1" class="confluenceTd">v1.1 and up</td></tr><tr><td colspan="1" class="confluenceTd">&nbsp;</td><td colspan="1" class="confluenceTd">POST</td><td colspan="1" class="confluenceTd">Set the role of all presently connected switches.</td><td colspan="1" class="confluenceTd"><p>{"role":"&lt;new-role&gt;"}</p><p><strong>new-role</strong>: "MASTER", "SLAVE", or "EQUAL"</p></td><td colspan="1" class="confluenceTd">v1.2 and up</td></tr><tr><td colspan="1" class="confluenceTd">/wm/core/switch/&lt;switchId&gt;/role/json</td><td colspan="1" class="confluenceTd">GET</td><td colspan="1" class="confluenceTd">Retrieve the role of a particular connected switch.</td><td colspan="1" class="confluenceTd">none</td><td colspan="1" class="confluenceTd">v1.2 and up</td></tr><tr><td colspan="1" class="confluenceTd">&nbsp;</td><td colspan="1" class="confluenceTd">POST</td><td colspan="1" class="confluenceTd">Set the role of a particular connected switch.</td><td colspan="1" class="confluenceTd"><p><span>{"role":"&lt;role&gt;"}</span></p><p><span><strong>role</strong><span>: "MASTER", "SLAVE", or "EQUAL"</span></span></p></td><td colspan="1" class="confluenceTd">v1.2 and up</td></tr><tr><th rowspan="2" class="confluenceTh"><p style="text-align: center;">OpenFlow</p><p style="text-align: center;">Stats /</p><p style="text-align: center;">Multipart</p><p style="text-align: center;">APIs</p></th><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/core/switch/all/&lt;statType&gt;/json&nbsp;&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>Retrieve aggregate stats across all switches. <br class="atl-forced-newline"> Some stats not supported by all all OpenFlow versions. <br class="atl-forced-newline"> <strong>Meters untested.</strong></p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p><strong>statType</strong>: aggregate, desc, flow, group, group-desc, group-features, meter, meter-config, meter-features, port, port-desc, queue, table, features &nbsp;&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/core/switch/&lt;switchId&gt;/&lt;statType&gt;/json&nbsp;&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>Retrieve per switch stats. <br class="atl-forced-newline"> Some stats not supported by all all OpenFlow versions. <br class="atl-forced-newline"> <strong>Meters untested.</strong></p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p><strong>switchId</strong>: Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX)&nbsp;&nbsp; <br class="atl-forced-newline"><strong>statType</strong>: aggregate, desc, flow, group, group-desc, group-features, meter, meter-config, meter-features, port, port-desc, queue, table, features&nbsp;&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-grey confluenceTd" rowspan="3" data-highlight-colour="grey"><p style="text-align: center;"><strong>Statistics</strong></p><p style="text-align: center;"><strong>APIs</strong></p></td><td class="confluenceTd">&nbsp;/wm/statistics/config/enable/json</td><td class="confluenceTd"><p>POST</p><p>PUT</p></td><td class="confluenceTd">&nbsp;Enable statistics collection</td><td class="confluenceTd"><p>Send empty string</p></td><td colspan="1" class="confluenceTd">v1.2 and up</td></tr><tr><td colspan="1" class="confluenceTd">/wm/statistics/config/disable/json</td><td colspan="1" class="confluenceTd"><p>POST</p><p>PUT</p></td><td colspan="1" class="confluenceTd">Disable statistics collection</td><td colspan="1" class="confluenceTd">Send empty string</td><td colspan="1" class="confluenceTd">v1.2 and up</td></tr><tr><td colspan="1" class="confluenceTd">/wm/statistics/bandwidth/&lt;switchId&gt;/&lt;portId&gt;/json</td><td colspan="1" class="confluenceTd">GET</td><td colspan="1" class="confluenceTd">Fetch RX/TX bandwidth consumption</td><td colspan="1" class="confluenceTd"><p><strong>switchId</strong>: Valid Switch DPID as colon-delimited hex string or integer. Use "all" for all switches.</p><p><strong>portId</strong>: Valid switch port number</p></td><td colspan="1" class="confluenceTd">v1.2 and up</td></tr><tr><td class="highlight-grey confluenceTd" rowspan="11" data-highlight-colour="grey"><p style="text-align: center;"><strong>Topology and Routing</strong></p><p style="text-align: center;"><strong>APIs</strong></p>&nbsp;&nbsp;<p><span style="color: rgb(34,34,34);">&nbsp;</span></p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/topology/switchclusters/json</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>List of all switch clusters connected to the controller.</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>none</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">v0.90 - v1.2</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/topology/external-links/json&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>Show "external" links, i.e., multi-hop links discovered by BDDP instead of LLDP packets&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>none</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/topology/links/json&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>Show DIRECT and TUNNEL links discovered based on LLDP packets&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>none</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p><span style="color: rgb(34,34,34);">/wm/topology/route/&lt;src-dpid&gt;/&lt;</span><span style="color: rgb(34,34,34);">src-port&gt;/&lt;dst-dpid&gt;/&lt;dst-</span><span style="color: rgb(34,34,34);">port&gt;/json</span></p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>Get a route defined by switch DPIDs and switch ports from the source switch and port to the destination switch and port</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p><strong>src-dpid</strong>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) <br class="atl-forced-newline"> <strong>src-port</strong>: Valid Switch Port Number <br class="atl-forced-newline"> <strong>dst-dpid</strong>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) <br class="atl-forced-newline"> <strong>dst-port</strong>: Valid Switch Port Number</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">v0.90 - v1.2</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">/wm/routing/path/&lt;src-dpid&gt;/&lt;src-port&gt;/&lt;dst-dpid&gt;/&lt;dst-port&gt;/json</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Get a path defined by switch DPIDs and the switch ports from the source switch and port to the destination switch and port</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><strong>src-dpid</strong><span>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) </span><span><br></span><strong>src-port</strong><span>: Valid Switch Port Number </span><span><br></span><strong>dst-dpid</strong><span>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) </span><span><br></span><strong>dst-port</strong><span>: Valid Switch Port Number</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">master and up</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">/wm/routing/paths/&lt;src-dpid&gt;/&lt;dst-dpid&gt;/&lt;num-paths&gt;/json</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Get an ordered list of paths from the shortest to the longest path</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><p><strong>src-dpid</strong><span>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) </span><span><br></span><strong>dst-dpid</strong><span>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) </span></p><p><strong>num-paths</strong>: Max quantity of paths to locate</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">master and up</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">/wm/routing/paths/fast/&lt;src-dpid&gt;/&lt;dst-dpid&gt;/&lt;num-paths&gt;/json</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>Get an ordered list of paths from the shortest to the longest path</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><p><strong>src-dpid</strong>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) <br><strong>dst-dpid</strong>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX)</p><p><strong>num-paths</strong>: Max quantity of paths to locate</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">master and up</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">/wm/routing/paths/slow/&lt;src-dpid&gt;/&lt;dst-dpid&gt;/&lt;num-paths&gt;/json</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>Get an ordered list of paths from the shortest to the longest path. Recompute paths if number requested is not cached</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><p><strong>src-dpid</strong>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) <br><strong>dst-dpid</strong>:&nbsp;Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX)</p><p><strong>num-paths</strong>: Max quantity of paths to locate</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">master and up</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">/wm/routing/paths/force-recompute/json</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">POST/PUT</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Recompute and cache paths using configured metric and max-fast-paths</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">empty string, ''</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">master and up</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">/wm/routing/paths/max-fast-paths/json</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET/POST/PUT</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Get or set the max paths to attempt to cache upon path computation</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">e.g. '{ "max_fast_paths" : "3" }'</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">master and up</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">/wm/routing/metric/json</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET/POST/PUT</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Get or set the metric to use when determining link cost</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><p>e.g. '{ "metric" : &lt;metric&gt; }', where &lt;metric&gt; is:</p><p>"hopcount"</p><p>"hopcount_avoid_tunnels"</p><p>"latency"</p><p>"utilization"</p><p>"link_speed"</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">master and up</td></tr><tr><th colspan="1" class="confluenceTh"><p style="text-align: center;">Device</p><p style="text-align: center;">APIs</p></th><td class="confluenceTd"><p>/wm/device/</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>List of all devices tracked by the controller. This includes MACs, IPs, and attachment points</p></td><td class="confluenceTd"><p>Passed as GET parameters:&nbsp;<strong>mac</strong>&nbsp;(colon-separated hex-encoded),&nbsp;<strong>ipv4</strong>&nbsp;(dotted decimal),&nbsp;<strong>vlan</strong>,&nbsp;<strong>dpid</strong>&nbsp;attachment point DPID (colon-separated hex-encoded) and&nbsp;<strong>port</strong>&nbsp;the attachment point port.</p></td><td colspan="1" class="confluenceTd">all</td></tr><tr><th rowspan="4" class="confluenceTh"><p style="text-align: center;">Static</p><p style="text-align: center;">Entry</p><p style="text-align: center;">Pusher</p><p style="text-align: center;">APIs</p></th><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/staticflowpusher/json&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>POST/DELETE</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>Add/Delete static flow&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>HTTP POST data (add flow), HTTP DELETE (for deletion)&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/staticflowpusher/list/&lt;switch&gt;/json&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>List static flows for a switch or all switches&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p><strong>switch</strong>: Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) or "all"&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/staticflowpusher/clear/&lt;switch&gt;/json&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>Clear static flows for a switch or all switches&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p><strong>switch</strong>: Valid Switch DPID (XX:XX:XX:XX:XX:XX:XX:XX) or "all"&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>More information available on&nbsp;<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Static+Entry+Pusher+API">How to Use Static Flow Pusher API</a></p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">&nbsp;</td></tr><tr><th rowspan="4" class="confluenceTh"><p style="text-align: center;">Virtual</p><p style="text-align: center;">Network</p><p style="text-align: center;">Filter</p><p style="text-align: center;">APIs</p></th><td class="confluenceTd"><p>/<span style="color: rgb(34,34,34);">networkService</span><span style="color: rgb(34,34,34);">/</span><span style="color: rgb(34,34,34);">v1</span><span style="color: rgb(34,34,34);">.</span><span style="color: rgb(34,34,34);">1/</span>tenants/&lt;tenant&gt;/networks/&lt;network&gt;&nbsp;</p></td><td class="confluenceTd"><p>PUT/POST/DELETE&nbsp;</p></td><td class="confluenceTd"><p>Creates a new virtual network. Name and ID are required, gateway is optional.</p></td><td class="confluenceTd"><p>URI argument:<strong>&nbsp;tenant</strong>: Currently ignored.&nbsp;<strong>network</strong>: ID (not name) of the network&nbsp; <br class="atl-forced-newline"> <br class="atl-forced-newline"> HTTP data: {"network": { "gateway": "&lt;IP&gt;", "name": "&lt;Name&gt;" }}&nbsp; <br class="atl-forced-newline"> <strong>IP</strong>: Gateway IP in "1.1.1.1" format, can be null&nbsp;&nbsp;&nbsp; <br class="atl-forced-newline"> <strong>Name</strong>: Network name as string&nbsp;</p></td><td colspan="1" class="confluenceTd">v0.91 and up</td></tr><tr><td class="confluenceTd"><p>/<span style="color: rgb(34,34,34);">networkService</span><span style="color: rgb(34,34,34);">/</span><span style="color: rgb(34,34,34);">v1</span><span style="color: rgb(34,34,34);">.</span><span style="color: rgb(34,34,34);">1</span>/tenants/&lt;tenant&gt;/networks/&lt;network&gt;/ports/&lt;port&gt;/attachment</p></td><td class="confluenceTd"><p>PUT/DELETE</p></td><td class="confluenceTd"><p>Attaches a host to a virtual network.</p></td><td class="confluenceTd"><p>URI argument:<strong>&nbsp;tenant</strong>: Currently ignored.&nbsp;<strong>network</strong>: ID (not name) of the network.&nbsp;<strong>port</strong>:&nbsp;Logical port name&nbsp; <br class="atl-forced-newline"> <br class="atl-forced-newline"> HTTP data: {"attachment": {"id": "&lt;Network ID&gt;", "mac": "&lt;MAC&gt;"}}&nbsp; <br class="atl-forced-newline"> <strong>Network ID</strong>: Network ID as string, the one assigned at create&nbsp; <br class="atl-forced-newline"> <strong>MAC</strong>: MAC address in "XX:XX:XX:XX:XX:XX" format&nbsp;</p></td><td colspan="1" class="confluenceTd">v0.91 and up</td></tr><tr><td class="confluenceTd"><p>/<span style="color: rgb(34,34,34);">networkService</span><span style="color: rgb(34,34,34);">/</span><span style="color: rgb(34,34,34);">v1</span><span style="color: rgb(34,34,34);">.</span><span style="color: rgb(34,34,34);">1</span>/tenants/&lt;tenant&gt;/networks</p></td><td class="confluenceTd"><p>GET</p></td><td class="confluenceTd"><p>Shows all networks and their gateway, ID, and hosts mac in json format.&nbsp;</p></td><td class="confluenceTd"><p>URI argument:<strong>&nbsp;tenant</strong>: Currently ignored.&nbsp;</p></td><td colspan="1" class="confluenceTd">v0.91 and up</td></tr><tr><td class="confluenceTd"><p>More information available on&nbsp;<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Virtual+Network+Filter+REST+API">Virtual Network Filter REST API</a></p></td><td class="confluenceTd"><p>&nbsp;</p></td><td class="confluenceTd"><p>&nbsp;</p></td><td class="confluenceTd"><p>&nbsp;</p></td><td colspan="1" class="confluenceTd">&nbsp;</td></tr><tr><th rowspan="7" class="confluenceTh"><p style="text-align: center;">Firewall</p><p style="text-align: center;">APIs</p></th><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/firewall/module/status/json&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p><span>Query the status of the firewall.</span></p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">/wm/firewall/module/enable/json</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">PUT</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>Enable the firewall.</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Send empty string</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">/wm/firewall/module/disable/json</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">PUT</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>Disable the firewall.</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Send empty string</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">/wm/firewall/module/subnet-mask/json</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">GET</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>Get the firewall's configured subnet mask.</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">None</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">&nbsp;</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">POST</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>Set the subnet mask of the firewall.</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>"</span><strong>subnet-mask</strong><span>":"</span><strong>X.X.X.X</strong><span>", where X.X.X.X is a valid IPv4 subnet mask.</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>/wm/firewall/rules/json&nbsp;&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET/POST/DELETE</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>GET: None&nbsp; <br class="atl-forced-newline"> POST:&nbsp;{"&lt;field 1&gt;":"&lt;value 1&gt;", "&lt;field 2&gt;":"&lt;value 2&gt;", ...}&nbsp; <br class="atl-forced-newline"> DELETE:&nbsp;{"&lt;ruleid&gt;":"&lt;int&gt;"}</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>List all existing rules in json format&nbsp; <br class="atl-forced-newline">Create new firewall rule&nbsp; <br class="atl-forced-newline">Delete a rule by ruleid&nbsp; <br class="atl-forced-newline"> "<strong>field</strong>":"<strong>value</strong>" pairs below in any order and combination:&nbsp;&nbsp; <br class="atl-forced-newline"> "<strong>switchid</strong>":"&lt;xx:xx:xx:xx:xx:xx:xx:xx&gt;",&nbsp;"<strong>src-inport</strong>":"&lt;short&gt;",&nbsp;&nbsp;&nbsp; <br class="atl-forced-newline">"<strong>src-mac</strong>": "&lt;xx:xx:xx:xx:xx:xx&gt;", "<strong>dst-mac</strong>":&nbsp;"&lt;xx:xx:xx:xx:xx:xx&gt;",&nbsp;&nbsp;&nbsp; <br class="atl-forced-newline"> "<strong>dl-type</strong>": "&lt;ARP&nbsp;<em>or</em>&nbsp;IPv4&gt;",&nbsp;"<strong>src-ip</strong>": "&lt;A.B.C.D/M&gt;",&nbsp;"<strong>dst-ip</strong>": "&lt;A.B.C.D/M&gt;",&nbsp;&nbsp;&nbsp; <br class="atl-forced-newline"> "<strong>nw-proto</strong>": "&lt;TCP&nbsp;<em>or</em>&nbsp;UDP&nbsp;<em>or</em>&nbsp;ICMP&gt;",&nbsp;"<strong>tp-src</strong>": "&lt;short&gt;",&nbsp;"<strong>tp-dst</strong>": "&lt;short&gt;",&nbsp;&nbsp;&nbsp; <br class="atl-forced-newline"> "<strong>priority</strong>": "&lt;int&gt;",&nbsp;"<strong>action</strong>": "&lt;ALLOW&nbsp;<em>or</em>&nbsp;DENY&gt;"&nbsp;&nbsp; <br class="atl-forced-newline"> "<strong>ruleid</strong>": "&lt;int&gt;"&nbsp;&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">all</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>More information available on&nbsp;<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Firewall+REST+API">Firewall REST API</a></p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>&nbsp;</p></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><p>&nbsp;</p></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">&nbsp;</td></tr><tr><th rowspan="5" class="confluenceTh"><p style="text-align: center;">Access</p><p style="text-align: center;">Control</p><p style="text-align: center;">List</p><p style="text-align: center;">APIs</p><br><br><span style="color: rgb(0,0,0);">&nbsp;</span><span style="color: rgb(0,0,0);">&nbsp;</span><span style="color: rgb(0,0,0);">&nbsp;</span></th><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">/wm/acl/rules/json</span></td><td colspan="1" class="confluenceTd">POST</td><td colspan="1" class="confluenceTd"><p>Add a rule</p><p><span>'{"&lt;key&gt;":"&lt;value&gt;", "&lt;key&gt;":"&lt;value&gt;", ...}'</span></p></td><td colspan="1" class="confluenceTd"><p>&lt;key&gt;:value&gt; pairs can be any of:</p><p>"<strong>nw-proto</strong>" : "any valid network protocol number"</p><p>"<strong>src-ip</strong>" : "<span>ip/mask"</span></p><p>"<strong>dst-ip</strong>" : "ip/mask"</p><p>"<strong>tp-dst</strong>" : "any valid transport port number"</p><p>"<strong>action</strong>" : "ALLOW | DENY"</p></td><td colspan="1" class="confluenceTd">v1.1 and up</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">/wm/acl/rules/json</span></td><td colspan="1" class="confluenceTd">DELETE</td><td colspan="1" class="confluenceTd"><p>Delete a rule.</p><p><span>{"ruleid":"&lt;rule&gt;"}</span></p></td><td colspan="1" class="confluenceTd"><strong>rule</strong>: The ID of the rule as returned when it was added</td><td colspan="1" class="confluenceTd">v1.1 and up</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">/wm/acl/rules/json</span></td><td colspan="1" class="confluenceTd">GET</td><td colspan="1" class="confluenceTd">List all rules</td><td colspan="1" class="confluenceTd">none</td><td colspan="1" class="confluenceTd">v1.1 and up</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">/wm/acl/clear/json</span></td><td colspan="1" class="confluenceTd">GET</td><td colspan="1" class="confluenceTd">Delete all rules</td><td colspan="1" class="confluenceTd">none</td><td colspan="1" class="confluenceTd">v1.1 and up</td></tr><tr><td colspan="1" class="confluenceTd">More information available on <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/ACL+%28Access+Control+List%29+REST+API">ACL (Access Control List) REST API</a></td><td colspan="1" class="confluenceTd">&nbsp;</td><td colspan="1" class="confluenceTd">&nbsp;</td><td colspan="1" class="confluenceTd">&nbsp;</td><td colspan="1" class="confluenceTd">&nbsp;</td></tr></tbody></table></div><h1 id="FloodlightRESTAPI-ModuleRESTAPIDocumentation">Module REST API Documentation</h1><p></p><ul class="childpages-macro conf-macro output-block" data-hasbody="false" data-macro-name="children"><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/ACL+%28Access+Control+List%29+REST+API">ACL (Access Control List) REST API</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Firewall+REST+API">Firewall REST API</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Static+Entry+Pusher+API">Static Entry Pusher API</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Virtual+Network+Filter+REST+API">Virtual Network Filter REST API</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Web+GUI">Web GUI</a></li></ul><p></p>
+
+                
+        
+    
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API"
+    dc:identifier="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API"
+    dc:title="Floodlight REST API"
+    trackback:ping="https://floodlight.atlassian.net/wiki/rpc/trackback/1343539"/>
+</rdf:RDF>
+-->
+
+                                        <div id="likes-and-labels-container" class="no-print">
+                                            <div id="likes-section"><div style="display: none;"><span class="like-summary"></span></div></div>
+                            
+                                                                <div id="labels-section" class="pageSection group">
+                                                            
+    
+
+
+
+<div class="labels-section-content content-column" entityid="1343539" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+                        </div>
+                                    </div>
+            
+            
+                
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                                
+    
+        <div id="comments-section" class="pageSection group">
+                        
+                    
+        
+        
+                
+                </div>
+            
+
+
+                    
+            
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+            
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/wiki/spaces/viewspacesummary.action?key=floodlightcontroller">Overview</div>
+            <div data-label="Content Tools" data-href="/wiki/pages/reorderpages.action?key=floodlightcontroller">Content Tools</div>
+    </div>        
+        
+
+
+
+                        </div>
+    <!-- \#main -->
+            
+    
+    
+                    
+            
+            <div id="footer" role="contentinfo" style="margin-left: 285px;">
+    <section class="footer-body">
+        
+
+        <ul id="poweredby">
+            <li class="noprint"><a href="http://www.atlassian.com/" rel="nofollow">Powered by Atlassian</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 1000.607.0</li>
+            <li class="noprint"><a href="http://www.atlassian.com/hosted/terms.jsp" rel="nofollow">Terms of Use</a></li>
+            <li class="noprint"><a href="https://answers.atlassian.com/questions/ask/?tags=on-demand" rel="nofollow">Answers</a></li>
+            <li class="noprint"><a href="https://confluence.atlassian.com/x/-IxjL" rel="nofollow">Maintenance Schedule</a></li>
+        </ul>
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+            </section>
+</div>
+        
+        </div>
+    
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 162, "requestCorrelationId": "b1387e42b47d33b1"}</span>
+
+
+<script type="text/javascript">
+    AJS.BigPipe = AJS.BigPipe || {};
+    AJS.BigPipe.metrics = AJS.BigPipe.metrics || {};
+    AJS.BigPipe.metrics.pageEnd = typeof window.performance !== "undefined" && typeof window.performance.now === "function"
+                                    ? Math.ceil(window.performance.now()) : 0;
+    AJS.BigPipe.metrics.isBigPipeEnabled = 'false' === 'true';
+</script>
+
+
+
+    
+<div id="editor-preload-container" style="display: none;">
+ 
+
+<div class="hidden">
+        
+
+
+<content tag="breadcrumbs">
+    
+    
+    <ol id="quickedit-breadcrumbs">
+                                        
+                        
+        <li class="first">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/spaces/floodlightcontroller" target="_blank">Floodlight Controller</a></span>
+                                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller" target="_blank">Pages</a></span>
+                                                                                                            </li><li id="ellipsis" title="Show all breadcrumbs"><span><strong>…</strong></span></li>
+                                                
+                        
+        <li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation" target="_blank">Floodlight Documentation</a></span>
+                                                                                                    
+                        
+        </li><li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/User+Documentation" target="_blank">User Documentation</a></span>
+                                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/The+Controller" target="_blank">The Controller</a></span>
+                                                                                    
+                        
+        </li><li>
+                        
+                            <span class="edited-page-title"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API" target="_blank">Floodlight REST API</a></span>
+                                                                    </li></ol>
+
+</content>
+</div>
+
+
+        
+    <div id="anonymous-warning" class="aui-message warning closeable">You are not logged in. Any changes you make will be marked as <span class="smalltext">anonymous</span>. You may want to <a href="https://floodlight.atlassian.net/wiki/login.action?os_destination=%2Fdisplay%2Ffloodlightcontroller%2FFloodlight%2BREST%2BAPI">Log In</a> if you already have an account.</div>
+
+                                                                                        
+
+<script type="text/x-template" title="editor-css" id="editor-css-resources">
+    <link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/com.atlassian.confluence.plugins.confluence-collaborative-editor-plugin:confluence-collaborative-editor-plugin-editor-content-resources/com.atlassian.confluence.plugins.confluence-collaborative-editor-plugin:confluence-collaborative-editor-plugin-editor-content-resources.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-collaborative-editor-plugin:confluence-collaborative-editor-plugin-editor-content-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/0e5604f912273ef185ac02e47b9a1bbb-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/6.0.0/_/download/batch/com.atlassian.auiplugin:aui-page-typography/com.atlassian.auiplugin:aui-page-typography.css?relative-url=true" data-wrm-key="com.atlassian.auiplugin:aui-page-typography" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/0e5604f912273ef185ac02e47b9a1bbb-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/6.0.0/_/download/batch/com.atlassian.auiplugin:aui-avatars/com.atlassian.auiplugin:aui-avatars.css?relative-url=true" data-wrm-key="com.atlassian.auiplugin:aui-avatars" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/cdd7ee60ce9defbea8c3bd1f91d56cff-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/6.0.0/_/download/batch/com.atlassian.auiplugin:aui-page-layout/com.atlassian.auiplugin:aui-page-layout.css?relative-url=true" data-wrm-key="com.atlassian.auiplugin:aui-page-layout" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/fb22a3bc4b5c982396ba691d3d9012f6-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/com.atlassian.confluence.editor:editor-content-styles/com.atlassian.confluence.editor:editor-content-styles.css?relative-url=true" data-wrm-key="com.atlassian.confluence.editor:editor-content-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/fb22a3bc4b5c982396ba691d3d9012f6-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/com.atlassian.confluence.editor:table-resizable-editor-content-styles/com.atlassian.confluence.editor:table-resizable-editor-content-styles.css?confluence.table.resizable=true&amp;relative-url=true" data-wrm-key="com.atlassian.confluence.editor:table-resizable-editor-content-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/fb22a3bc4b5c982396ba691d3d9012f6-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/com.atlassian.confluence.editor:table-resizable-styles/com.atlassian.confluence.editor:table-resizable-styles.css?confluence.table.resizable=true&amp;relative-url=true" data-wrm-key="com.atlassian.confluence.editor:table-resizable-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles/com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-templates:variable-editor-content-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/0e5604f912273ef185ac02e47b9a1bbb-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/6.0.0/_/download/batch/com.atlassian.auiplugin:aui-lozenge/com.atlassian.auiplugin:aui-lozenge.css?relative-url=true" data-wrm-key="com.atlassian.auiplugin:aui-lozenge" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.0/_/download/batch/com.atlassian.confluence.plugins.status-macro:view_content_status/com.atlassian.confluence.plugins.status-macro:view_content_status.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.status-macro:view_content_status" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/7b0fefd7ace9cb1e4eb860fecbe7033d-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.0/_/download/batch/com.atlassian.confluence.plugins.status-macro:editor_content_status/com.atlassian.confluence.plugins.status-macro:editor_content_status.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.status-macro:editor_content_status" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/95855ddb6496c74c06bd4578c5b03781-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.3/_/download/batch/confluence.extra.attachments:attachments-css/confluence.extra.attachments:attachments-css.css?relative-url=true" data-wrm-key="confluence.extra.attachments:attachments-css" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.8/_/download/batch/com.atlassian.confluence.plugins.confluence-roadmap-plugin:roadmap-placeholder-css/com.atlassian.confluence.plugins.confluence-roadmap-plugin:roadmap-placeholder-css.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-roadmap-plugin:roadmap-placeholder-css" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/confluence.web.resources:panel-styles/confluence.web.resources:panel-styles.css?relative-url=true" data-wrm-key="confluence.web.resources:panel-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/fb22a3bc4b5c982396ba691d3d9012f6-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/confluence.web.resources:content-styles/confluence.web.resources:content-styles.css?relative-url=true" data-wrm-key="confluence.web.resources:content-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/fb22a3bc4b5c982396ba691d3d9012f6-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/confluence.web.resources:confluence-fixed-headers-editor-content-resources/confluence.web.resources:confluence-fixed-headers-editor-content-resources.css?relative-url=true" data-wrm-key="confluence.web.resources:confluence-fixed-headers-editor-content-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_/download/batch/com.atlassian.confluence.plugins.confluence-page-layout:editor-pagelayout-content-styles/com.atlassian.confluence.plugins.confluence-page-layout:editor-pagelayout-content-styles.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-page-layout:editor-pagelayout-content-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.1/_/download/batch/com.atlassian.confluence.plugins.confluence-business-blueprints:sharelinks-urlmacro-editor-resources/com.atlassian.confluence.plugins.confluence-business-blueprints:sharelinks-urlmacro-editor-resources.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-business-blueprints:sharelinks-urlmacro-editor-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.12/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles/com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.12/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css" data-wrm-batch-type="resource" media="all">
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.12/_/download/batch/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css/com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css.css?conditionalComment=lte+IE+9&amp;relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-inline-tasks:editor-autocomplete-date-css" data-wrm-batch-type="resource" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/5c4a04a058731989c39d1fe3eff00c25-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.2/_/download/batch/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-editor-content-resources/com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-editor-content-resources.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-view-file-macro:view-file-macro-editor-content-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.0.2/_/download/batch/com.atlassian.confluence.plugins.confluence-software-blueprints:common-resources/com.atlassian.confluence.plugins.confluence-software-blueprints:common-resources.css?relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-software-blueprints:common-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/16/_/styles/colors.css" media="all">
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+<div class="editor-container">
+
+<!-- 0.0.15-597 -->
+
+        
+            
+
+<div id="link-browser-tab-items" class="hidden">
+                <div title="Search" data-weight="10">search</div>
+            <div title="Files" data-weight="30">attachments</div>
+            <div title="Web link" data-weight="40">weblink</div>
+            <div title="Advanced" data-weight="50">advanced</div>
+    </div>
+            <div id="image-properties-tab-items" class="hidden">
+                <div title="Effects" data-weight="10">image-effects</div>
+            <div title="Title" data-weight="20">image-attributes</div>
+    </div>
+            
+
+ 
+
+
+
+
+
+
+
+
+
+        <div id="toolbar">
+        <div id="rte-toolbar" class="aui-toolbar aui-toolbar2">
+
+            <div class="aui-toolbar2-primary toolbar-primary">
+                <ul class="aui-buttons rte-toolbar-group-formatting">
+                                        <li id="format-dropdown" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="format-dropdown-display" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar-trigger aui-dd-trigger aui-button" data-control-id="formatselect">
+                                <span class="dropdown-text">Paragraph</span>
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-dropdown "></span>
+                            </a>
+                            <ul id="format-dropdown-display-menu" class="aui-dropdown hidden">
+                                    <li class="dropdown-item format-p" data-format="p" data-tooltip="Paragraph (Ctrl+0)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Paragraph</a>
+    </li>
+                                    <li class="dropdown-item format-h1" data-format="h1" data-tooltip="Heading 1 (Ctrl+1)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Heading 1</a>
+    </li>
+                                    <li class="dropdown-item format-h2" data-format="h2" data-tooltip="Heading 2 (Ctrl+2)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Heading 2</a>
+    </li>
+                                    <li class="dropdown-item format-h3" data-format="h3" data-tooltip="Heading 3 (Ctrl+3)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Heading 3</a>
+    </li>
+                                    <li class="dropdown-item format-h4" data-format="h4" data-tooltip="Heading 4 (Ctrl+4)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Heading 4</a>
+    </li>
+                                    <li class="dropdown-item format-h5" data-format="h5" data-tooltip="Heading 5 (Ctrl+5)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Heading 5</a>
+    </li>
+                                    <li class="dropdown-item format-h6" data-format="h6" data-tooltip="Heading 6 (Ctrl+6)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Heading 6</a>
+    </li>
+                                    <li class="dropdown-item format-pre" data-format="pre" data-tooltip="Preformatted (Ctrl+7)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Preformatted</a>
+    </li>
+                                    <li class="dropdown-item format-blockquote" data-format="blockquote" data-tooltip="Quote (Ctrl+8)">
+        <a class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">Quote</a>
+    </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-style">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bold" data-tooltip="Bold (Ctrl+B)">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="bold">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-bold ">Bold</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-italic" data-tooltip="Italic (Ctrl+I)">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="italic">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-italic ">Italic</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-underline" data-tooltip="Underline (Ctrl+U)">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="underline">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-underline ">Underline</span>
+        </a>
+    </li>
+                                        <li id="color-picker-control" class="toolbar-item toolbar-splitbutton">
+                        <a class="toolbar-trigger aui-button" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" id="rte-button-color" data-color="003366" data-tooltip="Colour"><span class="icon aui-icon aui-icon-small aui-iconfont-editor-color ">Colour picker</span><span class="selected-color"></span></a><div class="aui-dd-parent"><a class="toolbar-trigger aui-dd-trigger aui-button" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" id="rte-button-color-selector" data-control-id="colorSelector" data-tooltip="More colours"><span class="icon aui-icon aui-icon-small aui-iconfont-dropdown ">More colours</span></a><div class="color-picker-container"><div class="color-picker aui-dropdown hidden"><ul><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #000000" data-color="000000">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #993300" data-color="993300">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #333300" data-color="333300">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #003300" data-color="003300">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #003366" data-color="003366">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #000080" data-color="000080">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #333399" data-color="333399">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #333333" data-color="333333">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #800000" data-color="800000">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FF6600" data-color="FF6600">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #808000" data-color="808000">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #008000" data-color="008000">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #008080" data-color="008080">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #0000FF" data-color="0000FF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #666699" data-color="666699">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #808080" data-color="808080">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FF0000" data-color="FF0000">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FF9900" data-color="FF9900">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #99CC00" data-color="99CC00">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #339966" data-color="339966">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #33CCCC" data-color="33CCCC">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #3366FF" data-color="3366FF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #800080" data-color="800080">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #999999" data-color="999999">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FF00FF" data-color="FF00FF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FFCC00" data-color="FFCC00">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FFFF00" data-color="FFFF00">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #00FF00" data-color="00FF00">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #00FFFF" data-color="00FFFF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #00CCFF" data-color="00CCFF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #993366" data-color="993366">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #C0C0C0" data-color="C0C0C0">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FF99CC" data-color="FF99CC">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FFCC99" data-color="FFCC99">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FFFF99" data-color="FFFF99">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #CCFFCC" data-color="CCFFCC">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #CCFFFF" data-color="CCFFFF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #99CCFF" data-color="99CCFF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #CC99FF" data-color="CC99FF">&nbsp;</a></li><li><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" style="background-color: #FFFFFF" data-color="FFFFFF">&nbsp;</a></li></ul></div></div></div>
+                    </li>
+                    <li id="more-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a id="rte-button-more" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar-trigger aui-dd-trigger aui-button" data-tooltip="More">
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-styles ">Formatting</span>
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-dropdown "></span>
+                            </a>
+                            <div id="rte-button-more-menu" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                                                <li class="dropdown-item more-menu-trigger" data-control-id="strikethrough" data-tooltip="Strikethrough (Ctrl+Shift+S)">
+        <a id="rte-strikethrough" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+Strikethrough
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sub" data-tooltip="">
+        <a id="rte-sub" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+Subscript
+        </a>
+    </li>
+                                                                 <li class="dropdown-item more-menu-trigger" data-control-id="sup" data-tooltip="">
+        <a id="rte-sup" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+Superscript
+        </a>
+    </li>
+                                                        <li class="dropdown-item more-menu-trigger" data-control-id="monospace" data-tooltip="Format text with monospaced font">
+        <a id="rte-monospace" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+Monospace
+        </a>
+    </li>
+
+                                                                                                                    </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <ul>
+                                            <li class="dropdown-item more-menu-trigger no-icon" data-format="removeformat" data-tooltip="Clears formatting on currently selected text">
+        <a id="rte-removeformat" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+            Clear formatting
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-lists">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-bullist" data-tooltip="Bullet list (Ctrl+Shift+B)">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="bullist">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-list-bullet ">Bullet list</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-numlist" data-tooltip="Numbered list (Ctrl+Shift+N)">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="numlist">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-list-number ">Numbered list</span>
+        </a>
+    </li>
+                </ul>
+                                <ul class="aui-buttons rte-toolbar-group-task-lists">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-tasklist" data-tooltip="Task list ([ then ])">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="tasklist">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-task ">Task list</span>
+        </a>
+    </li>
+                </ul>
+                
+                <ul class="aui-buttons rte-toolbar-group-indentation">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-outdent" data-tooltip="Outdent">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="outdent">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-outdent ">Outdent</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-indent" data-tooltip="Indent">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="indent">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-indent ">Indent</span>
+        </a>
+    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-justification">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyleft" data-tooltip="Align left">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="justifyleft">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-align-left ">Align left</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifycenter" data-tooltip="Align center">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="justifycenter">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-align-center ">Align center</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-justifyright" data-tooltip="Align right">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="justifyright">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-align-right ">Align right</span>
+        </a>
+    </li>
+                </ul>
+
+                                <ul class="aui-buttons hidden" id="page-layout-2-group">
+                    <li id="page-layout-2" class="toolbar-item" data-tooltip="Page layout">
+                        <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="aui-button toolbar-trigger" id="rte-button-pagelayout-2">
+                                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-layout ">Page layout</span>
+                        </a>
+                    </li>
+                </ul>
+                
+
+                <ul class="aui-buttons rte-toolbar-group-files hidden"></ul>
+
+                <ul class="aui-buttons rte-toolbar-group-link no-separator">
+                    <li class="toolbar-item" data-tooltip="Insert link (Ctrl+K)">
+                        <a id="rte-button-link" class="toolbar-trigger aui-button" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="linkbrowserButton">
+                                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-link "></span>
+                            <span class="trigger-text">Link</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="aui-buttons rte-toolbar-group-table no-separator">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-table-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert-table" data-tooltip="Insert table">
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-table "></span>
+                                <span class="dropdown-text">Table</span>
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-dropdown "></span>
+                            </a>
+
+                            <div id="table-picker-container" class="hidden aui-box-shadow">
+                                <div class="table-picker-box" data-tooltip="Hold SHIFT for a table without a heading.">
+                                    <div class="table-picker-background">
+                                        <div class="picker picker-cell"></div>
+                                        <div class="picker picker-heading heading"></div>
+                                        <div class="picker picker-selected-cell"></div>
+                                        <div class="picker picker-selected-heading heading"></div>
+                                    </div>
+                                    <p class="desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                                                                
+                
+                <ul class="aui-buttons rte-toolbar-group-insert no-separator">
+                    <li class="toolbar-item toolbar-dropdown" id="insert-menu">
+                        <div class="aui-dd-parent">
+                            <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-insert" data-tooltip="Insert more content">
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-add "></span>
+                                <span class="dropdown-text">Insert</span>
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-dropdown "></span>
+                            </a>
+
+                            <div id="insert-menu-options" class="aui-dropdown grouped hidden">
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert content</span>
+                                    <ul id="content-insert-list">
+                                        
+        
+        <li class="dropdown-item content-image" data-command="mceConfimage" data-tooltip="Insert files and images (Ctrl+M)">
+        <a id="rte-insert-image" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Files and images
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-link" data-control-id="linkbrowserButton" data-tooltip="Insert link (Ctrl+K)">
+        <a id="rte-insert-link" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Link
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-symbol" data-command="confCharmap" data-tooltip="Insert symbol">
+        <a id="rte-insert-symbol" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Symbol
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-emoticon" data-command="mceEmotion" data-tooltip="Insert emoticon">
+        <a id="rte-insert-emoticon" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Emoticon
+        </a>
+    </li>
+                                        
+        
+        <li class="dropdown-item content-wikimarkup" data-command="InsertWikiMarkup" data-tooltip="Insert markup (Ctrl+Shift+D)">
+        <a id="rte-insert-wikimarkup" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Markup
+        </a>
+    </li>
+                                        
+    
+        <li class="dropdown-item content-hr" data-command="InsertHorizontalRule" data-tooltip="Insert horizontal rule (----)">
+        <a id="rte-insert-hr" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Horizontal rule
+        </a>
+    </li>
+                                                                                    
+        
+        <li class="dropdown-item content-tasklist" data-command="InsertInlineTaskListNoToggle" data-tooltip="Insert task list ([ then ])">
+        <a id="rte-insert-tasklist" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Task list
+        </a>
+    </li>
+                                                                            </ul>
+                                </div>
+                                <div class="grouped-dropdown-item">
+                                    <span class="assistive">Insert macro</span>
+                                    <ul id="macro-insert-list">
+                                                                                                                                                                                <li class="dropdown-item macro-insertmention-button" data-macro-name="insertmention-button" data-tooltip="Insert &#39;User mention&#39; macro">
+        <a id="insertmention-button" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ User mention
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-jiralink" data-macro-name="jiralink" data-tooltip="Insert &#39;JIRA Issue/Filter&#39; macro">
+        <a id="jiralink" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ JIRA Issue/Filter
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-info" data-macro-name="info" data-tooltip="Insert &#39;Info&#39; macro">
+        <a id="info" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Info
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-gliffy" data-macro-name="gliffy" data-tooltip="Insert &#39;Gliffy Diagram&#39; macro">
+        <a id="gliffy" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Gliffy Diagram
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-status" data-macro-name="status" data-tooltip="Insert &#39;Status&#39; macro">
+        <a id="status" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Status
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-gallery" data-macro-name="gallery" data-tooltip="Insert &#39;Gallery&#39; macro">
+        <a id="gallery" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Gallery
+        </a>
+    </li>
+                                                                                                <li class="dropdown-item macro-toc" data-macro-name="toc" data-tooltip="Insert &#39;Table of Contents&#39; macro">
+        <a id="toc" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Table of Contents
+        </a>
+    </li>
+                                                                                                                            
+        
+        <li class="dropdown-item content-macro" data-command="mceConfMacroBrowser" data-tooltip="Open the macro browser (Ctrl+Shift+A)">
+        <a id="rte-insert-macro" class="item-link" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#">
+                
+    
+    <span class="icon "></span>
+ Other macros
+        </a>
+    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                                <ul class="aui-buttons rte-toolbar-group-page-layouts-section-types">
+                    <li id="pagelayout-menu" class="toolbar-item toolbar-dropdown">
+                        <div class="aui-dd-parent">
+                            <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="toolbar-trigger aui-dd-trigger aui-button" id="rte-button-pagelayout" data-tooltip="Page layout">
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-default">Page layout</span>
+                                    
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-dropdown "></span>
+                            </a>
+
+                            <ul id="pagelayout-menu-options" class="aui-dropdown hidden">
+                                <li class="dropdown-item" data-tooltip="No layout">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-none&quot;, &quot;columns&quot;: 0   }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-none">No layout</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple)">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;]   }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-two-simple">Two column (simple)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple, left sidebar)">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;]   }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-two-simple-left">Two column (simple, left sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (simple, right sidebar)">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-simple-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;]   }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-two-simple-right">Two column (simple, right sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column (simple)">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-simple&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;]   }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-three-simple">Three column (simple)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-two">Two column</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (left sidebar)">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-left&quot;, &quot;columns&quot;: [&quot;aside&quot;, &quot;large&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-two-left">Two column (left sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Two column (right sidebar)">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-two-right&quot;, &quot;columns&quot;: [&quot;large&quot;, &quot;aside&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-two-right">Two column (right sidebar)</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three&quot;, &quot;columns&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-three">Three column</span>
+    </a>
+</li>
+                                <li class="dropdown-item" data-tooltip="Three column (left and right sidebars)">
+    <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" class="item-link" data-atlassian-layout="{&quot;name&quot;: &quot;pagelayout-three-sidebars&quot;, &quot;columns&quot;: [&quot;sidebars&quot;, &quot;large&quot;, &quot;sidebars&quot;] , &quot;header&quot;: true  , &quot;footer&quot;:true  }">
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-check hidden"></span>
+            
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-layout pagelayout-three-sidebars">Three column (left and right sidebars)</span>
+    </a>
+</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                
+                                                
+                <ul class="aui-buttons rte-toolbar-group-undo">
+                    
+                <li class="toolbar-item aui-button" id="rte-button-undo" data-tooltip="Undo (Ctrl+Z)">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="undo">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-undo ">Undo</span>
+        </a>
+    </li>
+                    
+                <li class="toolbar-item aui-button" id="rte-button-redo" data-tooltip="Redo (Ctrl+Y)">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="redo">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-redo ">Redo</span>
+        </a>
+    </li>
+                </ul>
+            </div>                                                                                                <div id="draft-status" style="display:none"></div>
+                            <div class="aui-toolbar2-secondary">
+                <ul class="aui-buttons rte-toolbar-group-searchreplace">
+                        <li class="toolbar-item aui-button" id="rte-button-searchreplace" data-tooltip="Find/Replace">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="searchreplace">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-search ">Find/Replace</span>
+        </a>
+    </li>
+                </ul>
+                <ul class="aui-buttons rte-toolbar-group-help">
+                        <li class="toolbar-item aui-button" id="rte-button-help" data-tooltip="Help">
+        <a class="toolbar-trigger" href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API#" data-control-id="help">
+                
+    
+    <span class="icon aui-icon aui-icon-small aui-iconfont-editor-help ">Keyboard shortcuts help</span>
+        </a>
+    </li>
+                </ul>
+            </div>        </div>    </div>
+        
+        
+                                        <div id="editor-notifications-container"><div id="editor-messages"><div id="anonymous-warning" class="aui-message warning closeable">You are not logged in. Any changes you make will be marked as <span class="smalltext">anonymous</span>. You may want to <a href="https://floodlight.atlassian.net/wiki/login.action?os_destination=%2Fdisplay%2Ffloodlightcontroller%2FFloodlight%2BREST%2BAPI">Log In</a> if you already have an account.</div><div id="heartbeat-div" class="hidden"><div class="aui-message info closeable"><span class="aui-icon icon-info"></span>This page is also being edited by <span id="other-users-span"></span>. Your changes will be merged with theirs when you save.</div></div></div><div id="all-messages"><div id="action-messages"></div></div></div><div id="editor-precursor"><div class="cell"><div class="aui-buttons aui-toolbar2"><button class="aui-button aui-button-subtle rte-button-labels" type="button" data-tooltip="Labels" id="rte-button-labels" data-explicit-restrictions="" data-inherited-restrictions=""><span class="icon aui-icon aui-icon-small aui-iconfont-devtools-tag"></span></button></div><div id="content-title-div"><input type="text" name="title" id="content-title" tabindex="1" class="text pagetitle" autocomplete="off" value="Floodlight REST API" placeholder="Page title"></div></div></div>
+            
+    <div id="wysiwyg">
+        <div id="rte" class="cell editor-default">
+            <textarea id="wysiwygTextarea" name="wysiwygContent" class="hidden tinymce-editor"></textarea>
+        </div>
+    </div>
+    <div id="editor-html-source-container" class="hidden">
+        <textarea id="editor-html-source" class="monospaceInput"></textarea>
+    </div>
+
+    <div id="preview">
+                        <div id="previewArea" class="cell">
+        </div>
+    </div>
+
+            <div id="savebar-container"><div id="rte-savebar" class="aui-toolbar aui-toolbar2"><div class="toolbar-split toolbar-split-row"><div class="toolbar-split toolbar-split-left"><div class="aui-buttons"></div></div><div class="toolbar-split toolbar-split-right"><div id="pluggable-status-container" class="toolbar-item rte-toolbar-pluggable-status"><div id="pluggable-status"></div></div><div class="aui-buttons" id="rte-savebar-tinymce-plugin-point"></div><div class="aui-buttons"><span id="rte-spinner" class="toolbar-item ">&nbsp;</span></div><div class="aui-buttons toolbar-group-edit assistive"><button id="rte-button-edit" class="aui-button" title="Return To edit Mode" type="button"><span class="trigger-text">Edit</span></button></div><div class="aui-buttons toolbar-group-preview"><button class="aui-button toolbar-item aui-button-light" id="rte-button-preview" title="Preview" type="button"><span class="trigger-text">Preview</span></button></div><div class="save-button-container"><button class="aui-button aui-button-primary" type="submit" id="rte-button-publish" name="confirm" value="Save" title="Save"><span class="trigger-text">Save</span></button></div><button class="toolbar-item-link aui-button aui-button-link" type="submit" id="rte-button-cancel" name="cancel" value="cancel">Close</button></div></div></div></div>
+    
+
+    
+</div>
+
+
+
+<script type="text/x-template" title="dynamic-editor-metadata" id="dynamic-editor-metadata-template">
+            <meta name="ajs-use-watch" content="false">
+            <meta name="ajs-attachment-source-content-id" content="1343539">
+            <meta name="ajs-use-inline-tasks" content="true">
+            <meta name="ajs-heartbeat" content="true">
+            <meta name="ajs-action-locale" content="en_GB">
+            <meta name="ajs-editor-plugin-resource-prefix" content="/wiki/s/-2047315915/6452/7fd5226df755093a2717a96b673b81cc0aac16c4/1000.607.0/_">
+            <meta name="ajs-edit-mode" content="legacy">
+            <meta name="ajs-user-watching-own-content" content="false">
+            <meta name="ajs-new-page" content="false">
+            <meta name="ajs-editor-mode" content="richtext">
+            <meta name="ajs-auto-start" content="false">
+            <meta name="ajs-conf-revision" content="confluence$content$1343539.42">
+            <meta name="ajs-sync-revision-source" content="">
+            <meta name="ajs-draft-id" content="0">
+            <meta name="ajs-draft-share-id" content="">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-editor-frontend-enabled" content="true">
+            <meta name="ajs-collaborative-editor-status" content="">
+            <meta name="ajs-existing-draft-id" content="0">
+            <meta name="ajs-content-id" content="1343539">
+            <meta name="ajs-form-name" content="inlinecommentform">
+            <meta name="ajs-can-attach-files" content="false">
+            <meta name="ajs-show-draft-message" content="false">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-min-editor-height" content="150">
+            <meta name="ajs-version-comment" content="">
+            <meta name="ajs-draft-type" content="page">
+                
+                <meta name="ajs-synchrony-token" content="">
+    <meta name="ajs-synchrony-service-uri" content="">
+    <meta name="ajs-synchrony-resources-uri" content="">
+    <meta name="ajs-synchrony-app-id" content="">
+    <meta name="ajs-synchrony-dark-enabled" content="false">
+    <meta name="ajs-synchrony-expiry" content="">
+    <meta name="ajs-use-xhr-fallback" content="">
+
+            		    <meta name="ajs-max-thumb-width" content="300">
+		    <meta name="ajs-max-thumb-height" content="300">
+		    <meta name="ajs-can-send-email" content="true">
+		    <meta name="ajs-is-dev-mode" content="false">
+		    <meta name="ajs-draft-save-interval" content="30000">
+		    <meta name="ajs-show-hidden-user-macros" content="false">
+		    <meta name="ajs-is-admin" content="false">
+		    <meta name="ajs-heartbeat-interval" content="30000">
+	
+    </script>
+
+<script type="text/x-template" title="tableForm" id="table-form-template">
+    <form id="tinymce-table-form" class="aui">
+        <div class="field-group">
+            <label for="rows">Rows</label>
+            <input id="rows" name="rows" type="text" size="3" autocomplete="off" value="{0}">
+        </div>
+        <div class="field-group">
+            <label for="cols">Columns</label>
+            <input id="cols" name="cols" type="text" size="3" autocomplete="off" value="{1}">
+        </div>
+        <div class="field-group hidden">
+            <input id="width" type="hidden" name="width" value="">
+            <label for="width">Width</label>
+        </div>
+        <div class="group">
+            <div class="checkbox">
+                <input id="table-heading-checkbox" class="checkbox" type="checkbox" name="heading" checked="checked" value="true">
+                <label for="table-heading-checkbox">First row is heading</label>
+            </div>
+        </div>
+        <div class="group hidden">
+            <div class="checkbox">
+                <input id="table-equal-width-columns-checkbox" class="checkbox" type="checkbox" name="equal-width-columns" value="false">
+                <label for="table-equal-width-columns-checkbox">Equal width columns</label>
+            </div>
+        </div>
+    </form>
+</script>
+<input type="hidden" name="draftId" value="0" id="draftId"><input type="hidden" name="originalVersion" value="44" id="originalVersion">
+<input type="hidden" name="syncRev" value="dummy-sync-rev" id="syncRev">    <input type="hidden" name="atl_token" value="edf0c22c16b70b11eb81be06bf9f9c7f8d206667">
+</div><div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="content-hover-0" class="ajs-content-hover aui-box-shadow" style="display: none;"><div class="contents" style="width: 300px;"></div></div><div id="content-hover-1" class="ajs-content-hover aui-box-shadow" style="display: none;"><div class="contents" style="width: 300px;"></div></div></body></html>

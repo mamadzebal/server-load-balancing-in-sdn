@@ -1,0 +1,4 @@
+Number of Request is: 1 
+Total Time is: 26 milliseconds 
+Time For each Request is: 26 milliseconds 
+Throughput(Request per Second) is: 38

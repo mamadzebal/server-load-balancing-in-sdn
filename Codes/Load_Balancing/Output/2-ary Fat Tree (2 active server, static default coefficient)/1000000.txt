@@ -1,0 +1,4 @@
+Number of Request is: 1000000 
+Total Time is: 4171003 milliseconds 
+Time For each Request is: 4 milliseconds 
+Throughput(Request per Second) is: 239

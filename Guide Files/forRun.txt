@@ -1,0 +1,35 @@
+
+sudo mn --controller=remote,ip=127.0.0.1,port=6653 --switch ovsk,protocols=OpenFlow13 --topo=tree,3
+pingall
+h5 python -m SimpleHTTPServer 80 &
+h6 python -m SimpleHTTPServer 80 &
+py h5.MAC()
+py h6.MAC()
+
+h1 wget -O - 10.0.0.200
+
+-----------------------------------------------------
+/home/mohammad/Desktop/SDN/Thesis/test/createVIP.sh
+/root/addToCron.sh localhost 8080
+nano /root/serverScript/scheduledScript.sh
+	edit MACAddresses ...
+crontab -e
+	save crontab
+watch -n1 "ls /root/serverScript/"
+
+-------------------------    after run   ---------------------------------------- 
+exit 
+	on mininet
+rm -rf /root/serverScript/
+crontab -e
+	delete crontab
+
+
+
+================================================
+in /root/serverScript/sendServerInfo.sh:
+
+curl -X POST -d '{"mac":"","address":"10.0.0.5","numprocess":"8","cpucapacity":"800","cpu":"80.00","memcapacity":"888888","memory":"6666","diskcapacity":"10000","tps":"1000","tcpcapacity":"2000","tcp":"200"}' http://127.0.0.1:8080/wm/retrieveInfo/v1.0/server/
+
+curl -X POST -d '{"mac":"","address":"10.0.0.6","numprocess":"8","cpucapacity":"800","cpu":"80.00","memcapacity":"888888","memory":"88666","diskcapacity":"10000","tps":"6000","tcpcapacity":"2000","tcp":"1000"}' http://127.0.0.1:8080/wm/retrieveInfo/v1.0/server/
+

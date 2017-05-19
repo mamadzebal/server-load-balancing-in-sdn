@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                                <title>How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    
+    
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+
+<meta id="confluence-context-path" name="confluence-context-path" content="/wiki">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://floodlight.atlassian.net/wiki">
+
+<meta id="atlassian-token" name="atlassian-token" content="66409b7f1c3103f3c31ca3cf368a5dcc2298e9b0">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="floodlightcontroller">
+<script type="text/javascript">
+        var contextPath = '/wiki';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1481284905656">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="37d1dfa12c850107f947f91bded83c6c">
+            <meta id="team-calendars-has-jira-link" content="true">
+            <meta name="ajs-team-calendars-display-time-format" content="displayTimeFormat12">
+            <meta id="team-calendars-display-week-number" content="false">
+            <meta id="team-calendars-user-timezone" content="America/New_York">
+            <script type="text/x-template" id="team-calendars-messages" title="team-calendars-messages"><fieldset class="i18n hidden"><input type="hidden" name="calendar3.month.long.july" value="July"><input type="hidden" name="calendar3.day.short.wednesday" value="Wed"><input type="hidden" name="calendar3.day.short.thursday" value="Thu"><input type="hidden" name="calendar3.month.short.march" value="Mar"><input type="hidden" name="calendar3.month.long.april" value="April"><input type="hidden" name="calendar3.month.long.october" value="October"><input type="hidden" name="calendar3.month.long.august" value="August"><input type="hidden" name="calendar3.month.short.july" value="Jul"><input type="hidden" name="calendar3.month.short.may" value="May"><input type="hidden" name="calendar3.month.short.november" value="Nov"><input type="hidden" name="calendar3.day.long.friday" value="Friday"><input type="hidden" name="calendar3.day.long.sunday" value="Sunday"><input type="hidden" name="calendar3.day.long.saturday" value="Saturday"><input type="hidden" name="calendar3.month.short.april" value="Apr"><input type="hidden" name="calendar3.day.long.wednesday" value="Wednesday"><input type="hidden" name="calendar3.month.long.december" value="December"><input type="hidden" name="calendar3.month.short.october" value="Oct"><input type="hidden" name="calendar3.day.long.monday" value="Monday"><input type="hidden" name="calendar3.month.short.june" value="Jun"><input type="hidden" name="calendar3.day.short.monday" value="Mon"><input type="hidden" name="calendar3.day.short.tuesday" value="Tue"><input type="hidden" name="calendar3.day.short.saturday" value="Sat"><input type="hidden" name="calendar3.month.long.march" value="March"><input type="hidden" name="calendar3.month.long.june" value="June"><input type="hidden" name="calendar3.month.short.february" value="Feb"><input type="hidden" name="calendar3.month.short.august" value="Aug"><input type="hidden" name="calendar3.month.short.december" value="Dec"><input type="hidden" name="calendar3.day.short.sunday" value="Sun"><input type="hidden" name="calendar3.month.long.february" value="February"><input type="hidden" name="calendar3.day.long.tuesday" value="Tuesday"><input type="hidden" name="calendar3.month.long.may" value="May"><input type="hidden" name="calendar3.month.long.september" value="September"><input type="hidden" name="calendar3.month.long.november" value="November"><input type="hidden" name="calendar3.month.short.january" value="Jan"><input type="hidden" name="calendar3.month.short.september" value="Sep"><input type="hidden" name="calendar3.day.long.thursday" value="Thursday"><input type="hidden" name="calendar3.month.long.january" value="January"><input type="hidden" name="calendar3.day.short.friday" value="Fri"></fieldset></script>
+            
+
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMERCIAL&gt;">
+<meta name="gliffy-license-quantity" content="201">
+
+            
+    
+    
+            <meta name="ajs-page-id" content="21856267">
+            <meta name="ajs-latest-page-id" content="21856267">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="How to Collect Switch Statistics (and Compute Bandwidth Utilization)">
+            <meta name="ajs-latest-published-page-title" content="How to Collect Switch Statistics (and Compute Bandwidth Utilization)">
+            <meta name="ajs-parent-page-title" content="Tutorials">
+            <meta name="ajs-parent-page-id" content="1343514">
+            <meta name="ajs-space-key" content="floodlightcontroller">
+            <meta name="ajs-space-name" content="Floodlight Controller">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/wiki">
+            <meta name="ajs-base-url" content="https://floodlight.atlassian.net/wiki">
+            <meta name="ajs-version-number" content="1000.655.0">
+            <meta name="ajs-build-number" content="6452">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-remote-user-has-licensed-access" content="false">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-current-user-avatar-uri-reference" content="/wiki/images/icons/profilepics/anonymous.png">
+            <meta name="ajs-static-resource-url-prefix" content="/wiki/s/-1473185510/6452/ced864aa0a955b6ef92865c7d3ca599c4c790649/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="10485760000000">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="connect.authentication.oauth2.impersonation,synchrony.coming-soon.banner.disable,confluence.view.edit.transition,confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,rotp.admin.shortcuts,filestore.thumbnail,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,vertigo.space.finder,onboarding.demospaces.creation,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,filestore.direct.download,jquery.external,unified.usermanagement,sidebar.deferred,file-annotations,confluence.efi.onboarding.rich.space.content,frontend.editor.plugins,unified.usermanagement.licensing.users.disable,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,com.atlassian.growth.experiments.aesJavaClient,confluence.vertigo.space.finder,confluence.sidebar.deferred,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentReplyEvent,confluence.baseurl.cdn.enabled,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,confluence.attachment.index.media,connect.no-applinks,confluence.table.resizable,notification.batch,react.ui.dashboard,mention.service.userbase.sync.enabled,confluence-inline-comments-rich-editor,unified.permissions,confluence.non.polling.index.flush,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,site-wide.synchrony.opt-in,rotp.project.shortcuts,com.atlassian.growth.shakuni.disabled,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,baseurl.cdn.enabled,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingWelcomeEmailEvent,filestore.direct.upload,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,quick-reload-inline-comments-flags,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent,jquery.feature.detection.cache,clc.quick.create,cql.search.screen,filestore.direct.download.debug.caching,nps.survey.inline.dialog,confluence.efi.onboarding.new.templates,fabric.mentions,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,collaborative-audit-log,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,confluence.wrap.macro,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,editor.ajax.save,app-switcher.new,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,attachment.index.media,fusion.bitbucket.rebrand,file-annotations.likes,confluence.pagenav.deferred,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,early.header.flush">
+            <meta name="ajs-atl-token" content="66409b7f1c3103f3c31ca3cf368a5dcc2298e9b0">
+            <meta name="ajs-confluence-flavour" content="ALACARTE">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-iframe-allowed-for-spa" content="false">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://floodlight.atlassian.net/wiki/s/-1473185510/6452/ced864aa0a955b6ef92865c7d3ca599c4c790649/16/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://floodlight.atlassian.net/wiki/s/-1473185510/6452/ced864aa0a955b6ef92865c7d3ca599c4c790649/16/_/favicon.ico">
+
+    <!-- 0.0.15-624 --><!-- Fallback mode enabled --><script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/fallback-mode.5d1484aafde3817d42f1.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://floodlight.atlassian.net/wiki/opensearch/osd.action" title="Project Floodlight">
+    
+                        
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+                
+
+    <!-- Styles -->
+            <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/wiki\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":false,\"conditionsMet\":false,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:confluence-atlassian-connect-autoconvert-resources.connect-autoconvert-data"]="null";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:confluence-atlassian-connect-content-byline-resources.connect-content-byline-data"]="{}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-help-paths"]="{\"entries\":{\"applinks.docs.root\":\"https://confluence.atlassian.com/display/APPLINKS-061/\",\"applinks.docs.diagnostics.troubleshoot.sslunmatched\":\"SSL+and+application+link+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.oauthsignatureinvalid\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.oauthtimestamprefused\":\"OAuth+troubleshooting+guide\",\"applinks.docs.delete.entity.link\":\"Create+links+between+projects\",\"applinks.docs.adding.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.administration.guide\":\"Application+Links+Documentation\",\"applinks.docs.oauth.security\":\"OAuth+security+for+application+links\",\"applinks.docs.troubleshoot.application.links\":\"Troubleshoot+application+links\",\"applinks.docs.diagnostics.troubleshoot.unknownerror\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.trusted.apps\":\"Configuring+Trusted+Applications+authentication+for+an+application+link\",\"applinks.docs.diagnostics.troubleshoot.authlevelunsupported\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.ssluntrusted\":\"SSL+and+application+link+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.unknownhost\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.delete.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.link.applications\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.diagnostics.troubleshoot.oauthproblem\":\"OAuth+troubleshooting+guide\",\"applinks.docs.diagnostics.troubleshoot.migration\":\"Update+application+links+to+use+OAuth\",\"applinks.docs.relocate.application.link\":\"Link+Atlassian+applications+to+work+together\",\"applinks.docs.administering.entity.links\":\"Create+links+between+projects\",\"applinks.docs.upgrade.application.link\":\"OAuth+security+for+application+links\",\"applinks.docs.diagnostics.troubleshoot.connectionrefused\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.oauth\":\"OAuth+security+for+application+links\",\"applinks.docs.insufficient.remote.permission\":\"OAuth+security+for+application+links\",\"applinks.docs.configuring.application.link.auth\":\"OAuth+security+for+application+links\",\"applinks.docs.diagnostics\":\"Application+links+diagnostics\",\"applinks.docs.configured.authentication.types\":\"OAuth+security+for+application+links\",\"applinks.docs.adding.entity.link\":\"Create+links+between+projects\",\"applinks.docs.diagnostics.troubleshoot.unexpectedresponse\":\"Network+and+connectivity+troubleshooting+guide\",\"applinks.docs.configuring.auth.basic\":\"Configuring+Basic+HTTP+Authentication+for+an+Application+Link\",\"applinks.docs.diagnostics.troubleshoot.authlevelmismatch\":\"OAuth+troubleshooting+guide\"}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.applinks-types"]="{\"crowd\":\"Crowd\",\"confluence\":\"Confluence\",\"remote.plugin.container\":\"Atlassian Connect\",\"fecru\":\"FishEye / Crucible\",\"stash\":\"Stash\",\"jira\":\"JIRA\",\"refapp\":\"Reference Application\",\"bamboo\":\"Bamboo\",\"generic\":\"Generic Application\"}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.entity-types"]="{\"singular\":{\"refapp.charlie\":\"Charlie\",\"fecru.project\":\"Crucible Project\",\"fecru.repository\":\"FishEye Repository\",\"stash.project\":\"Stash Project\",\"generic.entity\":\"Generic Project\",\"confluence.space\":\"Confluence Space\",\"bamboo.project\":\"Bamboo Project\",\"jira.project\":\"JIRA Project\"},\"plural\":{\"refapp.charlie\":\"Charlies\",\"fecru.project\":\"Crucible Projects\",\"fecru.repository\":\"FishEye Repositories\",\"stash.project\":\"Stash Projects\",\"generic.entity\":\"Generic Projects\",\"confluence.space\":\"Confluence Spaces\",\"bamboo.project\":\"Bamboo Projects\",\"jira.project\":\"JIRA Projects\"}}";
+WRM._unparsedData["com.atlassian.applinks.applinks-plugin:applinks-common-exported.authentication-types"]="{\"com.atlassian.applinks.api.auth.types.BasicAuthenticationProvider\":\"Basic Access\",\"com.atlassian.applinks.api.auth.types.TrustedAppsAuthenticationProvider\":\"Trusted Applications\",\"com.atlassian.applinks.api.auth.types.CorsAuthenticationProvider\":\"CORS\",\"com.atlassian.applinks.api.auth.types.OAuthAuthenticationProvider\":\"OAuth\",\"com.atlassian.applinks.api.auth.types.TwoLeggedOAuthAuthenticationProvider\":\"OAuth\",\"com.atlassian.applinks.api.auth.types.TwoLeggedOAuthWithImpersonationAuthenticationProvider\":\"OAuth\"}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:icons-css-resources.iconsCssData"]="{}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-connect-plugin:dialog-options.data"]="{\"dialogOptions\":{},\"inlineDialogOptions\":{},\"dialogModules\":{}}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.crowd.user-provisioning-plugin:create-users-resources.isSiteAdmin"]="false";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/batch(1).css" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/batch(2).css" media="print" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context">
+<link type="text/css" rel="stylesheet" href="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/org.randombits.confluence.toc-client-side-toc-resources.css" data-wrm-key="org.randombits.confluence.toc:client-side-toc-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-like-content-like-resources.css" data-wrm-key="com.atlassian.confluence.plugins.confluence-like:content-like-resources" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-spacesidebar.css" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="//d1ixbz5qgnvms3.cloudfront.net/floodlight.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-1473185510/6452/ced864aa0a955b6ef92865c7d3ca599c4c790649/1000.0.11/_/download/batch/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar.css?conditionalComment=lt+IE+9&amp;relative-url=true" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" media="all">
+<![endif]-->
+
+    
+    
+    <!-- Dynamically generated colors styles -->
+    <link type="text/css" rel="stylesheet" href="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/colors.css" media="all">
+
+    <!-- Scripts -->
+            <script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/jquery-1.7.2-confluence-v5.js"></script>
+<script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/batch.js" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/batch(3).js" data-wrm-key="atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,atl.comments,-_super" data-wrm-batch-type="context" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/org.randombits.confluence.toc-client-side-toc-resources.js" data-wrm-key="org.randombits.confluence.toc:client-side-toc-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-like-content-like-resources.js" data-wrm-key="com.atlassian.confluence.plugins.confluence-like:content-like-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-soy-resources.js" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:soy-resources" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/com.atlassian.confluence.plugins.confluence-space-ia-spacesidebar.js" data-wrm-key="com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar" data-wrm-batch-type="resource" data-initially-rendered=""></script>
+<script type="text/javascript" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/main.js" defer=""></script>
+                
+    
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Project Floodlight">
+            
+
+    
+
+    
+                <link rel="canonical" href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267">
+        <link rel="shortlink" href="https://floodlight.atlassian.net/wiki/x/C4BNAQ">
+    <meta name="wikilink" content="[floodlightcontroller:How to Collect Switch Statistics (and Compute Bandwidth Utilization)]">
+    <meta name="page-version" content="23">
+    <meta name="ajs-page-version" content="23">
+
+    </head>
+
+
+    
+<body id="com-atlassian-confluence" class="theme-default  content-type-page aui-layout aui-theme-default">
+
+        
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#title-heading">Skip to content</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#navigation">Skip to action menu</a></li>
+    <li><a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+
+                            
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-controls="app-switcher" aria-haspopup="true" role="button" tabindex="0" data-aui-trigger="" href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default" role="menu" aria-hidden="true" data-is-switcher="true" data-environment="{&quot;isUserAdmin&quot;:false,&quot;isAppSuggestionAvailable&quot;:false,&quot;isSiteAdminUser&quot;:false}"><div role="application"><div class="app-switcher-loading">Loading…</div></div></div></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://floodlight.atlassian.net/wiki/"><img src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/atl.site.logo" alt="Project Floodlight"><span class="aui-header-logo-text">Project Floodlight</span></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a id="space-directory-link" href="https://floodlight.atlassian.net/wiki/spacedirectory/view.action" class=" aui-nav-imagelink" title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                    <li>
+            
+    
+        
+<a id="people-directory-link" href="https://floodlight.atlassian.net/wiki/browsepeople.action" class=" aui-nav-imagelink" title="People">
+            <span>People</span>
+    </a>
+        </li>
+                                        <li class="aui-buttons">
+            </li>
+    </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://floodlight.atlassian.net/wiki/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accesskey="q" autocomplete="off" name="queryString" title="Quick Search"><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a id="confluence-help-link" href="https://confluence.atlassian.com/display/ConfCloud/" class="    " title="Visit the Confluence documentation home" target="_blank">
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="keyboard-shortcuts-link" href="https://floodlight.atlassian.net/wiki" class="    " title="View available keyboard shortcuts">
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="feed-builder-link" href="https://floodlight.atlassian.net/wiki/dashboard/configurerssfeed.action" class="    " title="Create your custom RSS feed.">
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="whats-new-menu-link" href="https://confluence.atlassian.com/x/cLPwK" class="    " title="See what’s new in Confluence">
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="site-status-menu-link" href="http://status.atlassian.com/" class="    " title="Check the health of Confluence" target="_blank">
+        Site Status
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="gadget-directory-link" href="https://floodlight.atlassian.net/wiki" class="   user-item administration-link " title="Browse gadgets provided by Confluence">
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="confluence-about-link" href="https://floodlight.atlassian.net/wiki/aboutconfluencepage.action" class="    " title="Get more information about Confluence">
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            </li><li>
+        
+            
+<a id="login-link" href="https://floodlight.atlassian.net/wiki/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D21856267" class="   user-item login-link " title="">
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a id="signup-link" href="https://floodlight.atlassian.net/admin/users/sign-up" class="   user-item signup-link " title="">
+        Sign up
+</a>
+</li>
+                        
+    
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+    
+        
+        
+            <div class="ia-splitter">
+                <div class="ia-splitter-left">
+                                                                
+    
+                        <div class="ia-fixed-sidebar">
+                                                                                                <div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo" data-key="floodlightcontroller" data-name="Floodlight Controller" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation" title="Floodlight Controller"><img class="avatar-img" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/floodlightcontroller" alt="Floodlight Controller"></a></div></div></div></div><div class="space-information-container"><div class="name"><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation" title="Floodlight Controller">Floodlight Controller</a></div><div class="flyout-handle icon"></div></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-page-tree-state="null" data-nav-type="page-tree"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://floodlight.atlassian.net/wiki/pages/viewrecentblogposts.action?key=floodlightcontroller" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="page-tree"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title page-tree"><span class="icon"></span><span class="label">Page tree</span></h5></div><div class="ia-secondary-content">
+
+
+<div class="plugin_pagetree conf-macro output-inline" data-hasbody="false" data-macro-name="pagetree">
+
+        
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children">
+        </div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/wiki/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=true">
+        <input type="hidden" name="treePageId" value="21856267">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="1343545">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="floodlightcontroller">
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/wiki/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D21856267">
+        <input type="hidden" name="mobile" value="false">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="1343514">
+                                    <input type="hidden" name="ancestorId" value="1343556">
+                                    <input type="hidden" name="ancestorId" value="1343545">
+                                    </fieldset>
+    </fieldset>
+</div>
+</div></div></div><div class="hidden"><a href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="/wiki/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/wiki/pages/reorderpages.action?key=floodlightcontroller">Browse pages</div></div><button id="space-tools-menu-trigger" class=" aui-dropdown2-trigger aui-button aui-button-subtle tipsy-enabled" aria-controls="space-tools-menu" aria-haspopup="true" role="button" data-aui-trigger=""><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="aui-button-label">Space tools</span><span class="icon aui-icon-dropdown"></span></button><div id="space-tools-menu" class="aui-dropdown2 aui-style-default space-tools-dropdown" role="menu" aria-hidden="true" data-aui-alignment="top left"><div role="application"></div></div><a class="expand-collapse-trigger"></a></div>
+                                                                                    </div>
+                                    </div>
+                <!-- \#header -->
+
+            
+                
+        <div id="main" class=" aui-page-panel ">
+                <div class="connect-theme-background-cover"></div>
+                                                <div id="main-header">
+                                                                                            <content tag="content-navigation">
+    <div id="navigation" class="content-navigation view">
+                    <!-- putMetadata failed to add value for key "page-id" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-page-id" content="21856267">
+            <ul class="ajs-menu-bar">
+                                            
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                            <div class="aui-dropdown2-section">
+                    <ul id="action-menu-primary" class="section-primary first">
+                                                    <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-attachments-link" href="https://floodlight.atlassian.net/wiki/pages/viewpageattachments.action?pageId=21856267" rel="nofollow" class="action-view-attachments" accesskey="t" title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-history-link" href="https://floodlight.atlassian.net/wiki/pages/viewpreviousversions.action?pageId=21856267" rel="nofollow" class="action-view-history" title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul id="action-menu-secondary" class="section-secondary">
+                                                    <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-page-info-link" href="https://floodlight.atlassian.net/wiki/pages/viewinfo.action?pageId=21856267" rel="nofollow" class="action-view-info" title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-resolved-comments" href="https://floodlight.atlassian.net/wiki" rel="nofollow" class="" title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="link-to-page-link" href="https://floodlight.atlassian.net/wiki/pages/viewinfo.action?pageId=21856267" rel="nofollow" class="action-link-page" title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="view-in-hierarchy-link" href="https://floodlight.atlassian.net/wiki/pages/reorderpages.action?key=floodlightcontroller&amp;openId=21856267#selectedPageInHierarchy" rel="nofollow" class="" title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-view-source-link" href="https://floodlight.atlassian.net/wiki/plugins/viewsource/viewpagesrc.action?pageId=21856267" rel="nofollow" class="action-view-source popup-link" title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-pdf-link" href="https://floodlight.atlassian.net/wiki/spaces/flyingpdf/pdfpageexport.action?pageId=21856267" rel="nofollow" class="" title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                                <li>
+
+    
+        
+                                            
+    
+    
+    <a id="action-export-word-link" href="https://floodlight.atlassian.net/wiki/exportword?pageId=21856267" rel="nofollow" class="action-export-word" title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                        </ul>
+                </div>
+                    </div>
+    </li>
+            </ul>
+    </div>
+</content>
+                                        
+                    
+                    <div id="title-heading" class="pagetitle with-breadcrumbs">
+                        
+                                                    <div id="breadcrumb-section">
+                                
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/collector/pages.action?key=floodlightcontroller">Pages</a></span>
+                                                                                                            </li><li id="ellipsis" title="Show all breadcrumbs"><span><strong>…</strong></span></li>
+                                                
+                        
+        <li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+Documentation">Floodlight Documentation</a></span>
+                                                                                                    
+                        
+        </li><li class="hidden-crumb">
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/For+Developers">For Developers</a></span>
+                                                                                    
+                        
+        </li><li>
+                        
+                            <span class=""><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Tutorials">Tutorials</a></span>
+                                                                    </li></ol>
+
+
+                            </div>
+                        
+                        
+        <a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267" title="Unrestricted" id="content-metadata-page-restrictions-hidden" class="hidden"></a></li><li class="page-metadata-item noprint has-button" id="content-metadata-jira-wrapper"><a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                        <h1 id="title-text" class="with-breadcrumbs">
+                                                                <a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267">How to Collect Switch Statistics (and Compute Bandwidth Utilization)</a>
+                                                    </h1>
+                    </div>
+                </div><!-- \#main-header -->
+            
+                            
+                        
+    
+
+        
+
+
+
+
+            
+    
+
+    
+
+                                
+    
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+    
+                        
+        
+
+    
+    
+
+    
+            
+        
+
+
+
+    
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        
+        
+    
+                                
+    
+
+                    
+
+            
+                            
+
+            
+            <a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+            
+            Created by <span class="author">     <a href="https://floodlight.atlassian.net/wiki/display/~ryan.izard@bigswitch.com" class="url fn confluence-userlink" data-username="ryan.izard@bigswitch.com">Ryan Izard [Administrator]</a></span>, last modified on <a class="last-modified" title="Show changes" href="https://floodlight.atlassian.net/wiki/pages/diffpagesbyversion.action?pageId=21856267&amp;selectedPageVersions=22&amp;selectedPageVersions=23">May 27, 2016</a>
+                </li>
+                    </ul>
+    </div>
+
+
+<a href="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+            
+                                                            
+            <div id="main-content" class="wiki-content">
+                                
+        <div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p>If you are just interested in collecting the statistics for use by a northbound application, you can do so directly using the&nbsp;<a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/Floodlight+REST+API">existing Floodlight REST API</a>.</p></div></div><div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p><span>It is assumed you are familiar with </span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+Write+a+Module">how to write a module</a><span> and the </span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+use+OpenFlowJ-Loxigen">OpenFlowJ-Loxi API</a><span>. Also, please be familiar with these tutorials if you are interested in </span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module">adding a REST API</a><span> or </span><a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+Add+Services+to+a+Module">exposing a service</a><span> in your own module (they are not required for comprehension of this tutorial though).</span></p></div></div><p><span style="font-size: 24.0px;">Table of Contents</span></p><p></p><div class="toc-macro client-side-toc-macro  conf-macro output-block" data-numberedoutline="true" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-excludeheaderregex="Table of Contents" data-hasbody="false" data-macro-name="toc"> </div><p></p><h1 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-Introduction">Introduction</h1><p>I have been asked many times personally and on&nbsp;<a href="mailto:floodlight-dev@openflowhub.org" class="external-link" rel="nofollow">floodlight-dev@openflowhub.org</a>&nbsp;about&nbsp;how to collect switch statistics in OpenFlow. Specifically, how to determine port bandwidth consumption is a frequently asked question. As such, here's a tutorial on how to determine the bandwidth used by switch ports&nbsp;<img class="emoticon emoticon-smile" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/smile.png" data-emoticon-name="smile" alt="(smile)">.&nbsp;<strong>This has been completed for you as a Floodlight module</strong>&nbsp;in the&nbsp;<a href="https://github.com/floodlight/floodlight/tree/master/src/main/java/net/floodlightcontroller/statistics" class="external-link" rel="nofollow">net.floodlightcontroller.statistics package</a>&nbsp;and is available as of 12/14/15 in the Floodlight master branch.&nbsp;As such, there is no code you will write in this guide. The goal of this tutorial is to walk you through how the module works, such that you can either use it as-is or modify it to suit your use case.</p><p>OpenFlow has many statistics messages to allow the controller to query the switch for information about its running state. Examples include flow stats, meter stats, queue stats, aggregate stats, table stats, and port stats. You can even define custom experimenter statistics to retrieve some user-defined information (which requires modifying the switch and controller to support). Being able to collect this information is great, however it should be noted that these statistics are "snapshot" statistics. What I mean by this is that any data queried was valid at the time it was ascertained for inclusion in the stats reply message. However, by the time the controller receives the message, the values within the message are most likely out of date and do not reflect the real-time state of the switch anymore. Fortunately, for many applications, this slight inaccuracy is tolerable or negligible.</p><p>Statistics collection for use in real-time algorithms is one of the disadvantages of having a disjoint control and data plane. This disadvantage is more prominent for a controller that is geographically distant with a large link latency to its switches. As such, any reactive algorithms in place in the controller that rely on statistics collection need to take into account the inherit inaccuracy and possible delay present in the process. Not to mention there is messaging overhead that must occur in order to collect the statistics, which might be undesirable and introduce even more varied delay for a heavily-loaded controller.</p><p>In many cases though, these disadvantages present in OpenFlow statistics collection can be ignored, especially if your algorithm passively observes statistics, if your controller is located in close proximity to your switches, or if you just need a "ballpark" figure for the statistics. Let's say for example that you wish to allow users to use the fast path of the network until they surpass a certain threshold of transmitted or received data. You could periodically observe the byte counters of user flows to determine (1) when they have surpassed your defined threshold and (2) when to move their traffic to a slower path. It probably wouldn't hurt to query the flow byte counters every 30s, and the difference between the real time and sample time byte counters would probably be negligible. Worst-case scenario, a user gets an extra ~29 seconds of the fast path. (Of course, you could tune this to be more accurate, but it's just a simple example.)</p><p>In this tutorial, we will discuss how to compute the bandwidth consumed on a switch port. A module has been created for you to perform this operation. The pros and cons of the approach are discussed, along with how the module works, how you can use it, and how you could modify it to suit your needs.</p><h1 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-Computingbandwidthconsumption">Computing bandwidth consumption</h1><p>Notice that the throttling example above is just looking at raw byte counters and has no notion of time. What if we want to determine some statistic that is dependent on time, such as bandwidth? OpenFlow does not provide a way to collect such values from the switch. The controller needs to make sense of the raw statistics values (i.e. counters in most cases) returned by the "snapshot" statistics outlined above. To determine bandwidth consumption, we can use byte counters returned at two points in time. The difference between these two counters divided by the time elapsed between the "snapshot" point of each counter value yields the bandwidth. There is some inaccuracy in this approach, however, namely:</p><ul><li>Timestamping of statistics collection</li><li>Control plane latency</li><li>Statistics collection interval</li></ul><p>The timestamp of when the statistics were collected is&nbsp;<strong>not</strong> included in the statistics reply sent by the switch (although if it was it would be much easier on the controller and more accurate&nbsp;– are you reading this OF spec writers <img class="emoticon emoticon-wink" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/wink.png" data-emoticon-name="wink" alt="(wink)">). As such, the controller must note when either the stats request was sent, when the stats reply arrived, or perhaps estimate some point in between these two times as to when the statistics were actually collected. The control plane latency will of course impact the timestamp recorded as well. If there is variation in the latency (and there typically is in real networks), it can impact the bandwidth values computed.</p><p>When computing bandwidth, there are two approaches:</p><ol><li>Issue lots of stats requests and compute the bandwidth frequently to attempt to keep up with the real time bandwidth consumption.</li><li>Issue less frequent stats requests and compute and update the bandwidth less frequently.</li></ol><p>The first approach would in theory yield more up-to-date bandwidth values; however, the error present in computing timestamps could account for a significant portion of the elapsed time used in the bandwidth calculation. In a control plane with latencies that vary slightly and are small, the bandwidth consumption as computed using frequent stats requests could appear to jump sporadically despite constant traffic flows. The second approach allows the slight millisecond-scale inaccuracies present in timestamping to be smoothed into the much larger time elapsed between computation intervals, making the error less significant. The downside to this approach though is not being able to get bandwidth values updated in near real-time.</p><p>This tutorial and the statistics module discussed uses a blend of these two approaching, giving the user the ability to decide the interval between when statistics requests are sent and bandwidth is computed. The default interval is set to 10s, meaning the bandwidth will be reassessed every 10s. If the control plane latency fluctuates by a few milliseconds, it'll be insignificant relative to the overall wait between stats collection intervals. If we lower this to let's say 1s, we run the risk of a higher error percentage.</p><h1 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-Usingthestatisticsmodule">Using the statistics module</h1><p>The statistics module can be configured from startup using the floodlightdefault.properties file. It can also be configured at runtime using the Floodlight REST API.</p><p>To leverage the statistics module at runtime, the REST API can be used from a northbound application. Alternatively, other Floodlight modules can use the IStatisticsService exposed by the module. The following sections discuss each of these in detail.</p><h2 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-Startupconfiguration">Startup configuration</h2><p>Floodlight stores its startup configuration <a href="https://github.com/floodlight/floodlight/blob/master/src/main/resources/floodlightdefault.properties" class="external-link" rel="nofollow">src/main/resources/floodlightdefault.properties</a>. Add or set the following to modify the startup behavior of the statistics module.</p><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><th class="confluenceTh">Configuration Variable</th><th colspan="1" class="confluenceTh">Description</th><th class="confluenceTh">Values</th><th colspan="1" class="confluenceTh">Default and Notes</th></tr><tr><td class="confluenceTd">net.floodlightcontroller.statistics.enable=&lt;boolean&gt;</td><td colspan="1" class="confluenceTd">Enable or disable the statistics collection module</td><td class="confluenceTd"><p>&lt;boolean&gt; is:</p><p>'TRUE' to enable the module</p><p>'FALSE' to disable the module</p></td><td colspan="1" class="confluenceTd"><p>FALSE</p><p>Stats requests introduce additional overhead, which unless being used are wasteful to send.</p></td></tr><tr><td class="confluenceTd"><span><span>net.floodlightcontroller.statistics.collectionIntervalPortStatsSeconds=&lt;positive-integer&gt;</span></span></td><td colspan="1" class="confluenceTd"><p>Set the interval at which port stats request messages are sent and bandwidth is recomputed</p></td><td class="confluenceTd"><p>&nbsp;&lt;positive-integer&gt; is:</p><p>'1' to issue port stats request each second</p><p>'2' to issue port stats request every 2 seconds</p><p>...</p></td><td colspan="1" class="confluenceTd"><p>10</p><p>Smaller values provide faster updates at the expense of potentially higher error.</p><p>Larger values will result in less frequent bandwidth update, are less likely to contain significant error, but will not show as many peaks and valleys present in real bandwidth consumption.</p></td></tr></tbody></table></div><h2 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-RESTAPI">REST API</h2><p>The statistics module exposes a basic REST API.&nbsp;Note that the REST API is designed such that you can plug in your own statistics types, e.g. if you wanted to return packets per second instead of bandwidth, you could create another API called /wm/statistics/packet/&lt;switch&gt;/&lt;port&gt;/json and perform the necessary computations when it is called. More information on how to create a REST API can be found in <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+add+a+REST+API+to+a+Module">this tutorial</a>.</p><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><th class="confluenceTh">URI</th><th class="confluenceTh">HTTP Command</th><th colspan="1" class="confluenceTh">Parameters</th><th class="confluenceTh">Input</th><th class="confluenceTh">Output</th><th colspan="1" class="confluenceTh">Notes</th></tr><tr><td class="confluenceTd">/wm/statistics/config/enable/json</td><td class="confluenceTd">POST or PUT</td><td colspan="1" class="confluenceTd">n/a</td><td class="confluenceTd">'' (two single quotes; empty string)</td><td class="confluenceTd"><p>{<br> "statistics-collection": "enabled"<br>}</p></td><td colspan="1" class="confluenceTd">Enable statistics collection</td></tr><tr><td colspan="1" class="confluenceTd">/wm/statistics/config/disable/json</td><td colspan="1" class="confluenceTd">POST or PUT</td><td colspan="1" class="confluenceTd">n/a</td><td colspan="1" class="confluenceTd">'' (two single quotes; empty string)</td><td colspan="1" class="confluenceTd"><p>{<br> "statistics-collection": "disabled"<br>}</p></td><td colspan="1" class="confluenceTd">Disable statistics collection</td></tr><tr><td colspan="1" class="confluenceTd">/wm/statistics/bandwidth/&lt;switch&gt;/&lt;port&gt;/json</td><td colspan="1" class="confluenceTd">GET</td><td colspan="1" class="confluenceTd"><p>&lt;switch&gt; = valid colon-delimited switch DPID hex string or number</p><p>&lt;port&gt; = valid switch port number</p></td><td colspan="1" class="confluenceTd">n/a</td><td colspan="1" class="confluenceTd"><p>[<br> {<br> "bits-per-second-rx": "&lt;number&gt;",</p><p>"bits-per-second-tx": "&lt;number&gt;",<br> "dpid": "&lt;hex-string&gt;",<br> "port": "&lt;number&gt;",<br> "updated": "&lt;local-date-time-string&gt;"<br> },<br> ...,</p><p>...<br>]</p></td><td colspan="1" class="confluenceTd"><p>Retrieve bandwidth consumption on a per switch, per port, or combination thereof basis.</p><p>The RX and TX bandwidth is included, along with the timestamp the controller saved the information for the given switch and port.</p></td></tr></tbody></table></div><h2 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-IStatisticsService">IStatisticsService</h2><p>The statistics module implements IStatisticsService, which extends IFloodlightService. All Floodlight services can be leveraged by other Floodlight modules. More information on how to extend and implement an IFloodlightService of your own can be found in <a href="https://floodlight.atlassian.net/wiki/display/floodlightcontroller/How+to+Add+Services+to+a+Module">this tutorial</a>. The following API is exposed by the IStatisticsService:</p><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><th class="confluenceTh">Function</th><th class="confluenceTh">Description</th><th class="confluenceTh">Parameters</th><th colspan="1" class="confluenceTh">Return Value</th></tr><tr><td colspan="1" class="confluenceTd">getBandwidthConsumption(DatapathId dpid, OFPort p)</td><td colspan="1" class="confluenceTd">Get bandwidth stats for a specific switch and switch port</td><td colspan="1" class="confluenceTd"><p>dpid = switch DPID</p><p>p = switch port</p></td><td colspan="1" class="confluenceTd"><p>SwitchPortBandwidth</p><p>null if not found</p></td></tr><tr><td class="confluenceTd">getBandwidthConsumption()</td><td class="confluenceTd">Get all bandwidth stats per switch and switch port</td><td class="confluenceTd">n/a</td><td colspan="1" class="confluenceTd"><p><span>Map&lt;NodePortTuple, SwitchPortBandwidth&gt;</span></p><p><span>empty map if no stats present</span></p></td></tr><tr><td colspan="1" class="confluenceTd">void collectStatistics(boolean collect)</td><td colspan="1" class="confluenceTd">Enable or disable statistics collection</td><td colspan="1" class="confluenceTd"><p>collect = true to enable</p><p>collect = false to disable</p></td><td colspan="1" class="confluenceTd">n/a</td></tr></tbody></table></div><h1 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-CollectingstatisticsinaFloodlightmodule">Collecting statistics in a Floodlight module</h1><p>In this section, I'll walk through how the statistics collection works in Floodlight. The purpose of this is not only to show you how it works, but also to give you an idea about how you can expand it to collect other statistics types if bandwidth is not what you're after. Hopefully you can also find some of the these techniques useful in your own modules&nbsp;<img class="emoticon emoticon-smile" src="./How to Collect Switch Statistics (and Compute Bandwidth Utilization) - Floodlight Controller - Project Floodlight_files/smile.png" data-emoticon-name="smile" alt="(smile)"></p><p>To begin, it should be noted that you should <strong>never</strong> issue&nbsp;<em>synchronous statistics requests</em> in any I/O or listener thread. This will result in blocking other tasks or listeners while you wait on the response. Instead, the recommended way is to use another thread to handle the statistics request and response. This thread is initialized <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L271" class="external-link" rel="nofollow">as follows</a> from the IThreadPoolService Floodlight service (provided by another module):</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">private void startStatisticsCollection() {
+	portStatsCollector = threadPoolService
+		.getScheduledExecutor()
+			.scheduleAtFixedRate(new PortStatsCollector(), portStatsInterval, portStatsInterval, TimeUnit.SECONDS);
+	tentativePortStats.clear();
+	log.warn("Statistics collection thread(s) started");
+}</pre>
+</div></div><p>After portStatsInterval seconds and every portStatsInterval seconds thereafter, the run() function in the PortStatsCollector object created will be executed. Using the portStatsInterval&nbsp;default value of 10 seconds, this means 10s later and every 10s, the run() method will be executed. Note that the ScheduledExecutorService will not allow two run()'s to overlap from different threads. This means that if PortStatsCollector's run() in thread #1 is running and takes more than portStatsInterval seconds to complete, the timer that invokes run() again will simply skip the run() it was going to execute in thread #2 and wait another portStatsInverval seconds to try again. This ensures at most one scheduled thread is running at once. We will use this fact to ensure we have at most one outstanding port stats request for each switch at a given time (from within this module, from this ScheduledFuture).</p><p><a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L84" class="external-link" rel="nofollow">PortStatsCollector</a> implements Runnable and contains the run() function, which will be invoked by the executor at the times and interval set as described above. The bulk of the run() function is for managing the prior port stats replies in order to take the difference in byte counts (required to compute bandwidth). Ignoring that bulk for now, let's consider the call to getSwitchStatistics() within PortStatsCollector&nbsp;<a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L88" class="external-link" rel="nofollow">here</a>. This returns the stats replies for each switch. The source of getSwitchStatistics() is <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L294" class="external-link" rel="nofollow">here</a> and is reproduced below.</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">private Map&lt;DatapathId, List&lt;OFStatsReply&gt;&gt; getSwitchStatistics(Set&lt;DatapathId&gt; dpids, OFStatsType statsType) {
+	HashMap&lt;DatapathId, List&lt;OFStatsReply&gt;&gt; model = new HashMap&lt;DatapathId, List&lt;OFStatsReply&gt;&gt;();
+	List&lt;GetStatisticsThread&gt; activeThreads = new ArrayList&lt;GetStatisticsThread&gt;(dpids.size());
+	List&lt;GetStatisticsThread&gt; pendingRemovalThreads = new ArrayList&lt;GetStatisticsThread&gt;();
+	GetStatisticsThread t;
+	for (DatapathId d : dpids) {
+		t = new GetStatisticsThread(d, statsType);
+		activeThreads.add(t);
+		t.start();
+	}
+
+	/* Join all the threads after the timeout. Set a hard timeout
+	 * of 12 seconds for the threads to finish. If the thread has not
+	 * finished the switch has not replied yet and therefore we won't
+	 * add the switch's stats to the reply.
+	 */
+	for (int iSleepCycles = 0; iSleepCycles &lt; portStatsInterval; iSleepCycles++) {
+		for (GetStatisticsThread curThread : activeThreads) {
+			if (curThread.getState() == State.TERMINATED) {
+				model.put(curThread.getSwitchId(), curThread.getStatisticsReply());
+				pendingRemovalThreads.add(curThread);
+			}
+		}
+		/* remove the threads that have completed the queries to the switches */
+		for (GetStatisticsThread curThread : pendingRemovalThreads) {
+			activeThreads.remove(curThread);
+		}
+
+		/* clear the list so we don't try to double remove them */
+		pendingRemovalThreads.clear();
+
+		/* if we are done finish early */
+		if (activeThreads.isEmpty()) {
+			break;
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			log.error("Interrupted while waiting for statistics", e);
+		}
+	}
+
+	return model;
+}</pre>
+</div></div><p>Because each individual statistics request must wait for an arbitrary amount of time for the response to return, we can also use threads, specifically <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L146" class="external-link" rel="nofollow">GetStatisticsThread</a>, which extends Thread. The algorithm is to (1) spawn a new GetStatisticsThread, one for each switch, (2) poll for the thread(s) to complete, and (3) retrieve the replies from each thread after it completes. Each thread is started (as shown above) <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L303" class="external-link" rel="nofollow">here</a>, which chains into GetStatisticsThread's run() function <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L166" class="external-link" rel="nofollow">here</a>, which finally chains into getSwitchStatistics() <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L349" class="external-link" rel="nofollow">here</a>. The specific statistics request is written to the IOFSwitch object <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L458" class="external-link" rel="nofollow">here</a>. Note the ListenableFuture; this is what will be notified when the response comes back using the Floodlight core OpenFlow connection handler.</p><p>The overloaded getSwitchStatistics() is reproduced in part below. Note how the specific switch statistics type is abstracted away up until this point. Here, the specific statistics message (in our case PORT stats) is sent to the switch. The code is designed this way to increase reuse and support many different statistics types from this module.</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">protected List&lt;OFStatsReply&gt; getSwitchStatistics(DatapathId switchId, OFStatsType statsType) {
+	IOFSwitch sw = switchService.getSwitch(switchId);
+	ListenableFuture&lt;?&gt; future;
+	List&lt;OFStatsReply&gt; values = null;
+	Match match;
+
+	if (sw != null) {
+		OFStatsRequest&lt;?&gt; req = null;
+		switch (statsType) {
+		case FLOW:
+			match = sw.getOFFactory().buildMatch().build();
+			req = sw.getOFFactory().buildFlowStatsRequest()
+				.setMatch(match)
+				.setOutPort(OFPort.ANY)
+				.setTableId(TableId.ALL)
+				.build();
+			break;
+		...
+		...
+		case PORT:
+			req = sw.getOFFactory().buildPortStatsRequest()
+				.setPortNo(OFPort.ANY)
+				.build();
+			break;
+		...
+		...
+		default:
+			log.error("Stats Request Type {} not implemented yet", statsType.name());
+			break;
+		}
+
+		try {
+			if (req != null) {
+				future = sw.writeStatsRequest(req); 
+				values = (List&lt;OFStatsReply&gt;) future.get(portStatsInterval / 2, TimeUnit.SECONDS);
+			}
+		} catch (Exception e) {
+			log.error("Failure retrieving statistics from switch {}. {}", sw, e);
+		}
+	}
+	return values;
+}</pre>
+</div></div><p><em>Side note: For those who are interested, what happens under the hood is the XID of the request will be used to match it's response to the corresponding ListenableFuture. The response is required to share the same XID as the request as stated in the OpenFlow specification. This means that there should not be more than one request with the same XID outstanding at the same time. The OpenFlowJ-Loxi library backing Floodlight ensures this, unless a user module manually sets an XID, breaking this convention.</em></p><p>The replies to each individual statistics request<a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L465" class="external-link" rel="nofollow"> returns from the above getStatisticsRequest() function</a> to the <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L314" class="external-link" rel="nofollow">multithreaded getStatisticsRequest() function</a>, which <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L339" class="external-link" rel="nofollow">then returns</a> to where it <a href="https://github.com/floodlight/floodlight/blob/master/src/main/java/net/floodlightcontroller/statistics/StatisticsCollector.java#L88" class="external-link" rel="nofollow">was called in PortStatsCollector</a>, reproduced below. As shown, the majority of the code in this outer thread is mainly for making sense of the replies in the context of bandwidth. The timestamp of the previous reply and the current reply for each switch and port are subtracted to get the approximate time elapsed. The difference in RX and TX byte counters for the prior and current replies is taken to get the bytes transmitted during this time. Note that we have to account for counter overflows.</p><div class="code panel pdl conf-macro output-block" style="border-width: 1px;" data-hasbody="true" data-macro-name="code"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public void run() {
+	Map&lt;DatapathId, List&lt;OFStatsReply&gt;&gt; replies = getSwitchStatistics(switchService.getAllSwitchDpids(), OFStatsType.PORT);
+	for (Entry&lt;DatapathId, List&lt;OFStatsReply&gt;&gt; e : replies.entrySet()) {
+		for (OFStatsReply r : e.getValue()) {
+			OFPortStatsReply psr = (OFPortStatsReply) r;
+			for (OFPortStatsEntry pse : psr.getEntries()) {
+				NodePortTuple npt = new NodePortTuple(e.getKey(), pse.getPortNo());
+				SwitchPortBandwidth spb;
+				if (portStats.containsKey(npt) || tentativePortStats.containsKey(npt)) {
+					if (portStats.containsKey(npt)) { /* update */
+						spb = portStats.get(npt);
+					} else if (tentativePortStats.containsKey(npt)) { /* finish */
+						spb = tentativePortStats.get(npt);
+						tentativePortStats.remove(npt);
+					} else {
+						log.error("Inconsistent state between tentative and official port stats lists.");
+						return;
+					}
+					/* Get counted bytes over the elapsed period. Check for counter overflow. */
+					U64 rxBytesCounted;
+					U64 txBytesCounted;
+					if (spb.getPriorByteValueRx().compareTo(pse.getRxBytes()) &gt; 0) { /* overflow */
+						U64 upper = U64.NO_MASK.subtract(spb.getPriorByteValueRx());
+						U64 lower = pse.getRxBytes();
+						rxBytesCounted = upper.add(lower);
+					} else {
+						rxBytesCounted = pse.getRxBytes().subtract(spb.getPriorByteValueRx());
+					}
+					if (spb.getPriorByteValueTx().compareTo(pse.getTxBytes()) &gt; 0) { /* overflow */
+						U64 upper = U64.NO_MASK.subtract(spb.getPriorByteValueTx());
+						U64 lower = pse.getTxBytes();
+						txBytesCounted = upper.add(lower);
+					} else {
+						txBytesCounted = pse.getTxBytes().subtract(spb.getPriorByteValueTx());
+					}
+					long timeDifSec = (System.currentTimeMillis() - spb.getUpdateTime()) / MILLIS_PER_SEC;
+					portStats.put(npt, SwitchPortBandwidth.of(npt.getNodeId(), npt.getPortId(), 
+							U64.ofRaw((rxBytesCounted.getValue() * BITS_PER_BYTE) / timeDifSec), 
+							U64.ofRaw((txBytesCounted.getValue() * BITS_PER_BYTE) / timeDifSec), 
+							pse.getRxBytes(), pse.getTxBytes())
+							);
+				} else { /* initialize */
+					tentativePortStats.put(npt, SwitchPortBandwidth.of(npt.getNodeId(), npt.getPortId(), U64.ZERO, U64.ZERO, pse.getRxBytes(), pse.getTxBytes()));
+				}
+			}
+		}
+	}
+}</pre>
+</div></div><h1 id="HowtoCollectSwitchStatistics(andComputeBandwidthUtilization)-Concludingremarks">Concluding remarks</h1><p>Hopefully this has been informative and has answered some questions&nbsp;– by means of example&nbsp;– that many have had about how to collect statistics from a module and also how to determine port bandwidth. I'll add that this module can be readily expanded to poll and compute whatever statistic you want. If you want, you can change from port stats to flow stats to narrow down the RX and TX counters even more. For flows, you'll have the byte counters to show how many bytes have matched the flows in question, not including other traffic flows present. A possible application would be to use flow byte counters to compute the percentage of consumed bandwidth a particular flow uses with regard to the the total bandwidth being consumed.</p><p>Still have questions? Feel free to reach out at <a href="mailto:floodlight-dev@openflowhub.org" class="external-link" rel="nofollow">floodlight-dev@openflowhub.org</a>.</p>
+
+                
+        
+    
+            </div>
+
+            <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267"
+    dc:identifier="https://floodlight.atlassian.net/wiki/pages/viewpage.action?pageId=21856267"
+    dc:title="How to Collect Switch Statistics (and Compute Bandwidth Utilization)"
+    trackback:ping="https://floodlight.atlassian.net/wiki/rpc/trackback/21856267"/>
+</rdf:RDF>
+-->
+
+                                        <div id="likes-and-labels-container" class="no-print">
+                                            <div id="likes-section">
+                        </div>
+                            
+                                                                <div id="labels-section" class="pageSection group">
+                                                            
+    
+
+
+
+<div class="labels-section-content content-column" entityid="21856267" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+                        </div>
+                                    </div>
+            
+            
+                
+
+
+
+
+            
+        
+
+
+
+
+
+
+
+
+                                
+    
+        <div id="comments-section" class="pageSection group">
+                        
+                    
+        
+        
+                
+                </div>
+            
+
+
+                    
+            
+            
+</div>
+
+    
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+            
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/wiki/spaces/viewspacesummary.action?key=floodlightcontroller">Overview</div>
+            <div data-label="Content Tools" data-href="/wiki/pages/reorderpages.action?key=floodlightcontroller">Content Tools</div>
+    </div>        
+        
+
+
+
+                        </div>
+    <!-- \#main -->
+            
+    
+    
+                    
+            
+            <div id="footer" role="contentinfo">
+    <section class="footer-body">
+        
+
+        <ul id="poweredby">
+            <li class="noprint"><a href="http://www.atlassian.com/" rel="nofollow">Powered by Atlassian</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 1000.655.0</li>
+            <li class="noprint"><a href="http://www.atlassian.com/hosted/terms.jsp" rel="nofollow">Terms of Use</a></li>
+            <li class="noprint"><a href="https://answers.atlassian.com/questions/ask/?tags=on-demand" rel="nofollow">Answers</a></li>
+            <li class="noprint"><a href="https://confluence.atlassian.com/x/-IxjL" rel="nofollow">Maintenance Schedule</a></li>
+        </ul>
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/" rel="nofollow">Atlassian</a></div>
+
+                    
+            </section>
+</div>
+        
+        </div>
+    
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+    <span style="display:none;" id="confluence-server-performance">{"serverDuration": 152, "requestCorrelationId": "b6c1f31d7fe7cdd7"}</span>
+
+
+<script type="text/javascript">
+    AJS.BigPipe = AJS.BigPipe || {};
+    AJS.BigPipe.metrics = AJS.BigPipe.metrics || {};
+    AJS.BigPipe.metrics.pageEnd = typeof window.performance !== "undefined" && typeof window.performance.now === "function"
+                                    ? Math.ceil(window.performance.now()) : 0;
+    AJS.BigPipe.metrics.isBigPipeEnabled = 'false' === 'true';
+</script>
+
+
+
+    
+</body></html>

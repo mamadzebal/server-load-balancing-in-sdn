@@ -1,0 +1,14 @@
+
+Log started (V12.6.0.0) Thu Oct 13 22:59:04 2016
+
+File 'sal' not found.
+No file read.
+CPLEX Error  1563: File 'loadBalancing.zpl' has an incompatible format.
+No file read.
+CPLEX Error  1563: File 'loadBalancing.zpl' has an incompatible format.
+No file read.
+CPLEX Error  1661: Line 1:  Missing or invalid header.
+No file read.
+No problem exists.
+No problem exists.
+No problem exists.

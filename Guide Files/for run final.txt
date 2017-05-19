@@ -1,0 +1,21 @@
+1. edit createVIP.sh from floodlight main/resource/web/
+2. edit setupFatTree.sh from floodlight main/resource/web/
+3. nano /home/mohammad/Desktop/SDN/Thesis/FatTreeTopo.py
+4. edit 4 in code, not to island Edges
+
+5. RUN FLOODLIGHT JAVA MAIN
+6. /root/addToCron.sh localhost 8080
+7. crontab -e (save crontab)
+	---- wait for a second -----
+8. python /home/mohammad/Desktop/SDN/Thesis/FatTreeTopo.py --kterm=2 --coPort=6653
+
+-------------------------    after run   ---------------------------------------- 
+9. exit on mininet
+10. rm -rf /root/serverScript/
+11. crontab -e (delete crontab)
+
+----------------------------------------------------------------------------------
+
+12. iperf -s -D
+13. iperf -c 10.0.0.200 -p 80 -t 1000 -f Gbits -M 40
+14. openload -l 10 10.0.0.200 10
